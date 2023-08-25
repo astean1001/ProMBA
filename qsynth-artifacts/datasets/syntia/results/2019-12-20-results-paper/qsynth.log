@@ -1,0 +1,3028 @@
+./run_synthesis.py datasets/syntia/obfuscated datasets/syntia/trace.db --lookup-tables lts/lts_15 --type legacy --ground-truth datasets/syntia/ground_truth.json -m PARAM_SYMBOLIC -o datasets/syntia/results/legacy.json -t 15 --check 2>&1 | tee datasets/syntia/results/legacy.log
+[INFO] [*] Loading trace:datasets/syntia/trace.db
+[INFO] [*] Loading program: datasets/syntia/obfuscated
+[INFO] [*] Loading ground truth: datasets/syntia/ground_truth.json
+[INFO] [*] Loading lookup table lts/lts_15/11.pkl
+[INFO] [*] Loading lookup table lts/lts_15/13.pkl
+[INFO] [*] Loading lookup table lts/lts_15/6.pkl
+[INFO] [*] Loading lookup table lts/lts_15/4.pkl
+[INFO] [*] Loading lookup table lts/lts_15/5.pkl
+[INFO] [*] Loading lookup table lts/lts_15/2.pkl
+[INFO] [*] Loading lookup table lts/lts_15/8.pkl
+[INFO] [*] Loading lookup table lts/lts_15/12.pkl
+[INFO] [*] Loading lookup table lts/lts_15/1.pkl
+[INFO] [*] Loading lookup table lts/lts_15/3.pkl
+[INFO] [*] Loading lookup table lts/lts_15/10.pkl
+[INFO] [*] Loading lookup table lts/lts_15/15.pkl
+[INFO] [*] Loading lookup table lts/lts_15/9.pkl
+[INFO] [*] Loading lookup table lts/lts_15/14.pkl
+[INFO] [*] Starting test
+[INFO] ================ Processing function target_0 ====================
+[INFO] [ORIGINAL]: c ^ b
+[INFO] [RESULT]: c ^ b
+[INFO] [TIME]: 0.012s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:13] Triton:[sz:77, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_1 ====================
+[INFO] [ORIGINAL]: -(e*c)
+[INFO] [RESULT]: -c*e
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:179, d:17] Triton:[sz:281, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_2 ====================
+[INFO] [ORIGINAL]: a & b
+[INFO] [RESULT]: a & b
+[INFO] [TIME]: 0.007s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_3 ====================
+[INFO] [ORIGINAL]: --(e*a)
+[INFO] [RESULT]: a*e
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:185, d:20] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_4 ====================
+[INFO] [ORIGINAL]: c ^ a
+[INFO] [RESULT]: c ^ a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:61, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_5 ====================
+[INFO] [ORIGINAL]: ~~d + a
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:131, d:20] Triton:[sz:111, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_6 ====================
+[INFO] [ORIGINAL]: -(~e)
+[INFO] [RESULT]: -(~e)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:13, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_7 ====================
+[INFO] [ORIGINAL]: d - c
+[INFO] [RESULT]: d - c
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:14] Triton:[sz:111, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_8 ====================
+[INFO] [ORIGINAL]: c | a
+[INFO] [RESULT]: c | a
+[INFO] [TIME]: 0.007s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_9 ====================
+[INFO] [ORIGINAL]: -(~(d + d))
+[INFO] [RESULT]: d - ~d
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:71, d:14] Triton:[sz:103, d:14] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_10 ====================
+[INFO] [ORIGINAL]: ~a - e
+[INFO] [RESULT]: ~(a + e)
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:19, d:9] Triton:[sz:19, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_11 ====================
+[INFO] [ORIGINAL]: d ^ b*d
+[INFO] [RESULT]: d*b ^ d
+[INFO] [TIME]: 0.190s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:559, d:29] Triton:[sz:1391, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_12 ====================
+[INFO] [ORIGINAL]: c - a
+[INFO] [RESULT]: c - a
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:17, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_13 ====================
+[INFO] [ORIGINAL]: a*c - c
+[INFO] [RESULT]: ~(-a)*c
+[INFO] [TIME]: 0.161s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:731, d:22] Triton:[sz:1025, d:25] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_14 ====================
+[INFO] [ORIGINAL]: ~~a | e
+[INFO] [RESULT]: a | e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:55, d:16] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_15 ====================
+[INFO] [ORIGINAL]: b + c
+[INFO] [RESULT]: c + b
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:59, d:10] Triton:[sz:101, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_16 ====================
+[INFO] [ORIGINAL]: ~c*a
+[INFO] [RESULT]: ~c*a
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:285, d:18] Triton:[sz:255, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_17 ====================
+[INFO] [ORIGINAL]: e ^ d - c
+[INFO] [RESULT]: d - c ^ e
+[INFO] [TIME]: 0.049s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:169, d:24] Triton:[sz:375, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_18 ====================
+[INFO] [ORIGINAL]: a | b
+[INFO] [RESULT]: a | b
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_19 ====================
+[INFO] [ORIGINAL]: b | e
+[INFO] [RESULT]: b | e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:53, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_20 ====================
+[INFO] [ORIGINAL]: a + a
+[INFO] [RESULT]: a + a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:59, d:10] Triton:[sz:67, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_21 ====================
+[INFO] [ORIGINAL]: c | a ^ c
+[INFO] [RESULT]: c | a
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:179, d:27] Triton:[sz:253, d:22] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_22 ====================
+[INFO] [ORIGINAL]: -d - e
+[INFO] [RESULT]: -(d + e)
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:75, d:16] Triton:[sz:123, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_23 ====================
+[INFO] [ORIGINAL]: a + a
+[INFO] [RESULT]: a + a
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:67, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_24 ====================
+[INFO] [ORIGINAL]: e + c
+[INFO] [RESULT]: c + e
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:111, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_25 ====================
+[INFO] [ORIGINAL]: d*c
+[INFO] [RESULT]: d*c
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_26 ====================
+[INFO] [ORIGINAL]: d | c*a
+[INFO] [RESULT]: c*a | d
+[INFO] [TIME]: 0.081s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:367, d:22] Triton:[sz:527, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_27 ====================
+[INFO] [ORIGINAL]: d - b
+[INFO] [RESULT]: d - b
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:11] Triton:[sz:111, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_28 ====================
+[INFO] [ORIGINAL]: a & d
+[INFO] [RESULT]: d & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_29 ====================
+[INFO] [ORIGINAL]: -(c ^ b)
+[INFO] [RESULT]: -(c ^ b)
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:49, d:19] Triton:[sz:79, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_30 ====================
+[INFO] [ORIGINAL]: d & e
+[INFO] [RESULT]: d & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_31 ====================
+[INFO] [ORIGINAL]: d - e
+[INFO] [RESULT]: d - e
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:14] Triton:[sz:119, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_32 ====================
+[INFO] [ORIGINAL]: a + ~d
+[INFO] [RESULT]: ~d + a
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:107, d:14] Triton:[sz:115, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_33 ====================
+[INFO] [ORIGINAL]: -(d & a)
+[INFO] [RESULT]: -(d & a)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:31, d:12] Triton:[sz:43, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_34 ====================
+[INFO] [ORIGINAL]: -(c + a)
+[INFO] [RESULT]: -(c + a)
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:17, d:9] Triton:[sz:17, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_35 ====================
+[INFO] [ORIGINAL]: a ^ d
+[INFO] [RESULT]: d ^ a
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:87, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_36 ====================
+[INFO] [ORIGINAL]: b + e
+[INFO] [RESULT]: b + e
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:115, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_37 ====================
+[INFO] [ORIGINAL]: c | d
+[INFO] [RESULT]: d | c
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:53, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_38 ====================
+[INFO] [ORIGINAL]: c - e*b
+[INFO] [RESULT]: c - b*e
+[INFO] [TIME]: 0.167s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:569, d:26] Triton:[sz:1175, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_39 ====================
+[INFO] [ORIGINAL]: ~(d | a)
+[INFO] [RESULT]: ~(d | a)
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:61, d:16] Triton:[sz:51, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_40 ====================
+[INFO] [ORIGINAL]: b*e
+[INFO] [RESULT]: b*e
+[INFO] [TIME]: 0.045s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_41 ====================
+[INFO] [ORIGINAL]: b + a - e
+[INFO] [RESULT]: a - e + b
+[INFO] [TIME]: 0.020s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:93, d:19] Triton:[sz:147, d:15] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_42 ====================
+[INFO] [ORIGINAL]: b - d
+[INFO] [RESULT]: b - d
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:51, d:14] Triton:[sz:109, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_43 ====================
+[INFO] [ORIGINAL]: c + d
+[INFO] [RESULT]: d + c
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_44 ====================
+[INFO] [ORIGINAL]: b | c
+[INFO] [RESULT]: c | b
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_45 ====================
+[INFO] [ORIGINAL]: a + e*c
+[INFO] [RESULT]: c*e + a
+[INFO] [TIME]: 0.126s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:865, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_46 ====================
+[INFO] [ORIGINAL]: ~(-c) & e
+[INFO] [RESULT]: ~(-c) & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:33, d:11] Triton:[sz:43, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_47 ====================
+[INFO] [ORIGINAL]: -d + ~b
+[INFO] [RESULT]: ~(d + b)
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:131, d:14] Triton:[sz:111, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_48 ====================
+[INFO] [ORIGINAL]: d + d
+[INFO] [RESULT]: d + d
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:23, d:8] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_49 ====================
+[INFO] [ORIGINAL]: b & d - e
+[INFO] [RESULT]: d - e & b
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:125, d:21] Triton:[sz:259, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_50 ====================
+[INFO] [ORIGINAL]: b*c
+[INFO] [RESULT]: c*b
+[INFO] [TIME]: 0.041s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_51 ====================
+[INFO] [ORIGINAL]: d + c | d
+[INFO] [RESULT]: d + c | d
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:43, d:13] Triton:[sz:63, d:14] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_52 ====================
+[INFO] [ORIGINAL]: d - -d
+[INFO] [RESULT]: d + d
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:91, d:13] Triton:[sz:103, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_53 ====================
+[INFO] [ORIGINAL]: d ^ a
+[INFO] [RESULT]: d ^ a
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:67, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_54 ====================
+[INFO] [ORIGINAL]: d*b
+[INFO] [RESULT]: d*b
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_55 ====================
+[INFO] [ORIGINAL]: d - b*d
+[INFO] [RESULT]: d - d*b
+[INFO] [TIME]: 0.174s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:751, d:24] Triton:[sz:1161, d:27] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_56 ====================
+[INFO] [ORIGINAL]: a - -a
+[INFO] [RESULT]: a + a
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:71, d:16] Triton:[sz:87, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_57 ====================
+[INFO] [ORIGINAL]: e | c & e
+[INFO] [RESULT]: e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:125, d:20] Triton:[sz:149, d:19] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_58 ====================
+[INFO] [ORIGINAL]: b | d
+[INFO] [RESULT]: d | b
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_59 ====================
+[INFO] [ORIGINAL]: d + a
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.018s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:111, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_60 ====================
+[INFO] [ORIGINAL]: b + d
+[INFO] [RESULT]: d + b
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_61 ====================
+[INFO] [ORIGINAL]: d ^ c
+[INFO] [RESULT]: d ^ c
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:83, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_62 ====================
+[INFO] [ORIGINAL]: ~(-a)
+[INFO] [RESULT]: ~(-a)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_63 ====================
+[INFO] [ORIGINAL]: ~(-b)
+[INFO] [RESULT]: ~(-b)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_64 ====================
+[INFO] [ORIGINAL]: (e & b)*d
+[INFO] [RESULT]: (b & e)*d
+[INFO] [TIME]: 0.101s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:537, d:24] Triton:[sz:739, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_65 ====================
+[INFO] [ORIGINAL]: e ^ c
+[INFO] [RESULT]: c ^ e
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:67, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_66 ====================
+[INFO] [ORIGINAL]: (c + e)*c
+[INFO] [RESULT]: (c + e)*c
+[INFO] [TIME]: 0.063s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:313, d:19] Triton:[sz:383, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_67 ====================
+[INFO] [ORIGINAL]: c ^ c*a
+[INFO] [RESULT]: c*a ^ c
+[INFO] [TIME]: 0.135s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:779, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_68 ====================
+[INFO] [ORIGINAL]: e | ~d
+[INFO] [RESULT]: ~d | e
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:77, d:16] Triton:[sz:55, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_69 ====================
+[INFO] [ORIGINAL]: d*a
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.047s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_70 ====================
+[INFO] [ORIGINAL]: -(-a + b)
+[INFO] [RESULT]: a - b
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:23, d:11] Triton:[sz:17, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_71 ====================
+[INFO] [ORIGINAL]: -(d & c)
+[INFO] [RESULT]: -(d & c)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:31, d:12] Triton:[sz:43, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_72 ====================
+[INFO] [ORIGINAL]: ~(-d)
+[INFO] [RESULT]: ~(-d)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:13, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_73 ====================
+[INFO] [ORIGINAL]: d - c
+[INFO] [RESULT]: d - c
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_74 ====================
+[INFO] [ORIGINAL]: -(-c & d)
+[INFO] [RESULT]: -(-c & d)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:43, d:15] Triton:[sz:43, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_75 ====================
+[INFO] [ORIGINAL]: b ^ -(~b)
+[INFO] [RESULT]: -(~b) ^ b
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:55, d:18] Triton:[sz:67, d:14] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_76 ====================
+[INFO] [ORIGINAL]: ~d + ~b
+[INFO] [RESULT]: ~d + ~b
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:85, d:12] Triton:[sz:67, d:12] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_77 ====================
+[INFO] [ORIGINAL]: d*-c
+[INFO] [RESULT]: -d*c
+[INFO] [TIME]: 0.036s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:233, d:17] Triton:[sz:279, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_78 ====================
+[INFO] [ORIGINAL]: c + c - d
+[INFO] [RESULT]: c - d + c
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:83, d:14] Triton:[sz:83, d:11] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_79 ====================
+[INFO] [ORIGINAL]: (b ^ d) + e
+[INFO] [RESULT]: (d ^ b) + e
+[INFO] [TIME]: 0.056s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:291, d:24] Triton:[sz:419, d:23] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_80 ====================
+[INFO] [ORIGINAL]: a & b
+[INFO] [RESULT]: a & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_81 ====================
+[INFO] [ORIGINAL]: c - d
+[INFO] [RESULT]: c - d
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_82 ====================
+[INFO] [ORIGINAL]: d | b
+[INFO] [RESULT]: d | b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_83 ====================
+[INFO] [ORIGINAL]: a & e
+[INFO] [RESULT]: a & e
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_84 ====================
+[INFO] [ORIGINAL]: e ^ d
+[INFO] [RESULT]: d ^ e
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:73, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_85 ====================
+[INFO] [ORIGINAL]: a + e
+[INFO] [RESULT]: a + e
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:115, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_86 ====================
+[INFO] [ORIGINAL]: -(b + d)
+[INFO] [RESULT]: -(d + b)
+[INFO] [TIME]: 0.012s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:43, d:11] Triton:[sz:67, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_87 ====================
+[INFO] [ORIGINAL]: a & e
+[INFO] [RESULT]: a & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_88 ====================
+[INFO] [ORIGINAL]: a*a
+[INFO] [RESULT]: a*a
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_89 ====================
+[INFO] [ORIGINAL]: e - e*c
+[INFO] [RESULT]: e - c*e
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:183, d:19] Triton:[sz:289, d:19] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_90 ====================
+[INFO] [ORIGINAL]: e ^ d | e
+[INFO] [RESULT]: d | e
+[INFO] [TIME]: 0.023s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:95, d:15] Triton:[sz:170, d:19] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_91 ====================
+[INFO] [ORIGINAL]: d + d + d
+[INFO] [RESULT]: d + d + d
+[INFO] [TIME]: 0.025s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:181, d:20] Triton:[sz:193, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_92 ====================
+[INFO] [ORIGINAL]: d*d ^ a
+[INFO] [RESULT]: d*d ^ a
+[INFO] [TIME]: 0.148s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:929, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_93 ====================
+[INFO] [ORIGINAL]: e | d | d
+[INFO] [RESULT]: d | e
+[INFO] [TIME]: 0.020s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:157, d:23] Triton:[sz:145, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_94 ====================
+[INFO] [ORIGINAL]: d | a
+[INFO] [RESULT]: d | a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_95 ====================
+[INFO] [ORIGINAL]: b*d
+[INFO] [RESULT]: d*b
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_96 ====================
+[INFO] [ORIGINAL]: d + b
+[INFO] [RESULT]: d + b
+[INFO] [TIME]: 0.018s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:109, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_97 ====================
+[INFO] [ORIGINAL]: ~a | a
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:69, d:16] Triton:[sz:33, d:11] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_98 ====================
+[INFO] [ORIGINAL]: e & e*c
+[INFO] [RESULT]: c*e & e
+[INFO] [TIME]: 0.083s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:371, d:23] Triton:[sz:577, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_99 ====================
+[INFO] [ORIGINAL]: ~(-a)
+[INFO] [RESULT]: ~(-a)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_100 ====================
+[INFO] [ORIGINAL]: a*a*a
+[INFO] [RESULT]: a*a*a
+[INFO] [TIME]: 0.712s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:2581, d:27] Triton:[sz:3615, d:29] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_101 ====================
+[INFO] [ORIGINAL]: ~(-b) + b
+[INFO] [RESULT]: ~(-(b + b))
+[INFO] [TIME]: 0.012s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:49, d:10] Triton:[sz:63, d:13] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_102 ====================
+[INFO] [ORIGINAL]: ~(e ^ a)
+[INFO] [RESULT]: ~a ^ e
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:39, d:9] Triton:[sz:67, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_103 ====================
+[INFO] [ORIGINAL]: d - b ^ d
+[INFO] [RESULT]: d - b ^ d
+[INFO] [TIME]: 0.036s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:183, d:20] Triton:[sz:271, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_104 ====================
+[INFO] [ORIGINAL]: e*e & d
+[INFO] [RESULT]: e*e & d
+[INFO] [TIME]: 0.083s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:369, d:22] Triton:[sz:621, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_105 ====================
+[INFO] [ORIGINAL]: ~(a | c)
+[INFO] [RESULT]: ~(c | a)
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:61, d:16] Triton:[sz:47, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_106 ====================
+[INFO] [ORIGINAL]: ~~e - a
+[INFO] [RESULT]: e - a
+[INFO] [TIME]: 0.018s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:115, d:21] Triton:[sz:113, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_107 ====================
+[INFO] [ORIGINAL]: b - d
+[INFO] [RESULT]: b - d
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:51, d:14] Triton:[sz:109, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_108 ====================
+[INFO] [ORIGINAL]: -c*a
+[INFO] [RESULT]: -c*a
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:257, d:17] Triton:[sz:253, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_109 ====================
+[INFO] [ORIGINAL]: b | d
+[INFO] [RESULT]: d | b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_110 ====================
+[INFO] [ORIGINAL]: d | ~b
+[INFO] [RESULT]: ~b | d
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:77, d:16] Triton:[sz:49, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_111 ====================
+[INFO] [ORIGINAL]: d ^ a
+[INFO] [RESULT]: d ^ a
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:13] Triton:[sz:83, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_112 ====================
+[INFO] [ORIGINAL]: d - a
+[INFO] [RESULT]: d - a
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_113 ====================
+[INFO] [ORIGINAL]: (e | e) ^ d
+[INFO] [RESULT]: d ^ e
+[INFO] [TIME]: 0.027s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:123, d:20] Triton:[sz:195, d:20] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_114 ====================
+[INFO] [ORIGINAL]: b - e
+[INFO] [RESULT]: b - e
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:9] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_115 ====================
+[INFO] [ORIGINAL]: ~~(c - e)
+[INFO] [RESULT]: c - e
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:15, d:8] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_116 ====================
+[INFO] [ORIGINAL]: c - b
+[INFO] [RESULT]: c - b
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:9] Triton:[sz:65, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_117 ====================
+[INFO] [ORIGINAL]: e & d
+[INFO] [RESULT]: d & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_118 ====================
+[INFO] [ORIGINAL]: e*d ^ e
+[INFO] [RESULT]: d*e ^ e
+[INFO] [TIME]: 0.127s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:935, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_119 ====================
+[INFO] [ORIGINAL]: b + a
+[INFO] [RESULT]: a + b
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:103, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_120 ====================
+[INFO] [ORIGINAL]: -a | e
+[INFO] [RESULT]: -a | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:35, d:11] Triton:[sz:43, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_121 ====================
+[INFO] [ORIGINAL]: a - d
+[INFO] [RESULT]: a - d
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:11] Triton:[sz:107, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_122 ====================
+[INFO] [ORIGINAL]: e | c
+[INFO] [RESULT]: c | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_123 ====================
+[INFO] [ORIGINAL]: e + b
+[INFO] [RESULT]: b + e
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_124 ====================
+[INFO] [ORIGINAL]: c + e
+[INFO] [RESULT]: c + e
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:59, d:10] Triton:[sz:113, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_125 ====================
+[INFO] [ORIGINAL]: ~e & b
+[INFO] [RESULT]: ~e & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:41, d:13] Triton:[sz:43, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_126 ====================
+[INFO] [ORIGINAL]: b & d
+[INFO] [RESULT]: d & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_127 ====================
+[INFO] [ORIGINAL]: d*(a | a)
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.091s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:693, d:25] Triton:[sz:635, d:24] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_128 ====================
+[INFO] [ORIGINAL]: d*a
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_129 ====================
+[INFO] [ORIGINAL]: b & e
+[INFO] [RESULT]: b & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_130 ====================
+[INFO] [ORIGINAL]: (a + d)*e
+[INFO] [RESULT]: (d + a)*e
+[INFO] [TIME]: 0.056s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:313, d:19] Triton:[sz:403, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_131 ====================
+[INFO] [ORIGINAL]: a - e
+[INFO] [RESULT]: a - e
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:51, d:14] Triton:[sz:109, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_132 ====================
+[INFO] [ORIGINAL]: e + e
+[INFO] [RESULT]: e + e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:12] Triton:[sz:103, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_133 ====================
+[INFO] [ORIGINAL]: c ^ -b
+[INFO] [RESULT]: -b ^ c
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:55, d:11] Triton:[sz:63, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_134 ====================
+[INFO] [ORIGINAL]: (c | a) + b
+[INFO] [RESULT]: (c | a) + b
+[INFO] [TIME]: 0.033s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:123, d:23] Triton:[sz:215, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_135 ====================
+[INFO] [ORIGINAL]: (b | c) - d
+[INFO] [RESULT]: (c | b) - d
+[INFO] [TIME]: 0.046s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:379, d:22] Triton:[sz:329, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_136 ====================
+[INFO] [ORIGINAL]: b | d & e
+[INFO] [RESULT]: d & e | b
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:75, d:19] Triton:[sz:115, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_137 ====================
+[INFO] [ORIGINAL]: b & ~~d
+[INFO] [RESULT]: d & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:45, d:12] Triton:[sz:45, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_138 ====================
+[INFO] [ORIGINAL]: (e + d)*c
+[INFO] [RESULT]: (d + e)*c
+[INFO] [TIME]: 0.056s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:313, d:19] Triton:[sz:411, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_139 ====================
+[INFO] [ORIGINAL]: e - c*d
+[INFO] [RESULT]: e - d*c
+[INFO] [TIME]: 0.089s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:387, d:22] Triton:[sz:595, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_140 ====================
+[INFO] [ORIGINAL]: a ^ d
+[INFO] [RESULT]: d ^ a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:87, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_141 ====================
+[INFO] [ORIGINAL]: b*c
+[INFO] [RESULT]: c*b
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_142 ====================
+[INFO] [ORIGINAL]: a + a
+[INFO] [RESULT]: a + a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:63, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_143 ====================
+[INFO] [ORIGINAL]: e*a
+[INFO] [RESULT]: a*e
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_144 ====================
+[INFO] [ORIGINAL]: ~(e*-c)
+[INFO] [RESULT]: ~(-c*e)
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:241, d:21] Triton:[sz:281, d:18] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_145 ====================
+[INFO] [ORIGINAL]: b | e
+[INFO] [RESULT]: b | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_146 ====================
+[INFO] [ORIGINAL]: e*b
+[INFO] [RESULT]: b*e
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_147 ====================
+[INFO] [ORIGINAL]: a*d
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_148 ====================
+[INFO] [ORIGINAL]: a & c
+[INFO] [RESULT]: c & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_149 ====================
+[INFO] [ORIGINAL]: e & d
+[INFO] [RESULT]: d & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_150 ====================
+[INFO] [ORIGINAL]: b*(c - d)
+[INFO] [RESULT]: (c - d)*b
+[INFO] [TIME]: 0.175s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:693, d:27] Triton:[sz:1215, d:27] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_151 ====================
+[INFO] [ORIGINAL]: ~(-(b + a))
+[INFO] [RESULT]: ~(-(a + b))
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:15, d:8] Triton:[sz:17, d:7] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_152 ====================
+[INFO] [ORIGINAL]: e | c
+[INFO] [RESULT]: c | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_153 ====================
+[INFO] [ORIGINAL]: c - (b & d)
+[INFO] [RESULT]: c - (d & b)
+[INFO] [TIME]: 0.033s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:125, d:21] Triton:[sz:231, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_154 ====================
+[INFO] [ORIGINAL]: a*a
+[INFO] [RESULT]: a*a
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_155 ====================
+[INFO] [ORIGINAL]: b*c
+[INFO] [RESULT]: c*b
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_156 ====================
+[INFO] [ORIGINAL]: e*e ^ c
+[INFO] [RESULT]: e*e ^ c
+[INFO] [TIME]: 0.130s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:929, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_157 ====================
+[INFO] [ORIGINAL]: a ^ e
+[INFO] [RESULT]: a ^ e
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:67, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_158 ====================
+[INFO] [ORIGINAL]: d ^ e ^ b
+[INFO] [RESULT]: d ^ b ^ e
+[INFO] [TIME]: 0.062s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:169, d:31] Triton:[sz:453, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_159 ====================
+[INFO] [ORIGINAL]: ~c + a
+[INFO] [RESULT]: ~c + a
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:19, d:9] Triton:[sz:17, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_160 ====================
+[INFO] [ORIGINAL]: c & e
+[INFO] [RESULT]: c & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_161 ====================
+[INFO] [ORIGINAL]: b | a
+[INFO] [RESULT]: a | b
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_162 ====================
+[INFO] [ORIGINAL]: -(d | e)
+[INFO] [RESULT]: -(d | e)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:29, d:12] Triton:[sz:47, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_163 ====================
+[INFO] [ORIGINAL]: e*b
+[INFO] [RESULT]: b*e
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_164 ====================
+[INFO] [ORIGINAL]: b | ~b
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:39, d:13] Triton:[sz:39, d:12] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_165 ====================
+[INFO] [ORIGINAL]: d & b & c
+[INFO] [RESULT]: d & c & b
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:75, d:19] Triton:[sz:105, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_166 ====================
+[INFO] [ORIGINAL]: e & (b | b)
+[INFO] [RESULT]: b & e
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:69, d:16] Triton:[sz:101, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_167 ====================
+[INFO] [ORIGINAL]: ~(-a)*d
+[INFO] [RESULT]: ~(-a)*d
+[INFO] [TIME]: 0.030s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:229, d:16] Triton:[sz:207, d:17] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_168 ====================
+[INFO] [ORIGINAL]: e ^ c*c
+[INFO] [RESULT]: c*c ^ e
+[INFO] [TIME]: 0.193s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:917, d:26] Triton:[sz:1291, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_169 ====================
+[INFO] [ORIGINAL]: ~(a - d)
+[INFO] [RESULT]: ~a + d
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:7, d:4] Triton:[sz:19, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_170 ====================
+[INFO] [ORIGINAL]: c + (c ^ d)
+[INFO] [RESULT]: (d ^ c) + c
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:205, d:20] Triton:[sz:291, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_171 ====================
+[INFO] [ORIGINAL]: c ^ e
+[INFO] [RESULT]: c ^ e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:87, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_172 ====================
+[INFO] [ORIGINAL]: ~d | ~b
+[INFO] [RESULT]: ~(d & b)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:55, d:13] Triton:[sz:43, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_173 ====================
+[INFO] [ORIGINAL]: c & b
+[INFO] [RESULT]: c & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_174 ====================
+[INFO] [ORIGINAL]: d ^ -(~a)
+[INFO] [RESULT]: -(~a) ^ d
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:55, d:18] Triton:[sz:83, d:14] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_175 ====================
+[INFO] [ORIGINAL]: d & b
+[INFO] [RESULT]: d & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_176 ====================
+[INFO] [ORIGINAL]: b - (e ^ a)
+[INFO] [RESULT]: b - (a ^ e)
+[INFO] [TIME]: 0.043s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:161, d:20] Triton:[sz:327, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_177 ====================
+[INFO] [ORIGINAL]: c & b
+[INFO] [RESULT]: c & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_178 ====================
+[INFO] [ORIGINAL]: -(~b)
+[INFO] [RESULT]: -(~b)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_179 ====================
+[INFO] [ORIGINAL]: e*a
+[INFO] [RESULT]: a*e
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_180 ====================
+[INFO] [ORIGINAL]: ~a + a
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:99, d:16] Triton:[sz:67, d:14] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_181 ====================
+[INFO] [ORIGINAL]: c + a
+[INFO] [RESULT]: c + a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:103, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_182 ====================
+[INFO] [ORIGINAL]: a + d
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:113, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_183 ====================
+[INFO] [ORIGINAL]: -e*~c
+[INFO] [RESULT]: ~c*-e
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:337, d:18] Triton:[sz:281, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_184 ====================
+[INFO] [ORIGINAL]: ~c | ~b
+[INFO] [RESULT]: ~(c & b)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:55, d:13] Triton:[sz:39, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_185 ====================
+[INFO] [ORIGINAL]: b - (c & b)
+[INFO] [RESULT]: ~c & b
+[INFO] [TIME]: 0.036s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:125, d:21] Triton:[sz:215, d:20] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_186 ====================
+[INFO] [ORIGINAL]: c - b
+[INFO] [RESULT]: c - b
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:17, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_187 ====================
+[INFO] [ORIGINAL]: --(~(-b))
+[INFO] [RESULT]: ~(-b)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:5, d:5] Obfu:[sz:17, d:9] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_188 ====================
+[INFO] [ORIGINAL]: e*d ^ c
+[INFO] [RESULT]: d*e ^ c
+[INFO] [TIME]: 0.129s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:573, d:25] Triton:[sz:939, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_189 ====================
+[INFO] [ORIGINAL]: b + ~d
+[INFO] [RESULT]: ~d + b
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:61, d:12] Triton:[sz:69, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_190 ====================
+[INFO] [ORIGINAL]: c ^ a
+[INFO] [RESULT]: c ^ a
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:13] Triton:[sz:77, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_191 ====================
+[INFO] [ORIGINAL]: c | d | a
+[INFO] [RESULT]: d | c | a
+[INFO] [TIME]: 0.023s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:209, d:23] Triton:[sz:169, d:19] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_192 ====================
+[INFO] [ORIGINAL]: b + c
+[INFO] [RESULT]: c + b
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:103, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_193 ====================
+[INFO] [ORIGINAL]: -(c - -d)
+[INFO] [RESULT]: -(d + c)
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:23, d:12] Triton:[sz:19, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_194 ====================
+[INFO] [ORIGINAL]: d + d + b
+[INFO] [RESULT]: d + d + b
+[INFO] [TIME]: 0.091s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:395, d:24] Triton:[sz:705, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_195 ====================
+[INFO] [ORIGINAL]: a + -(~e)
+[INFO] [RESULT]: a - ~e
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:61, d:15] Triton:[sz:111, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_196 ====================
+[INFO] [ORIGINAL]: e ^ c*e
+[INFO] [RESULT]: c*e ^ e
+[INFO] [TIME]: 0.126s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:845, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_197 ====================
+[INFO] [ORIGINAL]: a + (d | d)
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.042s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:199, d:20] Triton:[sz:319, d:19] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_198 ====================
+[INFO] [ORIGINAL]: a & b
+[INFO] [RESULT]: a & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_199 ====================
+[INFO] [ORIGINAL]: ~(d & d)
+[INFO] [RESULT]: ~d
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:33, d:13] Triton:[sz:47, d:12] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_200 ====================
+[INFO] [ORIGINAL]: a | a + c
+[INFO] [RESULT]: c + a | a
+[INFO] [TIME]: 0.030s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:161, d:19] Triton:[sz:201, d:19] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_201 ====================
+[INFO] [ORIGINAL]: (e | d) - b
+[INFO] [RESULT]: (d | e) - b
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:63, d:16] Triton:[sz:63, d:13] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_202 ====================
+[INFO] [ORIGINAL]: e*b
+[INFO] [RESULT]: b*e
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_203 ====================
+[INFO] [ORIGINAL]: ~(-e)
+[INFO] [RESULT]: ~(-e)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:13, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_204 ====================
+[INFO] [ORIGINAL]: c - ~b
+[INFO] [RESULT]: c - ~b
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:19, d:10] Triton:[sz:17, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_205 ====================
+[INFO] [ORIGINAL]: (c | d) & b
+[INFO] [RESULT]: (d | c) & b
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:129, d:20] Triton:[sz:125, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_206 ====================
+[INFO] [ORIGINAL]: b | e
+[INFO] [RESULT]: b | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_207 ====================
+[INFO] [ORIGINAL]: -d + b
+[INFO] [RESULT]: b - d
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:17, d:8] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_208 ====================
+[INFO] [ORIGINAL]: ~~~c
+[INFO] [RESULT]: ~c
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:4, d:4] Obfu:[sz:25, d:13] Triton:[sz:11, d:6] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_209 ====================
+[INFO] [ORIGINAL]: d*a
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_210 ====================
+[INFO] [ORIGINAL]: ~(b - ~b)
+[INFO] [RESULT]: ~b + ~b
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:17, d:9] Triton:[sz:23, d:9] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_211 ====================
+[INFO] [ORIGINAL]: ~b - b
+[INFO] [RESULT]: ~(b + b)
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:83, d:17] Triton:[sz:89, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_212 ====================
+[INFO] [ORIGINAL]: b | -b
+[INFO] [RESULT]: -b | b
+[INFO] [TIME]: 0.007s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:35, d:12] Triton:[sz:39, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_213 ====================
+[INFO] [ORIGINAL]: b ^ a
+[INFO] [RESULT]: a ^ b
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:13] Triton:[sz:77, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_214 ====================
+[INFO] [ORIGINAL]: e + b
+[INFO] [RESULT]: b + e
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_215 ====================
+[INFO] [ORIGINAL]: d - a
+[INFO] [RESULT]: d - a
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:14] Triton:[sz:111, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_216 ====================
+[INFO] [ORIGINAL]: -(~c & b)
+[INFO] [RESULT]: -(~c & b)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:47, d:16] Triton:[sz:39, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_217 ====================
+[INFO] [ORIGINAL]: b ^ (e | b)
+[INFO] [RESULT]: ~b & e
+[INFO] [TIME]: 0.034s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:167, d:21] Triton:[sz:241, d:20] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_218 ====================
+[INFO] [ORIGINAL]: a & d
+[INFO] [RESULT]: d & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_219 ====================
+[INFO] [ORIGINAL]: a ^ b
+[INFO] [RESULT]: a ^ b
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:61, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_220 ====================
+[INFO] [ORIGINAL]: b + e
+[INFO] [RESULT]: b + e
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_221 ====================
+[INFO] [ORIGINAL]: -a ^ ~b
+[INFO] [RESULT]: ~(-a) ^ b
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:79, d:12] Triton:[sz:61, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_222 ====================
+[INFO] [ORIGINAL]: c & a
+[INFO] [RESULT]: c & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_223 ====================
+[INFO] [ORIGINAL]: e + d
+[INFO] [RESULT]: d + e
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:123, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_224 ====================
+[INFO] [ORIGINAL]: ~(-(a & c))
+[INFO] [RESULT]: ~(-(c & a))
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:29, d:11] Triton:[sz:39, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_225 ====================
+[INFO] [ORIGINAL]: d ^ c
+[INFO] [RESULT]: d ^ c
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:83, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_226 ====================
+[INFO] [ORIGINAL]: e | c
+[INFO] [RESULT]: c | e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:51, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_227 ====================
+[INFO] [ORIGINAL]: e & b + d
+[INFO] [RESULT]: d + b & e
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:45, d:13] Triton:[sz:61, d:13] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_228 ====================
+[INFO] [ORIGINAL]: a*c
+[INFO] [RESULT]: c*a
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_229 ====================
+[INFO] [ORIGINAL]: ~(-(a | a))
+[INFO] [RESULT]: ~(-a)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:57, d:14] Triton:[sz:47, d:12] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_230 ====================
+[INFO] [ORIGINAL]: d & ~~b
+[INFO] [RESULT]: d & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:45, d:12] Triton:[sz:41, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_231 ====================
+[INFO] [ORIGINAL]: e | d*a
+[INFO] [RESULT]: d*a | e
+[INFO] [TIME]: 0.126s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:569, d:25] Triton:[sz:859, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_232 ====================
+[INFO] [ORIGINAL]: ~(b - d)
+[INFO] [RESULT]: ~b + d
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:9, d:5] Triton:[sz:19, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_233 ====================
+[INFO] [ORIGINAL]: d - c | c
+[INFO] [RESULT]: d - c | c
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:73, d:17] Triton:[sz:62, d:13] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_234 ====================
+[INFO] [ORIGINAL]: c*b ^ c
+[INFO] [RESULT]: c*b ^ c
+[INFO] [TIME]: 0.126s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:573, d:25] Triton:[sz:795, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_235 ====================
+[INFO] [ORIGINAL]: b | c
+[INFO] [RESULT]: c | b
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_236 ====================
+[INFO] [ORIGINAL]: (b | b) + c
+[INFO] [RESULT]: c + b
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:205, d:24] Triton:[sz:245, d:21] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_237 ====================
+[INFO] [ORIGINAL]: -(d & ~b)
+[INFO] [RESULT]: -(~b & d)
+[INFO] [TIME]: 0.006s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:27, d:11] Triton:[sz:29, d:10] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_238 ====================
+[INFO] [ORIGINAL]: ~a + -d
+[INFO] [RESULT]: ~(d + a)
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:99, d:17] Triton:[sz:107, d:14] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_239 ====================
+[INFO] [ORIGINAL]: b*-e
+[INFO] [RESULT]: -b*e
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:233, d:17] Triton:[sz:271, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_240 ====================
+[INFO] [ORIGINAL]: a | c | e
+[INFO] [RESULT]: c | a | e
+[INFO] [TIME]: 0.022s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:119, d:20] Triton:[sz:145, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_241 ====================
+[INFO] [ORIGINAL]: d & c | e
+[INFO] [RESULT]: d & c | e
+[INFO] [TIME]: 0.018s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:105, d:22] Triton:[sz:117, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_242 ====================
+[INFO] [ORIGINAL]: e & a & c
+[INFO] [RESULT]: c & a & e
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:79, d:20] Triton:[sz:101, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_243 ====================
+[INFO] [ORIGINAL]: e & e + e
+[INFO] [RESULT]: e + e & e
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:141, d:17] Triton:[sz:139, d:17] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_244 ====================
+[INFO] [ORIGINAL]: d ^ e
+[INFO] [RESULT]: d ^ e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:93, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_245 ====================
+[INFO] [ORIGINAL]: a | c
+[INFO] [RESULT]: c | a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_246 ====================
+[INFO] [ORIGINAL]: ~(-(d ^ a))
+[INFO] [RESULT]: ~(-(d ^ a))
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:41, d:10] Triton:[sz:67, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_247 ====================
+[INFO] [ORIGINAL]: b | e
+[INFO] [RESULT]: b | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_248 ====================
+[INFO] [ORIGINAL]: e + d + d
+[INFO] [RESULT]: d + d + e
+[INFO] [TIME]: 0.058s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:201, d:22] Triton:[sz:491, d:22] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_249 ====================
+[INFO] [ORIGINAL]: a + c + b
+[INFO] [RESULT]: c + a + b
+[INFO] [TIME]: 0.026s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:89, d:18] Triton:[sz:147, d:17] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_250 ====================
+[INFO] [ORIGINAL]: a + (a & d)
+[INFO] [RESULT]: (d & a) + a
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:223, d:22] Triton:[sz:299, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_251 ====================
+[INFO] [ORIGINAL]: a*e - a
+[INFO] [RESULT]: ~(-e)*a
+[INFO] [TIME]: 0.166s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:731, d:22] Triton:[sz:1105, d:25] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_252 ====================
+[INFO] [ORIGINAL]: d | a
+[INFO] [RESULT]: d | a
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:51, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_253 ====================
+[INFO] [ORIGINAL]: ~(e - e)
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.001s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:9, d:5] Triton:[sz:5, d:3] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_254 ====================
+[INFO] [ORIGINAL]: a + d | d
+[INFO] [RESULT]: d + a | d
+[INFO] [TIME]: 0.025s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:125, d:19] Triton:[sz:167, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_255 ====================
+[INFO] [ORIGINAL]: c + a
+[INFO] [RESULT]: c + a
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:17, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_256 ====================
+[INFO] [ORIGINAL]: ~(-d)
+[INFO] [RESULT]: ~(-d)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:13, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_257 ====================
+[INFO] [ORIGINAL]: e ^ d ^ b
+[INFO] [RESULT]: d ^ b ^ e
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:145, d:15] Triton:[sz:249, d:17] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_258 ====================
+[INFO] [ORIGINAL]: ~(-a)
+[INFO] [RESULT]: ~(-a)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_259 ====================
+[INFO] [ORIGINAL]: b - (b & a)
+[INFO] [RESULT]: ~a & b
+[INFO] [TIME]: 0.018s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:95, d:19] Triton:[sz:121, d:19] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_260 ====================
+[INFO] [ORIGINAL]: d + a*b
+[INFO] [RESULT]: a*b + d
+[INFO] [TIME]: 0.260s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:1099, d:25] Triton:[sz:1555, d:27] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_261 ====================
+[INFO] [ORIGINAL]: a & c
+[INFO] [RESULT]: c & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_262 ====================
+[INFO] [ORIGINAL]: (b ^ c) + b
+[INFO] [RESULT]: (c ^ b) + b
+[INFO] [TIME]: 0.047s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:165, d:22] Triton:[sz:305, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_263 ====================
+[INFO] [ORIGINAL]: b | e
+[INFO] [RESULT]: b | e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:53, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_264 ====================
+[INFO] [ORIGINAL]: d*d
+[INFO] [RESULT]: d*d
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:295, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_265 ====================
+[INFO] [ORIGINAL]: d + d
+[INFO] [RESULT]: d + d
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:75, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_266 ====================
+[INFO] [ORIGINAL]: e - b
+[INFO] [RESULT]: e - b
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:9] Triton:[sz:73, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_267 ====================
+[INFO] [ORIGINAL]: b & -c
+[INFO] [RESULT]: -c & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:39, d:13] Triton:[sz:39, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_268 ====================
+[INFO] [ORIGINAL]: (c ^ e)*d
+[INFO] [RESULT]: (c ^ e)*d
+[INFO] [TIME]: 0.202s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:761, d:29] Triton:[sz:1369, d:27] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_269 ====================
+[INFO] [ORIGINAL]: -(-c & a)
+[INFO] [RESULT]: -(-c & a)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:45, d:17] Triton:[sz:39, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_270 ====================
+[INFO] [ORIGINAL]: -(d + e)
+[INFO] [RESULT]: -(d + e)
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:63, d:18] Triton:[sz:119, d:14] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_271 ====================
+[INFO] [ORIGINAL]: c - a
+[INFO] [RESULT]: c - a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:63, d:11] Triton:[sz:101, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_272 ====================
+[INFO] [ORIGINAL]: b + c*c
+[INFO] [RESULT]: c*c + b
+[INFO] [TIME]: 0.172s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:565, d:26] Triton:[sz:1065, d:27] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_273 ====================
+[INFO] [ORIGINAL]: c + d
+[INFO] [RESULT]: d + c
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_274 ====================
+[INFO] [ORIGINAL]: c + (a | d)
+[INFO] [RESULT]: (d | a) + c
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:63, d:17] Triton:[sz:59, d:13] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_275 ====================
+[INFO] [ORIGINAL]: c | c | a
+[INFO] [RESULT]: c | a
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:67, d:17] Triton:[sz:99, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_276 ====================
+[INFO] [ORIGINAL]: ~~(d*c)
+[INFO] [RESULT]: d*c
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:189, d:22] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_277 ====================
+[INFO] [ORIGINAL]: b*d
+[INFO] [RESULT]: d*b
+[INFO] [TIME]: 0.041s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_278 ====================
+[INFO] [ORIGINAL]: -(c - b)
+[INFO] [RESULT]: b - c
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:73, d:14] Triton:[sz:101, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_279 ====================
+[INFO] [ORIGINAL]: ~(c + d)
+[INFO] [RESULT]: ~(d + c)
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:45, d:12] Triton:[sz:67, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_280 ====================
+[INFO] [ORIGINAL]: d ^ -(~b)
+[INFO] [RESULT]: -(~b) ^ d
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:55, d:18] Triton:[sz:83, d:14] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_281 ====================
+[INFO] [ORIGINAL]: e ^ b
+[INFO] [RESULT]: b ^ e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:83, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_282 ====================
+[INFO] [ORIGINAL]: a + d
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:113, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_283 ====================
+[INFO] [ORIGINAL]: a*d
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_284 ====================
+[INFO] [ORIGINAL]: e ^ b
+[INFO] [RESULT]: b ^ e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:83, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_285 ====================
+[INFO] [ORIGINAL]: ~(d*c)
+[INFO] [RESULT]: ~(d*c)
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:181, d:18] Triton:[sz:281, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_286 ====================
+[INFO] [ORIGINAL]: e - c & b
+[INFO] [RESULT]: e - c & b
+[INFO] [TIME]: 0.035s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:159, d:21] Triton:[sz:244, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_287 ====================
+[INFO] [ORIGINAL]: d + (a | a)
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.033s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:115, d:21] Triton:[sz:229, d:21] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_288 ====================
+[INFO] [ORIGINAL]: -(a - b)
+[INFO] [RESULT]: b - a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:49, d:12] Triton:[sz:61, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_289 ====================
+[INFO] [ORIGINAL]: a - b
+[INFO] [RESULT]: a - b
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:9] Triton:[sz:65, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_290 ====================
+[INFO] [ORIGINAL]: -e ^ a
+[INFO] [RESULT]: -e ^ a
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:75, d:15] Triton:[sz:85, d:14] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_291 ====================
+[INFO] [ORIGINAL]: b + a | d
+[INFO] [RESULT]: a + b | d
+[INFO] [TIME]: 0.035s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:139, d:17] Triton:[sz:227, d:22] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_292 ====================
+[INFO] [ORIGINAL]: a + (a | a)
+[INFO] [RESULT]: a + a
+[INFO] [TIME]: 0.034s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:147, d:18] Triton:[sz:217, d:21] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_293 ====================
+[INFO] [ORIGINAL]: a & (d | e)
+[INFO] [RESULT]: (d | e) & a
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:129, d:19] Triton:[sz:131, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_294 ====================
+[INFO] [ORIGINAL]: d ^ b & a
+[INFO] [RESULT]: a & b ^ d
+[INFO] [TIME]: 0.024s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:109, d:16] Triton:[sz:153, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_295 ====================
+[INFO] [ORIGINAL]: (e | c)*c
+[INFO] [RESULT]: (c | e)*c
+[INFO] [TIME]: 0.109s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:481, d:22] Triton:[sz:719, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_296 ====================
+[INFO] [ORIGINAL]: a*c | c
+[INFO] [RESULT]: c*a | c
+[INFO] [TIME]: 0.084s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:397, d:25] Triton:[sz:529, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_297 ====================
+[INFO] [ORIGINAL]: c & d
+[INFO] [RESULT]: d & c
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_298 ====================
+[INFO] [ORIGINAL]: e - d
+[INFO] [RESULT]: e - d
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:21, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_299 ====================
+[INFO] [ORIGINAL]: e | b & c
+[INFO] [RESULT]: c & b | e
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:71, d:17] Triton:[sz:103, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_300 ====================
+[INFO] [ORIGINAL]: -a + b
+[INFO] [RESULT]: b - a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:55, d:11] Triton:[sz:61, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_301 ====================
+[INFO] [ORIGINAL]: a ^ ~(-a)
+[INFO] [RESULT]: ~(-a) ^ a
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:77, d:15] Triton:[sz:67, d:14] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_302 ====================
+[INFO] [ORIGINAL]: -(~d)*a
+[INFO] [RESULT]: ~d*-a
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:229, d:16] Triton:[sz:279, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_303 ====================
+[INFO] [ORIGINAL]: -(~d) | d
+[INFO] [RESULT]: -(~d) | d
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:31, d:10] Triton:[sz:47, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_304 ====================
+[INFO] [ORIGINAL]: -e*~d
+[INFO] [RESULT]: ~d*-e
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:337, d:18] Triton:[sz:301, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_305 ====================
+[INFO] [ORIGINAL]: ~(a + a)
+[INFO] [RESULT]: ~(a + a)
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:67, d:14] Triton:[sz:63, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_306 ====================
+[INFO] [ORIGINAL]: ~(c | -b)
+[INFO] [RESULT]: ~(-b | c)
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:43, d:16] Triton:[sz:39, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_307 ====================
+[INFO] [ORIGINAL]: d + b
+[INFO] [RESULT]: d + b
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:12] Triton:[sz:111, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_308 ====================
+[INFO] [ORIGINAL]: b + b
+[INFO] [RESULT]: b + b
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:19, d:8] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_309 ====================
+[INFO] [ORIGINAL]: -b & ~e
+[INFO] [RESULT]: -b & ~e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:39, d:11] Triton:[sz:41, d:12] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_310 ====================
+[INFO] [ORIGINAL]: (e ^ d) & a
+[INFO] [RESULT]: (d ^ e) & a
+[INFO] [TIME]: 0.029s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:109, d:24] Triton:[sz:207, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_311 ====================
+[INFO] [ORIGINAL]: -(~c)
+[INFO] [RESULT]: -(~c)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_312 ====================
+[INFO] [ORIGINAL]: ~d | ~d
+[INFO] [RESULT]: ~d
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:93, d:16] Triton:[sz:63, d:13] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_313 ====================
+[INFO] [ORIGINAL]: d - b
+[INFO] [RESULT]: d - b
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:51, d:14] Triton:[sz:113, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_314 ====================
+[INFO] [ORIGINAL]: a*b
+[INFO] [RESULT]: a*b
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_315 ====================
+[INFO] [ORIGINAL]: a*b
+[INFO] [RESULT]: a*b
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_316 ====================
+[INFO] [ORIGINAL]: b | a
+[INFO] [RESULT]: a | b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_317 ====================
+[INFO] [ORIGINAL]: c & a
+[INFO] [RESULT]: c & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_318 ====================
+[INFO] [ORIGINAL]: c*d
+[INFO] [RESULT]: d*c
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_319 ====================
+[INFO] [ORIGINAL]: e*e
+[INFO] [RESULT]: e*e
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:295, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_320 ====================
+[INFO] [ORIGINAL]: a*d
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_321 ====================
+[INFO] [ORIGINAL]: -(-d - e)
+[INFO] [RESULT]: d + e
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:83, d:20] Triton:[sz:121, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_322 ====================
+[INFO] [ORIGINAL]: d & (b | e)
+[INFO] [RESULT]: (b | e) & d
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:129, d:19] Triton:[sz:127, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_323 ====================
+[INFO] [ORIGINAL]: -(~e) + c
+[INFO] [RESULT]: c - ~e
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:83, d:14] Triton:[sz:111, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_324 ====================
+[INFO] [ORIGINAL]: a - (a ^ b)
+[INFO] [RESULT]: a - (a ^ b)
+[INFO] [TIME]: 0.055s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:221, d:25] Triton:[sz:367, d:22] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_325 ====================
+[INFO] [ORIGINAL]: e ^ d
+[INFO] [RESULT]: d ^ e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:13] Triton:[sz:93, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_326 ====================
+[INFO] [ORIGINAL]: c*a
+[INFO] [RESULT]: c*a
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_327 ====================
+[INFO] [ORIGINAL]: -(c*c)
+[INFO] [RESULT]: -c*c
+[INFO] [TIME]: 0.036s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:179, d:17] Triton:[sz:253, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_328 ====================
+[INFO] [ORIGINAL]: d & ~c
+[INFO] [RESULT]: ~c & d
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:21, d:8] Triton:[sz:41, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_329 ====================
+[INFO] [ORIGINAL]: e + c ^ a
+[INFO] [RESULT]: c + e ^ a
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:87, d:17] Triton:[sz:101, d:15] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_330 ====================
+[INFO] [ORIGINAL]: a - b
+[INFO] [RESULT]: a - b
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:17, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_331 ====================
+[INFO] [ORIGINAL]: b & a
+[INFO] [RESULT]: a & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_332 ====================
+[INFO] [ORIGINAL]: (a & d)*c
+[INFO] [RESULT]: (d & a)*c
+[INFO] [TIME]: 0.107s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:537, d:24] Triton:[sz:719, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_333 ====================
+[INFO] [ORIGINAL]: d*c*a
+[INFO] [RESULT]: d*c*a
+[INFO] [TIME]: 0.740s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:2581, d:27] Triton:[sz:4007, d:29] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_334 ====================
+[INFO] [ORIGINAL]: e & d
+[INFO] [RESULT]: d & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_335 ====================
+[INFO] [ORIGINAL]: e ^ a*d
+[INFO] [RESULT]: d*a ^ e
+[INFO] [TIME]: 0.131s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:845, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_336 ====================
+[INFO] [ORIGINAL]: d + a
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_337 ====================
+[INFO] [ORIGINAL]: e + c | a
+[INFO] [RESULT]: c + e | a
+[INFO] [TIME]: 0.041s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:155, d:19] Triton:[sz:239, d:22] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_338 ====================
+[INFO] [ORIGINAL]: d*c
+[INFO] [RESULT]: d*c
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_339 ====================
+[INFO] [ORIGINAL]: -(-a*c)
+[INFO] [RESULT]: c*a
+[INFO] [TIME]: 0.041s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:263, d:20] Triton:[sz:255, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_340 ====================
+[INFO] [ORIGINAL]: ~e ^ e
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:61, d:12] Triton:[sz:75, d:13] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_341 ====================
+[INFO] [ORIGINAL]: ~(e ^ d)
+[INFO] [RESULT]: ~d ^ e
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:41, d:10] Triton:[sz:73, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_342 ====================
+[INFO] [ORIGINAL]: a | c
+[INFO] [RESULT]: c | a
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_343 ====================
+[INFO] [ORIGINAL]: e - c | d
+[INFO] [RESULT]: e - c | d
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:73, d:17] Triton:[sz:68, d:13] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_344 ====================
+[INFO] [ORIGINAL]: e & (c ^ e)
+[INFO] [RESULT]: ~c & e
+[INFO] [TIME]: 0.024s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:97, d:15] Triton:[sz:155, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_345 ====================
+[INFO] [ORIGINAL]: c ^ a
+[INFO] [RESULT]: c ^ a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:61, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_346 ====================
+[INFO] [ORIGINAL]: ~(-c & a)
+[INFO] [RESULT]: ~(-c & a)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:47, d:18] Triton:[sz:39, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_347 ====================
+[INFO] [ORIGINAL]: -(~b) + a
+[INFO] [RESULT]: a - ~b
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:69, d:17] Triton:[sz:103, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_348 ====================
+[INFO] [ORIGINAL]: a & b
+[INFO] [RESULT]: a & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_349 ====================
+[INFO] [ORIGINAL]: -(b + d)
+[INFO] [RESULT]: -(d + b)
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:65, d:13] Triton:[sz:113, d:14] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_350 ====================
+[INFO] [ORIGINAL]: a - b
+[INFO] [RESULT]: a - b
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:63, d:11] Triton:[sz:101, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_351 ====================
+[INFO] [ORIGINAL]: a + c | c
+[INFO] [RESULT]: c + a | c
+[INFO] [TIME]: 0.041s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:135, d:22] Triton:[sz:223, d:22] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_352 ====================
+[INFO] [ORIGINAL]: -c | ~d
+[INFO] [RESULT]: ~d | -c
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:89, d:16] Triton:[sz:51, d:12] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_353 ====================
+[INFO] [ORIGINAL]: -c - d
+[INFO] [RESULT]: -(d + c)
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:103, d:14] Triton:[sz:105, d:13] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_354 ====================
+[INFO] [ORIGINAL]: b - a
+[INFO] [RESULT]: b - a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:51, d:14] Triton:[sz:101, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_355 ====================
+[INFO] [ORIGINAL]: ~~a + d
+[INFO] [RESULT]: d + a
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:131, d:20] Triton:[sz:115, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_356 ====================
+[INFO] [ORIGINAL]: ~(-a)
+[INFO] [RESULT]: ~(-a)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_357 ====================
+[INFO] [ORIGINAL]: -c + -b
+[INFO] [RESULT]: -(c + b)
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:127, d:15] Triton:[sz:103, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_358 ====================
+[INFO] [ORIGINAL]: e + e
+[INFO] [RESULT]: e + e
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:23, d:8] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_359 ====================
+[INFO] [ORIGINAL]: ~(-b)
+[INFO] [RESULT]: ~(-b)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_360 ====================
+[INFO] [ORIGINAL]: b + d*a
+[INFO] [RESULT]: d*a + b
+[INFO] [TIME]: 0.041s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:183, d:19] Triton:[sz:285, d:19] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_361 ====================
+[INFO] [ORIGINAL]: b + d - a
+[INFO] [RESULT]: d - a + b
+[INFO] [TIME]: 0.096s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:415, d:20] Triton:[sz:715, d:23] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_362 ====================
+[INFO] [ORIGINAL]: b ^ (a | e)
+[INFO] [RESULT]: (a | e) ^ b
+[INFO] [TIME]: 0.025s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:103, d:16] Triton:[sz:159, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_363 ====================
+[INFO] [ORIGINAL]: ~(-c)
+[INFO] [RESULT]: ~(-c)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_364 ====================
+[INFO] [ORIGINAL]: d*(c | c)
+[INFO] [RESULT]: d*c
+[INFO] [TIME]: 0.111s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:693, d:25] Triton:[sz:635, d:24] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_365 ====================
+[INFO] [ORIGINAL]: a | c
+[INFO] [RESULT]: c | a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_366 ====================
+[INFO] [ORIGINAL]: c + b + b
+[INFO] [RESULT]: c + b + b
+[INFO] [TIME]: 0.063s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:323, d:21] Triton:[sz:467, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_367 ====================
+[INFO] [ORIGINAL]: b + d
+[INFO] [RESULT]: d + b
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_368 ====================
+[INFO] [ORIGINAL]: b & a - e
+[INFO] [RESULT]: a - e & b
+[INFO] [TIME]: 0.034s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:151, d:20] Triton:[sz:235, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_369 ====================
+[INFO] [ORIGINAL]: a | d
+[INFO] [RESULT]: d | a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_370 ====================
+[INFO] [ORIGINAL]: ~b | -c
+[INFO] [RESULT]: ~b | -c
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:51, d:12] Triton:[sz:39, d:12] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_371 ====================
+[INFO] [ORIGINAL]: -a + c
+[INFO] [RESULT]: c - a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:91, d:15] Triton:[sz:101, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_372 ====================
+[INFO] [ORIGINAL]: a - c
+[INFO] [RESULT]: a - c
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:17, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_373 ====================
+[INFO] [ORIGINAL]: b + e ^ c
+[INFO] [RESULT]: b + e ^ c
+[INFO] [TIME]: 0.047s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:181, d:20] Triton:[sz:359, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_374 ====================
+[INFO] [ORIGINAL]: c + a
+[INFO] [RESULT]: c + a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:59, d:10] Triton:[sz:103, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_375 ====================
+[INFO] [ORIGINAL]: a*d
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_376 ====================
+[INFO] [ORIGINAL]: d*a
+[INFO] [RESULT]: d*a
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_377 ====================
+[INFO] [ORIGINAL]: -(e | e)
+[INFO] [RESULT]: -e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:59, d:15] Triton:[sz:55, d:12] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_378 ====================
+[INFO] [ORIGINAL]: d & -c
+[INFO] [RESULT]: -c & d
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:39, d:13] Triton:[sz:43, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_379 ====================
+[INFO] [ORIGINAL]: e | c
+[INFO] [RESULT]: c | e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:51, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_380 ====================
+[INFO] [ORIGINAL]: a | c
+[INFO] [RESULT]: c | a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_381 ====================
+[INFO] [ORIGINAL]: b ^ c
+[INFO] [RESULT]: c ^ b
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:16] Triton:[sz:77, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_382 ====================
+[INFO] [ORIGINAL]: b - c
+[INFO] [RESULT]: b - c
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:11] Triton:[sz:99, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_383 ====================
+[INFO] [ORIGINAL]: -(~b)
+[INFO] [RESULT]: -(~b)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_384 ====================
+[INFO] [ORIGINAL]: -a*c
+[INFO] [RESULT]: -c*a
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:257, d:17] Triton:[sz:253, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_385 ====================
+[INFO] [ORIGINAL]: c*c
+[INFO] [RESULT]: c*c
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_386 ====================
+[INFO] [ORIGINAL]: -d & b
+[INFO] [RESULT]: -d & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:37, d:12] Triton:[sz:43, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_387 ====================
+[INFO] [ORIGINAL]: -(-c - d)
+[INFO] [RESULT]: d + c
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:73, d:15] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_388 ====================
+[INFO] [ORIGINAL]: e ^ ~~b
+[INFO] [RESULT]: b ^ e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:137, d:21] Triton:[sz:83, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_389 ====================
+[INFO] [ORIGINAL]: -(~c + b)
+[INFO] [RESULT]: -(~c + b)
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:79, d:20] Triton:[sz:99, d:15] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_390 ====================
+[INFO] [ORIGINAL]: d*a*d
+[INFO] [RESULT]: d*d*a
+[INFO] [TIME]: 0.488s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:1893, d:27] Triton:[sz:2875, d:28] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_391 ====================
+[INFO] [ORIGINAL]: (d | c) & a
+[INFO] [RESULT]: (d | c) & a
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:129, d:20] Triton:[sz:121, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_392 ====================
+[INFO] [ORIGINAL]: b + (b | e)
+[INFO] [RESULT]: (b | e) + b
+[INFO] [TIME]: 0.051s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:191, d:18] Triton:[sz:301, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_393 ====================
+[INFO] [ORIGINAL]: (a ^ e) & c
+[INFO] [RESULT]: (a ^ e) & c
+[INFO] [TIME]: 0.023s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:99, d:18] Triton:[sz:153, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_394 ====================
+[INFO] [ORIGINAL]: c*d
+[INFO] [RESULT]: d*c
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_395 ====================
+[INFO] [ORIGINAL]: (e | a) - c
+[INFO] [RESULT]: (a | e) - c
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:33, d:13] Triton:[sz:49, d:13] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_396 ====================
+[INFO] [ORIGINAL]: b & e
+[INFO] [RESULT]: b & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_397 ====================
+[INFO] [ORIGINAL]: ~(b ^ b)
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:39, d:9] Triton:[sz:61, d:12] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_398 ====================
+[INFO] [ORIGINAL]: d | e
+[INFO] [RESULT]: d | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_399 ====================
+[INFO] [ORIGINAL]: -(c - -b)
+[INFO] [RESULT]: -(c + b)
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:61, d:15] Triton:[sz:61, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_400 ====================
+[INFO] [ORIGINAL]: d*c & a
+[INFO] [RESULT]: d*c & a
+[INFO] [TIME]: 0.085s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:371, d:24] Triton:[sz:577, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_401 ====================
+[INFO] [ORIGINAL]: b | e | d
+[INFO] [RESULT]: d | b | e
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:127, d:20] Triton:[sz:135, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_402 ====================
+[INFO] [ORIGINAL]: d*e
+[INFO] [RESULT]: d*e
+[INFO] [TIME]: 0.041s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:295, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_403 ====================
+[INFO] [ORIGINAL]: a & e
+[INFO] [RESULT]: a & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_404 ====================
+[INFO] [ORIGINAL]: b & a
+[INFO] [RESULT]: a & b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_405 ====================
+[INFO] [ORIGINAL]: e - d
+[INFO] [RESULT]: e - d
+[INFO] [TIME]: 0.004s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:21, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_406 ====================
+[INFO] [ORIGINAL]: b - e
+[INFO] [RESULT]: b - e
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:51, d:14] Triton:[sz:109, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_407 ====================
+[INFO] [ORIGINAL]: d ^ a
+[INFO] [RESULT]: d ^ a
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:13] Triton:[sz:83, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_408 ====================
+[INFO] [ORIGINAL]: e | a
+[INFO] [RESULT]: a | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_409 ====================
+[INFO] [ORIGINAL]: b | ~d
+[INFO] [RESULT]: ~d | b
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:77, d:16] Triton:[sz:51, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_410 ====================
+[INFO] [ORIGINAL]: c - a
+[INFO] [RESULT]: c - a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:9] Triton:[sz:65, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_411 ====================
+[INFO] [ORIGINAL]: a*a
+[INFO] [RESULT]: a*a
+[INFO] [TIME]: 0.039s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:247, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_412 ====================
+[INFO] [ORIGINAL]: ~(-e)
+[INFO] [RESULT]: ~(-e)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:13, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_413 ====================
+[INFO] [ORIGINAL]: ~e*a
+[INFO] [RESULT]: ~e*a
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:285, d:18] Triton:[sz:283, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_414 ====================
+[INFO] [ORIGINAL]: b & e
+[INFO] [RESULT]: b & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_415 ====================
+[INFO] [ORIGINAL]: a - c
+[INFO] [RESULT]: a - c
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:14] Triton:[sz:99, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_416 ====================
+[INFO] [ORIGINAL]: ~(~c ^ a)
+[INFO] [RESULT]: c ^ a
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:65, d:14] Triton:[sz:61, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_417 ====================
+[INFO] [ORIGINAL]: e | a ^ b
+[INFO] [RESULT]: a ^ b | e
+[INFO] [TIME]: 0.034s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:161, d:19] Triton:[sz:205, d:19] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_418 ====================
+[INFO] [ORIGINAL]: a & d
+[INFO] [RESULT]: d & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_419 ====================
+[INFO] [ORIGINAL]: c + e
+[INFO] [RESULT]: c + e
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:59, d:10] Triton:[sz:113, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_420 ====================
+[INFO] [ORIGINAL]: c*(c & a)
+[INFO] [RESULT]: (c & a)*c
+[INFO] [TIME]: 0.085s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:413, d:22] Triton:[sz:535, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_421 ====================
+[INFO] [ORIGINAL]: --(a & d)
+[INFO] [RESULT]: d & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:39, d:17] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_422 ====================
+[INFO] [ORIGINAL]: e | a
+[INFO] [RESULT]: a | e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_423 ====================
+[INFO] [ORIGINAL]: e ^ a*d
+[INFO] [RESULT]: d*a ^ e
+[INFO] [TIME]: 0.131s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:553, d:21] Triton:[sz:845, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_424 ====================
+[INFO] [ORIGINAL]: a ^ c ^ b
+[INFO] [RESULT]: c ^ a ^ b
+[INFO] [TIME]: 0.050s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:237, d:20] Triton:[sz:333, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_425 ====================
+[INFO] [ORIGINAL]: c & (a | d)
+[INFO] [RESULT]: (d | a) & c
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:131, d:21] Triton:[sz:123, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_426 ====================
+[INFO] [ORIGINAL]: a + a - b
+[INFO] [RESULT]: a - b + a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:93, d:19] Triton:[sz:91, d:13] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_427 ====================
+[INFO] [ORIGINAL]: c & d & d
+[INFO] [RESULT]: d & c
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:73, d:17] Triton:[sz:109, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_428 ====================
+[INFO] [ORIGINAL]: b & b & e
+[INFO] [RESULT]: b & e
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:77, d:18] Triton:[sz:105, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_429 ====================
+[INFO] [ORIGINAL]: e & d
+[INFO] [RESULT]: d & e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:27, d:11] Triton:[sz:47, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_430 ====================
+[INFO] [ORIGINAL]: ~(-b) ^ a
+[INFO] [RESULT]: ~(-b) ^ a
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:49, d:10] Triton:[sz:61, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_431 ====================
+[INFO] [ORIGINAL]: b ^ -b
+[INFO] [RESULT]: -b ^ b
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:61, d:19] Triton:[sz:79, d:15] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_432 ====================
+[INFO] [ORIGINAL]: b + a
+[INFO] [RESULT]: a + b
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:63, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_433 ====================
+[INFO] [ORIGINAL]: -a - b
+[INFO] [RESULT]: -(a + b)
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:103, d:14] Triton:[sz:97, d:13] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_434 ====================
+[INFO] [ORIGINAL]: ~(-c)
+[INFO] [RESULT]: ~(-c)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_435 ====================
+[INFO] [ORIGINAL]: d*c - b
+[INFO] [RESULT]: d*c - b
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:183, d:18] Triton:[sz:283, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_436 ====================
+[INFO] [ORIGINAL]: d + c
+[INFO] [RESULT]: d + c
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:59, d:10] Triton:[sz:109, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_437 ====================
+[INFO] [ORIGINAL]: ~(d + ~b)
+[INFO] [RESULT]: b - d
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:123, d:20] Triton:[sz:109, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_438 ====================
+[INFO] [ORIGINAL]: c & a
+[INFO] [RESULT]: c & a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_439 ====================
+[INFO] [ORIGINAL]: e | c ^ d
+[INFO] [RESULT]: d ^ c | e
+[INFO] [TIME]: 0.028s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:107, d:24] Triton:[sz:201, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_440 ====================
+[INFO] [ORIGINAL]: (b | a) + c
+[INFO] [RESULT]: (a | b) + c
+[INFO] [TIME]: 0.034s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:147, d:18] Triton:[sz:215, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_441 ====================
+[INFO] [ORIGINAL]: ~(-d)
+[INFO] [RESULT]: ~(-d)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:13, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_442 ====================
+[INFO] [ORIGINAL]: e & b
+[INFO] [RESULT]: b & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_443 ====================
+[INFO] [ORIGINAL]: -(~a)
+[INFO] [RESULT]: -(~a)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_444 ====================
+[INFO] [ORIGINAL]: d - c
+[INFO] [RESULT]: d - c
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:43, d:9] Triton:[sz:73, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_445 ====================
+[INFO] [ORIGINAL]: ~(~a & c)
+[INFO] [RESULT]: ~c | a
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:51, d:19] Triton:[sz:39, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_446 ====================
+[INFO] [ORIGINAL]: c + e
+[INFO] [RESULT]: c + e
+[INFO] [TIME]: 0.010s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:69, d:13] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_447 ====================
+[INFO] [ORIGINAL]: a ^ d - a
+[INFO] [RESULT]: d - a ^ a
+[INFO] [TIME]: 0.046s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:235, d:18] Triton:[sz:361, d:20] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_448 ====================
+[INFO] [ORIGINAL]: c + (b ^ e)
+[INFO] [RESULT]: (b ^ e) + c
+[INFO] [TIME]: 0.046s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:157, d:20] Triton:[sz:329, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_449 ====================
+[INFO] [ORIGINAL]: e + e - d
+[INFO] [RESULT]: e - d + e
+[INFO] [TIME]: 0.051s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:235, d:18] Triton:[sz:393, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_450 ====================
+[INFO] [ORIGINAL]: b | e | d
+[INFO] [RESULT]: d | b | e
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:127, d:19] Triton:[sz:129, d:19] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_451 ====================
+[INFO] [ORIGINAL]: e | a
+[INFO] [RESULT]: a | e
+[INFO] [TIME]: 0.009s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:12] Triton:[sz:51, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_452 ====================
+[INFO] [ORIGINAL]: e + (c | a)
+[INFO] [RESULT]: (c | a) + e
+[INFO] [TIME]: 0.047s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:265, d:26] Triton:[sz:329, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_453 ====================
+[INFO] [ORIGINAL]: a | b
+[INFO] [RESULT]: a | b
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:23, d:9] Triton:[sz:39, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_454 ====================
+[INFO] [ORIGINAL]: (d & e)*e
+[INFO] [RESULT]: (d & e)*e
+[INFO] [TIME]: 0.111s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:537, d:24] Triton:[sz:795, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_455 ====================
+[INFO] [ORIGINAL]: b - e
+[INFO] [RESULT]: b - e
+[INFO] [TIME]: 0.016s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:11] Triton:[sz:107, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_456 ====================
+[INFO] [ORIGINAL]: b - c
+[INFO] [RESULT]: b - c
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:17, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_457 ====================
+[INFO] [ORIGINAL]: c + ~b
+[INFO] [RESULT]: ~b + c
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:61, d:12] Triton:[sz:63, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_458 ====================
+[INFO] [ORIGINAL]: e + ~a
+[INFO] [RESULT]: ~a + e
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:19, d:10] Triton:[sz:19, d:7] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_459 ====================
+[INFO] [ORIGINAL]: d + e
+[INFO] [RESULT]: d + e
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:121, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_460 ====================
+[INFO] [ORIGINAL]: e*(b | c)
+[INFO] [RESULT]: (c | b)*e
+[INFO] [TIME]: 0.100s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:693, d:25] Triton:[sz:639, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_461 ====================
+[INFO] [ORIGINAL]: a - d
+[INFO] [RESULT]: a - d
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:14] Triton:[sz:107, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_462 ====================
+[INFO] [ORIGINAL]: -d - d
+[INFO] [RESULT]: -(d + d)
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:17, d:8] Triton:[sz:27, d:9] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_463 ====================
+[INFO] [ORIGINAL]: a*a - b
+[INFO] [RESULT]: a*a - b
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:183, d:18] Triton:[sz:255, d:18] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_464 ====================
+[INFO] [ORIGINAL]: c*d - b
+[INFO] [RESULT]: d*c - b
+[INFO] [TIME]: 0.247s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:1099, d:24] Triton:[sz:1671, d:27] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_465 ====================
+[INFO] [ORIGINAL]: ~(-a)
+[INFO] [RESULT]: ~(-a)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:11, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_466 ====================
+[INFO] [ORIGINAL]: d & ~a
+[INFO] [RESULT]: ~a & d
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:21, d:8] Triton:[sz:45, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_467 ====================
+[INFO] [ORIGINAL]: d - a
+[INFO] [RESULT]: d - a
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:53, d:14] Triton:[sz:111, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_468 ====================
+[INFO] [ORIGINAL]: b*(a + d)
+[INFO] [RESULT]: (d + a)*b
+[INFO] [TIME]: 0.195s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:653, d:26] Triton:[sz:1271, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_469 ====================
+[INFO] [ORIGINAL]: ~(b*a)
+[INFO] [RESULT]: ~(a*b)
+[INFO] [TIME]: 0.037s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:181, d:18] Triton:[sz:253, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_470 ====================
+[INFO] [ORIGINAL]: (d | d) ^ c
+[INFO] [RESULT]: d ^ c
+[INFO] [TIME]: 0.027s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:103, d:16] Triton:[sz:171, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_471 ====================
+[INFO] [ORIGINAL]: ~(b ^ -e)
+[INFO] [RESULT]: ~(-e) ^ b
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:59, d:13] Triton:[sz:71, d:13] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_472 ====================
+[INFO] [ORIGINAL]: ~(-e)
+[INFO] [RESULT]: ~(-e)
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:3, d:3] Obfu:[sz:5, d:3] Triton:[sz:13, d:6] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_473 ====================
+[INFO] [ORIGINAL]: b + e
+[INFO] [RESULT]: b + e
+[INFO] [TIME]: 0.005s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:11, d:6] Triton:[sz:19, d:7] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_474 ====================
+[INFO] [ORIGINAL]: ~(e*~a)
+[INFO] [RESULT]: ~(~a*e)
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:261, d:22] Triton:[sz:281, d:18] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_475 ====================
+[INFO] [ORIGINAL]: c + e & c
+[INFO] [RESULT]: c + e & c
+[INFO] [TIME]: 0.035s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:121, d:21] Triton:[sz:239, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_476 ====================
+[INFO] [ORIGINAL]: c & d + a
+[INFO] [RESULT]: d + a & c
+[INFO] [TIME]: 0.035s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:139, d:24] Triton:[sz:237, d:21] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_477 ====================
+[INFO] [ORIGINAL]: e + a - d
+[INFO] [RESULT]: a - d + e
+[INFO] [TIME]: 0.101s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:257, d:28] Triton:[sz:701, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_478 ====================
+[INFO] [ORIGINAL]: b - e*d
+[INFO] [RESULT]: b - d*e
+[INFO] [TIME]: 0.093s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:387, d:22] Triton:[sz:643, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_479 ====================
+[INFO] [ORIGINAL]: c & e*e
+[INFO] [RESULT]: e*e & c
+[INFO] [TIME]: 0.089s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:369, d:21] Triton:[sz:613, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_480 ====================
+[INFO] [ORIGINAL]: (d | c) ^ b
+[INFO] [RESULT]: (d | c) ^ b
+[INFO] [TIME]: 0.027s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:193, d:19] Triton:[sz:183, d:19] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_481 ====================
+[INFO] [ORIGINAL]: b - d - b
+[INFO] [RESULT]: -d
+[INFO] [TIME]: 0.019s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:63, d:18] Triton:[sz:113, d:15] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_482 ====================
+[INFO] [ORIGINAL]: -c | -d
+[INFO] [RESULT]: -d | -c
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:47, d:12] Triton:[sz:43, d:12] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_483 ====================
+[INFO] [ORIGINAL]: b + b
+[INFO] [RESULT]: b + b
+[INFO] [TIME]: 0.013s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:12] Triton:[sz:87, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_484 ====================
+[INFO] [ORIGINAL]: e*-c
+[INFO] [RESULT]: -c*e
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:233, d:17] Triton:[sz:279, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_485 ====================
+[INFO] [ORIGINAL]: ~(a | c)
+[INFO] [RESULT]: ~(c | a)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:31, d:13] Triton:[sz:39, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_486 ====================
+[INFO] [ORIGINAL]: ~(e ^ e)
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.003s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:41, d:10] Triton:[sz:73, d:12] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_487 ====================
+[INFO] [ORIGINAL]: e & b
+[INFO] [RESULT]: b & e
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:25, d:9] Triton:[sz:43, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_488 ====================
+[INFO] [ORIGINAL]: c ^ e
+[INFO] [RESULT]: c ^ e
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:37, d:8] Triton:[sz:67, d:12] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_489 ====================
+[INFO] [ORIGINAL]: ~e ^ a
+[INFO] [RESULT]: ~a ^ e
+[INFO] [TIME]: 0.014s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:81, d:16] Triton:[sz:85, d:14] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_490 ====================
+[INFO] [ORIGINAL]: -(e & d)
+[INFO] [RESULT]: -(d & e)
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:4, d:3] Obfu:[sz:33, d:14] Triton:[sz:47, d:12] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_491 ====================
+[INFO] [ORIGINAL]: -(~a) & d
+[INFO] [RESULT]: -(~a) & d
+[INFO] [TIME]: 0.008s
+[INFO] Orig:[sz:5, d:4] Obfu:[sz:35, d:13] Triton:[sz:43, d:12] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_492 ====================
+[INFO] [ORIGINAL]: b + b
+[INFO] [RESULT]: b + b
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:57, d:15] Triton:[sz:87, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_493 ====================
+[INFO] [ORIGINAL]: e & b ^ b
+[INFO] [RESULT]: ~e & b
+[INFO] [TIME]: 0.024s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:115, d:18] Triton:[sz:159, d:19] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_494 ====================
+[INFO] [ORIGINAL]: b + d
+[INFO] [RESULT]: d + b
+[INFO] [TIME]: 0.017s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:113, d:15] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_495 ====================
+[INFO] [ORIGINAL]: e*c
+[INFO] [RESULT]: c*e
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:275, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_496 ====================
+[INFO] [ORIGINAL]: b*c ^ a
+[INFO] [RESULT]: c*b ^ a
+[INFO] [TIME]: 0.126s
+[INFO] Orig:[sz:5, d:3] Obfu:[sz:573, d:25] Triton:[sz:795, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_497 ====================
+[INFO] [ORIGINAL]: a + a
+[INFO] [RESULT]: a + a
+[INFO] [TIME]: 0.011s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:49, d:13] Triton:[sz:67, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_498 ====================
+[INFO] [ORIGINAL]: b*d
+[INFO] [RESULT]: d*b
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:173, d:14] Triton:[sz:267, d:16] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================ Processing function target_499 ====================
+[INFO] [ORIGINAL]: b - a
+[INFO] [RESULT]: b - a
+[INFO] [TIME]: 0.015s
+[INFO] Orig:[sz:3, d:2] Obfu:[sz:67, d:11] Triton:[sz:99, d:14] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] [EQUIVALENCE]: [org-obf:UNK] [obf-trit:UNK] [org-final:OK]
+[INFO] ================== FINAL RESULTS ==================
+[INFO] Simplification: 500/500 (100.00%)
+[INFO] Full synthesis: 500/500 (100.00%)
+[INFO] Mean trace length: 147.87
+[INFO] Mean sizes: [orig: 3.97] [obfu:139.08] [trit:203.19] [synth:3.71]
+[INFO] Scale size: [obf/orig:35.03] [synth/trit:0.02] [synth/orig:0.94]
+[INFO] Semantic equivalence: 500/500 (KO:0, UNK:0)
+[INFO] Time DSE:1m20s Synthesis:0m15s Total:95.90s (Mean:0.19s/expr)
+[INFO] Overall time:199.87s

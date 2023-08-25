@@ -1,0 +1,22 @@
+(executable
+ (public_name DSynth)
+ (libraries yojson batteries cil lacaml integers)
+ (name main)
+ (promote
+  (until-clean)
+  (into ../))
+)
+
+(ocamllex MBALexer)
+(ocamlyacc MBAParser)
+(ocamllex SygusLexer)
+(ocamlyacc SygusParser)
+(ocamllex SimplifyLexer)
+(ocamlyacc SimplifyParser)
+
+
+(env
+ (dev
+  (flags (:standard -warn-error -A))
+ )
+)

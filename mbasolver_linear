@@ -1,0 +1,1 @@
+python3 ./MBA-Solver/mba-simplifier/pldi_dataset_simplify_linear.py "$1"

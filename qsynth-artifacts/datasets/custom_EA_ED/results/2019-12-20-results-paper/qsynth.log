@@ -1,0 +1,1225 @@
+[INFO] [*] Loading trace:datasets/custom_EA_ED/trace.db
+[INFO] [*] Loading program: datasets/custom_EA_ED/obfuscated
+[INFO] [*] Loading ground truth: datasets/custom_EA/ground_truth.json
+[INFO] [*] Loading lookup table lts/lts_15/11.pkl
+[INFO] [*] Loading lookup table lts/lts_15/13.pkl
+[INFO] [*] Loading lookup table lts/lts_15/6.pkl
+[INFO] [*] Loading lookup table lts/lts_15/4.pkl
+[INFO] [*] Loading lookup table lts/lts_15/5.pkl
+[INFO] [*] Loading lookup table lts/lts_15/2.pkl
+[INFO] [*] Loading lookup table lts/lts_15/8.pkl
+[INFO] [*] Loading lookup table lts/lts_15/12.pkl
+[INFO] [*] Loading lookup table lts/lts_15/1.pkl
+[INFO] [*] Loading lookup table lts/lts_15/3.pkl
+[INFO] [*] Loading lookup table lts/lts_15/10.pkl
+[INFO] [*] Loading lookup table lts/lts_15/15.pkl
+[INFO] [*] Loading lookup table lts/lts_15/9.pkl
+[INFO] [*] Loading lookup table lts/lts_15/14.pkl
+[INFO] [*] Starting test
+[INFO] ================ Processing function target_0 ====================
+[INFO] [ORIGINAL]: (b - (b & b) & b)*(b ^ e) + (b ^ e ^ b)*(e & e)
+[INFO] [RESULT]: e*e
+[INFO] [TIME]: 12.169s
+[INFO] Orig:[sz:21, d:6] Obfu:[sz:1055, d:18] Triton:[sz:33937, d:41] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_1 ====================
+[INFO] [ORIGINAL]: ~(b*d ^ d*d) - b
+[INFO] [RESULT]: ~((d*d ^ d*b) + b)
+[INFO] [TIME]: 4.921s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:229, d:12] Triton:[sz:10271, d:31] Synthesized:[sz:10, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_2 ====================
+[INFO] [ORIGINAL]: e + (c | c) - (c + e) | -(c & c)
+[INFO] [RESULT]: -c
+[INFO] [TIME]: 1.846s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:65, d:13] Triton:[sz:779, d:27] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_3 ====================
+[INFO] [ORIGINAL]: -(~(-(e - (a & a))) & -(e & -c))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 0.887s
+[INFO] Orig:[sz:14, d:7] Obfu:[sz:72, d:15] Triton:[sz:329, d:24] Synthesized:[sz:305, d:24] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_4 ====================
+[INFO] [ORIGINAL]: (d ^ ~(d + a)) & ((a - d | a + (a & d)) ^ ~d)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 30.051s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:278, d:17] Triton:[sz:6989, d:37] Synthesized:[sz:5116, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_5 ====================
+[INFO] [ORIGINAL]: (a & e)*e | c | e + a
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 11.279s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:215, d:16] Triton:[sz:3189, d:36] Synthesized:[sz:2721, d:37] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_6 ====================
+[INFO] [ORIGINAL]: (b ^ b | e + b) ^ -((e | e | e*e) ^ -e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 57.659s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:631, d:17] Triton:[sz:8687, d:39] Synthesized:[sz:4515, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_7 ====================
+[INFO] [ORIGINAL]: ~(-c - a*c & -(a | c))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 5.446s
+[INFO] Orig:[sz:12, d:5] Obfu:[sz:110, d:13] Triton:[sz:1167, d:30] Synthesized:[sz:1167, d:30] [Simp:KO]  [FullSynth:KO]
+[INFO] ================ Processing function target_8 ====================
+[INFO] [ORIGINAL]: -e - (e - (c + c) + ((e | c) ^ -e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 22.493s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:172, d:14] Triton:[sz:5151, d:36] Synthesized:[sz:2342, d:36] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_9 ====================
+[INFO] [ORIGINAL]: (a | c | (a ^ c) - -a) ^ ~(b & a ^ ~a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 2.572s
+[INFO] Orig:[sz:18, d:5] Obfu:[sz:135, d:11] Triton:[sz:1069, d:24] Synthesized:[sz:997, d:24] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_10 ====================
+[INFO] [ORIGINAL]: -(~a)*~(e*d)
+[INFO] [RESULT]: ~(d*e)*-(~a)
+[INFO] [TIME]: 2.119s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:101, d:11] Triton:[sz:3141, d:29] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_11 ====================
+[INFO] [ORIGINAL]: -(e - a | e & e*(e - e))
+[INFO] [RESULT]: a - e
+[INFO] [TIME]: 2.567s
+[INFO] Orig:[sz:12, d:6] Obfu:[sz:124, d:16] Triton:[sz:3780, d:35] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_12 ====================
+[INFO] [ORIGINAL]: ~d | ~(-b)
+[INFO] [RESULT]: ~(-b & d)
+[INFO] [TIME]: 0.023s
+[INFO] Orig:[sz:6, d:4] Obfu:[sz:13, d:5] Triton:[sz:41, d:11] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_13 ====================
+[INFO] [ORIGINAL]: ~(-(-a + ~~a ^ a - a + a))
+[INFO] [RESULT]: ~(-a)
+[INFO] [TIME]: 2.278s
+[INFO] Orig:[sz:14, d:7] Obfu:[sz:109, d:11] Triton:[sz:1467, d:29] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_14 ====================
+[INFO] [ORIGINAL]: -(~(a - ~e - (e ^ e))) - (e - (e | e))
+[INFO] [RESULT]: -(~a + ~e)
+[INFO] [TIME]: 2.180s
+[INFO] Orig:[sz:16, d:7] Obfu:[sz:126, d:13] Triton:[sz:2103, d:27] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_15 ====================
+[INFO] [ORIGINAL]: ~d ^ -(d + d) ^ ~(~d | d ^ a | a)
+[INFO] [RESULT]: ~(-d) + d ^ d
+[INFO] [TIME]: 2.002s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:306, d:17] Triton:[sz:2376, d:29] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_16 ====================
+[INFO] [ORIGINAL]: -(-(e - c ^ e*c) - --(c & ~e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 37.868s
+[INFO] Orig:[sz:16, d:7] Obfu:[sz:238, d:17] Triton:[sz:10470, d:34] Synthesized:[sz:5625, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_17 ====================
+[INFO] [ORIGINAL]: d - c - (d | c) - (c | c | c)
+[INFO] [RESULT]: -((~d & c) + c + c)
+[INFO] [TIME]: 2.350s
+[INFO] Orig:[sz:13, d:4] Obfu:[sz:346, d:13] Triton:[sz:2501, d:27] Synthesized:[sz:9, d:6] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_18 ====================
+[INFO] [ORIGINAL]: (d | c | c & d) - ((c | d) - ((d ^ c | c) ^ d))
+[INFO] [RESULT]: ~d & c
+[INFO] [TIME]: 1.180s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:343, d:20] Triton:[sz:1653, d:35] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_19 ====================
+[INFO] [ORIGINAL]: -((e & e)*(c - e))
+[INFO] [RESULT]: (e - c)*e
+[INFO] [TIME]: 1.111s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:76, d:10] Triton:[sz:1343, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_20 ====================
+[INFO] [ORIGINAL]: a - a | -e ^ (a | a) + e
+[INFO] [RESULT]: a + e ^ -e
+[INFO] [TIME]: 0.722s
+[INFO] Orig:[sz:12, d:5] Obfu:[sz:114, d:12] Triton:[sz:549, d:25] Synthesized:[sz:6, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_21 ====================
+[INFO] [ORIGINAL]: ~(-(~(-e))) - (a ^ -(e*e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 16.519s
+[INFO] Orig:[sz:12, d:6] Obfu:[sz:106, d:13] Triton:[sz:3787, d:32] Synthesized:[sz:2393, d:32] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_22 ====================
+[INFO] [ORIGINAL]: -(--(a ^ a ^ a) ^ (a | a) + b + a)
+[INFO] [RESULT]: -(a + a + b ^ a)
+[INFO] [TIME]: 2.171s
+[INFO] Orig:[sz:16, d:7] Obfu:[sz:178, d:16] Triton:[sz:2257, d:31] Synthesized:[sz:8, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_23 ====================
+[INFO] [ORIGINAL]: -(d & -(~e)) ^ (d | d)
+[INFO] [RESULT]: -(-(~e) & d) ^ d
+[INFO] [TIME]: 0.162s
+[INFO] Orig:[sz:10, d:6] Obfu:[sz:59, d:9] Triton:[sz:321, d:18] Synthesized:[sz:8, d:6] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_24 ====================
+[INFO] [ORIGINAL]: ~(-(~b) + a - a ^ (e | b ^ a - b))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 9.357s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:186, d:12] Triton:[sz:1965, d:26] Synthesized:[sz:1227, d:25] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_25 ====================
+[INFO] [ORIGINAL]: ~~(~b & d)
+[INFO] [RESULT]: ~b & d
+[INFO] [TIME]: 0.026s
+[INFO] Orig:[sz:6, d:5] Obfu:[sz:20, d:11] Triton:[sz:41, d:11] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_26 ====================
+[INFO] [ORIGINAL]: ~(c | b)*((c | b) ^ b*(b - c))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 176.832s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:497, d:14] Triton:[sz:25047, d:42] Synthesized:[sz:25043, d:43] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_27 ====================
+[INFO] [ORIGINAL]: ~((a & a ^ a - a) - ~(-(a + (b | b))))
+[INFO] [RESULT]: ~(-(~(-b)))
+[INFO] [TIME]: 0.085s
+[INFO] Orig:[sz:16, d:7] Obfu:[sz:67, d:11] Triton:[sz:77, d:13] Synthesized:[sz:5, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_28 ====================
+[INFO] [ORIGINAL]: --((~c + d)*(d*b & c) - ~(-d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 300.020s
+[INFO] Orig:[sz:16, d:7] Obfu:[sz:516, d:21] Triton:[sz:43983, d:45] Synthesized:[sz:37903, d:47] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_29 ====================
+[INFO] [ORIGINAL]: -(c & b & a) & (a ^ a)
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 0.127s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:50, d:12] Triton:[sz:281, d:23] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_30 ====================
+[INFO] [ORIGINAL]: (d - c ^ d + d) & d*(c - d) & c
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 23.358s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:251, d:13] Triton:[sz:5015, d:36] Synthesized:[sz:3866, d:36] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_31 ====================
+[INFO] [ORIGINAL]: -(-(b & e) & ~(b + b))
+[INFO] [RESULT]: -(~((~b | e) + b | b + b))
+[INFO] [TIME]: 0.202s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:38, d:11] Triton:[sz:181, d:18] Synthesized:[sz:12, d:7] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_32 ====================
+[INFO] [ORIGINAL]: d + a - ~((a | d) ^ a - d) & a & d
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 9.686s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:380, d:15] Triton:[sz:3183, d:36] Synthesized:[sz:2546, d:35] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_33 ====================
+[INFO] [ORIGINAL]: --b - (-e & (e ^ b)*a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 7.806s
+[INFO] Orig:[sz:12, d:5] Obfu:[sz:84, d:15] Triton:[sz:2527, d:33] Synthesized:[sz:2291, d:32] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_34 ====================
+[INFO] [ORIGINAL]: a & (a ^ b) ^ (a + a)*a ^ a ^ a
+[INFO] [RESULT]: None (use Triton)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 35.242s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:381, d:13] Triton:[sz:6754, d:39] Synthesized:[sz:6754, d:39] [Simp:KO]  [FullSynth:KO]
+[INFO] ================ Processing function target_35 ====================
+[INFO] [ORIGINAL]: -(a - d + a - -d ^ -a - ~(d - d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 0.750s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:135, d:14] Triton:[sz:211, d:18] Synthesized:[sz:102, d:17] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_36 ====================
+[INFO] [ORIGINAL]: d & d ^ -d ^ b*~b
+[INFO] [RESULT]: ~b*b ^ -d ^ d
+[INFO] [TIME]: 0.773s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:121, d:10] Triton:[sz:1327, d:25] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_37 ====================
+[INFO] [ORIGINAL]: ~((c + ~(c - c))*(c | e & e | ~c))
+[INFO] [RESULT]: ~(-(~(-c)))
+[INFO] [TIME]: 2.150s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:204, d:16] Triton:[sz:2643, d:35] Synthesized:[sz:5, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_38 ====================
+[INFO] [ORIGINAL]: -((b - b ^ a) & b + b + (b | b)) | b & a ^ b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 31.267s
+[INFO] Orig:[sz:20, d:7] Obfu:[sz:240, d:18] Triton:[sz:8529, d:41] Synthesized:[sz:5345, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_39 ====================
+[INFO] [ORIGINAL]: ~(a | a) & (-(d | a) | b)
+[INFO] [RESULT]: (-(d | a) | a | b) - a
+[INFO] [TIME]: 0.358s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:45, d:11] Triton:[sz:315, d:24] Synthesized:[sz:10, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_40 ====================
+[INFO] [ORIGINAL]: (b | d*c | -b + c) + (c & d)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 25.653s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:276, d:16] Triton:[sz:6037, d:38] Synthesized:[sz:4155, d:37] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_41 ====================
+[INFO] [ORIGINAL]: -(-c - (b | b))
+[INFO] [RESULT]: c + b
+[INFO] [TIME]: 0.080s
+[INFO] Orig:[sz:7, d:4] Obfu:[sz:46, d:10] Triton:[sz:141, d:18] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_42 ====================
+[INFO] [ORIGINAL]: ((d | d) ^ -d + a) - ~(d + ~a & (d ^ a))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 3.237s
+[INFO] Orig:[sz:18, d:6] Obfu:[sz:112, d:13] Triton:[sz:860, d:21] Synthesized:[sz:693, d:24] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_43 ====================
+[INFO] [ORIGINAL]: (c | b - e) & b ^ ~~~(c*c - (c ^ c))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 7.829s
+[INFO] Orig:[sz:18, d:7] Obfu:[sz:177, d:14] Triton:[sz:2289, d:32] Synthesized:[sz:1815, d:31] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_44 ====================
+[INFO] [ORIGINAL]: b + b - a & -(a | a & a) & (b + b ^ b)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 7.138s
+[INFO] Orig:[sz:18, d:6] Obfu:[sz:169, d:16] Triton:[sz:1413, d:31] Synthesized:[sz:752, d:31] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_45 ====================
+[INFO] [ORIGINAL]: e - (c - a) ^ (e | e) ^ ((c ^ a) & e)*a
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 85.113s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:477, d:15] Triton:[sz:20067, d:44] Synthesized:[sz:19145, d:44] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_46 ====================
+[INFO] [ORIGINAL]: b ^ -(~(a | a))
+[INFO] [RESULT]: -(~a) ^ b
+[INFO] [TIME]: 0.125s
+[INFO] Orig:[sz:7, d:5] Obfu:[sz:21, d:7] Triton:[sz:145, d:17] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_47 ====================
+[INFO] [ORIGINAL]: -((e & d)*(e ^ d) + -d)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 6.924s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:216, d:14] Triton:[sz:1583, d:27] Synthesized:[sz:1185, d:25] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_48 ====================
+[INFO] [ORIGINAL]: (d & d) - (d - ~d)
+[INFO] [RESULT]: ~d
+[INFO] [TIME]: 0.034s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:20, d:9] Triton:[sz:65, d:12] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_49 ====================
+[INFO] [ORIGINAL]: -((a*-b ^ a)*-(~(b - b)) + d + a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 597.816s
+[INFO] Orig:[sz:17, d:7] Obfu:[sz:654, d:18] Triton:[sz:69881, d:44] Synthesized:[sz:69555, d:45] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_50 ====================
+[INFO] [ORIGINAL]: (e ^ -c) + (e ^ -e)
+[INFO] [RESULT]: (-c ^ e) + (-e ^ e)
+[INFO] [TIME]: 0.235s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:82, d:12] Triton:[sz:383, d:19] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_51 ====================
+[INFO] [ORIGINAL]: (e*e - -d)*-(-e + ((e | d) ^ d - d))
+[INFO] [RESULT]: (e*e + d)*((d & e) - d)
+[INFO] [TIME]: 12.840s
+[INFO] Orig:[sz:18, d:6] Obfu:[sz:1305, d:19] Triton:[sz:42625, d:42] Synthesized:[sz:11, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_52 ====================
+[INFO] [ORIGINAL]: -b | -(b | -b)
+[INFO] [RESULT]: -b
+[INFO] [TIME]: 0.040s
+[INFO] Orig:[sz:8, d:5] Obfu:[sz:37, d:11] Triton:[sz:63, d:12] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_53 ====================
+[INFO] [ORIGINAL]: (b ^ b)*c | b + c*c
+[INFO] [RESULT]: c*c + b
+[INFO] [TIME]: 3.579s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:275, d:14] Triton:[sz:5781, d:31] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_54 ====================
+[INFO] [ORIGINAL]: ((b ^ b) - (e + b))*(e + b - e)
+[INFO] [RESULT]: -((b + e)*b)
+[INFO] [TIME]: 5.445s
+[INFO] Orig:[sz:13, d:4] Obfu:[sz:365, d:13] Triton:[sz:13781, d:36] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_55 ====================
+[INFO] [ORIGINAL]: ~((d & b ^ (c | c)) - (c ^ b)*d + (d - c ^ c))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 21.330s
+[INFO] Orig:[sz:20, d:6] Obfu:[sz:318, d:17] Triton:[sz:5285, d:37] Synthesized:[sz:4709, d:37] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_56 ====================
+[INFO] [ORIGINAL]: (b ^ b) + b + a ^ b*~a ^ b ^ (a | a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 59.261s
+[INFO] Orig:[sz:18, d:6] Obfu:[sz:583, d:15] Triton:[sz:9721, d:39] Synthesized:[sz:6398, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_57 ====================
+[INFO] [ORIGINAL]: (b + d + b)*d - b
+[INFO] [RESULT]: (d + b + b)*d - b
+[INFO] [TIME]: 13.976s
+[INFO] Orig:[sz:9, d:5] Obfu:[sz:234, d:14] Triton:[sz:42125, d:44] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_58 ====================
+[INFO] [ORIGINAL]: (a | a) ^ -(e*(e - b))
+[INFO] [RESULT]: (b - e)*e ^ a
+[INFO] [TIME]: 3.527s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:150, d:16] Triton:[sz:6547, d:33] Synthesized:[sz:7, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_59 ====================
+[INFO] [ORIGINAL]: -(~(e*e - (c + (c & e))))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 2.556s
+[INFO] Orig:[sz:11, d:6] Obfu:[sz:44, d:11] Triton:[sz:521, d:21] Synthesized:[sz:373, d:20] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_60 ====================
+[INFO] [ORIGINAL]: -((e ^ a)*(d + a))
+[INFO] [RESULT]: (d + a)*-(a ^ e)
+[INFO] [TIME]: 1.594s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:68, d:9] Triton:[sz:1633, d:25] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_61 ====================
+[INFO] [ORIGINAL]: -(d + ((d | d) & a) - (b ^ b)*b)
+[INFO] [RESULT]: -((d & a) + d)
+[INFO] [TIME]: 1.474s
+[INFO] Orig:[sz:14, d:6] Obfu:[sz:111, d:15] Triton:[sz:1109, d:27] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_62 ====================
+[INFO] [ORIGINAL]: ~c - -a & (c - c - c | ~a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 9.555s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:128, d:16] Triton:[sz:1954, d:32] Synthesized:[sz:1142, d:30] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_63 ====================
+[INFO] [ORIGINAL]: ~(-(~(e ^ c + e) | ~(-c)))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 3.085s
+[INFO] Orig:[sz:12, d:7] Obfu:[sz:40, d:10] Triton:[sz:753, d:28] Synthesized:[sz:681, d:28] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_64 ====================
+[INFO] [ORIGINAL]: ~(d | -e) & -b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 0.245s
+[INFO] Orig:[sz:8, d:5] Obfu:[sz:38, d:11] Triton:[sz:109, d:17] Synthesized:[sz:93, d:17] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_65 ====================
+[INFO] [ORIGINAL]: --(e + a + (a ^ a)) | a ^ b
+[INFO] [RESULT]: a + e | a ^ b
+[INFO] [TIME]: 2.096s
+[INFO] Orig:[sz:13, d:6] Obfu:[sz:179, d:17] Triton:[sz:1599, d:27] Synthesized:[sz:7, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_66 ====================
+[INFO] [ORIGINAL]: --((~c | d) - (b + b) + d)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 3.131s
+[INFO] Orig:[sz:12, d:7] Obfu:[sz:91, d:16] Triton:[sz:809, d:24] Synthesized:[sz:273, d:22] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_67 ====================
+[INFO] [ORIGINAL]: (e ^ a*e) + (~e ^ e)
+[INFO] [RESULT]: ~(-(a*e ^ e))
+[INFO] [TIME]: 1.391s
+[INFO] Orig:[sz:10, d:4] Obfu:[sz:80, d:12] Triton:[sz:1457, d:25] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_68 ====================
+[INFO] [ORIGINAL]: c*(c*a ^ a) | c | a
+[INFO] [RESULT]: (c*a ^ a)*c | c | a
+[INFO] [TIME]: 7.910s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:379, d:15] Triton:[sz:16103, d:43] Synthesized:[sz:11, d:6] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_69 ====================
+[INFO] [ORIGINAL]: b + -b - -(a*c*(c - c))
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 2.501s
+[INFO] Orig:[sz:13, d:5] Obfu:[sz:142, d:14] Triton:[sz:4171, d:31] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_70 ====================
+[INFO] [ORIGINAL]: ~(a + b*b)*(b | b) & (b*b ^ b + b)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 283.424s
+[INFO] Orig:[sz:18, d:6] Obfu:[sz:527, d:18] Triton:[sz:45851, d:44] Synthesized:[sz:31437, d:45] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_71 ====================
+[INFO] [ORIGINAL]: (c + d*d - -d)*(c - b ^ d)*(d ^ c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 296.120s
+[INFO] Orig:[sz:18, d:5] Obfu:[sz:949, d:16] Triton:[sz:48545, d:41] Synthesized:[sz:33517, d:40] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_72 ====================
+[INFO] [ORIGINAL]: -(d + c & (c ^ c)) | -c - ((c & c) + d)
+[INFO] [RESULT]: -(d + c + c)
+[INFO] [TIME]: 1.063s
+[INFO] Orig:[sz:17, d:5] Obfu:[sz:117, d:14] Triton:[sz:753, d:27] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_73 ====================
+[INFO] [ORIGINAL]: (b | b) & a | b*a
+[INFO] [RESULT]: a*b | a & b
+[INFO] [TIME]: 0.734s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:55, d:10] Triton:[sz:693, d:24] Synthesized:[sz:7, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_74 ====================
+[INFO] [ORIGINAL]: ~(d & (a - d)*a)
+[INFO] [RESULT]: ~((a - d)*a & d)
+[INFO] [TIME]: 0.620s
+[INFO] Orig:[sz:8, d:5] Obfu:[sz:46, d:12] Triton:[sz:737, d:24] Synthesized:[sz:8, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_75 ====================
+[INFO] [ORIGINAL]: ~(c*d) - ((d | d | ~d) ^ (c | c))
+[INFO] [RESULT]: c - d*c
+[INFO] [TIME]: 0.647s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:91, d:12] Triton:[sz:814, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_76 ====================
+[INFO] [ORIGINAL]: ~~(-(b - (b & b) + (a | b)))
+[INFO] [RESULT]: -(a | b)
+[INFO] [TIME]: 0.112s
+[INFO] Orig:[sz:12, d:7] Obfu:[sz:38, d:13] Triton:[sz:149, d:18] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_77 ====================
+[INFO] [ORIGINAL]: a + d & a ^ a + c
+[INFO] [RESULT]: d + a & a ^ c + a
+[INFO] [TIME]: 1.557s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:144, d:13] Triton:[sz:1201, d:27] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_78 ====================
+[INFO] [ORIGINAL]: -(d + ~b) + d
+[INFO] [RESULT]: -(~b)
+[INFO] [TIME]: 0.789s
+[INFO] Orig:[sz:7, d:5] Obfu:[sz:59, d:12] Triton:[sz:693, d:23] Synthesized:[sz:3, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_79 ====================
+[INFO] [ORIGINAL]: (c + c & (c + a | c*c)) - (a | ~~a | c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 10.900s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:125, d:14] Triton:[sz:2158, d:31] Synthesized:[sz:1408, d:31] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_80 ====================
+[INFO] [ORIGINAL]: ~c | c*(b + c)
+[INFO] [RESULT]: ~c | (c + b)*c
+[INFO] [TIME]: 0.467s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:81, d:11] Triton:[sz:645, d:24] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_81 ====================
+[INFO] [ORIGINAL]: -(-(-a - (a | b - b)) & (b ^ b)*~b)
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 2.087s
+[INFO] Orig:[sz:17, d:7] Obfu:[sz:227, d:21] Triton:[sz:3784, d:35] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_82 ====================
+[INFO] [ORIGINAL]: ((c | a ^ a) ^ b*c) + (a | b) + b + ~(-c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 34.071s
+[INFO] Orig:[sz:19, d:5] Obfu:[sz:294, d:15] Triton:[sz:8207, d:32] Synthesized:[sz:5427, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_83 ====================
+[INFO] [ORIGINAL]: ~(b | b*b) ^ ~(b*-e ^ e - -b)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 22.610s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:247, d:12] Triton:[sz:4155, d:31] Synthesized:[sz:3957, d:31] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_84 ====================
+[INFO] [ORIGINAL]: -(e & e) - ~(-(e*d | e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 11.402s
+[INFO] Orig:[sz:12, d:6] Obfu:[sz:76, d:12] Triton:[sz:2743, d:32] Synthesized:[sz:1701, d:31] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_85 ====================
+[INFO] [ORIGINAL]: -(~(-(d & e) ^ (d ^ d) & (-d | d)))
+[INFO] [RESULT]: -(~(-(d & e)))
+[INFO] [TIME]: 0.705s
+[INFO] Orig:[sz:15, d:7] Obfu:[sz:105, d:12] Triton:[sz:627, d:23] Synthesized:[sz:6, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_86 ====================
+[INFO] [ORIGINAL]: -(c & b + c*c & (c & d | b & c))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 32.603s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:134, d:17] Triton:[sz:6501, d:38] Synthesized:[sz:6477, d:38] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_87 ====================
+[INFO] [ORIGINAL]: ~(e ^ e) + ((a | c) & c & (e ^ a))
+[INFO] [RESULT]: ~(-((a ^ e) & c))
+[INFO] [TIME]: 1.928s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:173, d:12] Triton:[sz:2643, d:31] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_88 ====================
+[INFO] [ORIGINAL]: ~(d - (b + (b & b)))*-(c ^ c ^ d)
+[INFO] [RESULT]: -((~d + b + b)*d)
+[INFO] [TIME]: 3.654s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:305, d:14] Triton:[sz:6693, d:34] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_89 ====================
+[INFO] [ORIGINAL]: ~c - (e + (a ^ e))
+[INFO] [RESULT]: ~((a ^ e) + c + e)
+[INFO] [TIME]: 0.141s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:47, d:12] Triton:[sz:223, d:20] Synthesized:[sz:8, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_90 ====================
+[INFO] [ORIGINAL]: a*a ^ -(d & a) | d + a ^ d - d
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 14.606s
+[INFO] Orig:[sz:16, d:5] Obfu:[sz:154, d:13] Triton:[sz:2795, d:31] Synthesized:[sz:2153, d:30] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_91 ====================
+[INFO] [ORIGINAL]: -e*((b*d + d ^ -b) + d)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 479.237s
+[INFO] Orig:[sz:13, d:6] Obfu:[sz:837, d:17] Triton:[sz:90867, d:49] Synthesized:[sz:58431, d:48] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_92 ====================
+[INFO] [ORIGINAL]: (e - e + e*c)*(a - a)
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 3.342s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:353, d:13] Triton:[sz:10029, d:32] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_93 ====================
+[INFO] [ORIGINAL]: ~(b & e) | (c ^ c)*c
+[INFO] [RESULT]: ~(b & e)
+[INFO] [TIME]: 2.505s
+[INFO] Orig:[sz:10, d:4] Obfu:[sz:115, d:11] Triton:[sz:2695, d:31] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_94 ====================
+[INFO] [ORIGINAL]: (c + d & -d)*-(-c + c + c)
+[INFO] [RESULT]: -((-d & d + c)*c)
+[INFO] [TIME]: 2.751s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:225, d:11] Triton:[sz:3925, d:31] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_95 ====================
+[INFO] [ORIGINAL]: d*c*((c | c) ^ c)
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 2.690s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:305, d:13] Triton:[sz:5869, d:32] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_96 ====================
+[INFO] [ORIGINAL]: (e & c & e + e + c*c) - ~c
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 75.149s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:203, d:14] Triton:[sz:12815, d:39] Synthesized:[sz:9119, d:38] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_97 ====================
+[INFO] [ORIGINAL]: b - ((b & b) - ~(d ^ b)) ^ ~(d + d)
+[INFO] [RESULT]: d + d ^ d ^ b
+[INFO] [TIME]: 2.726s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:396, d:17] Triton:[sz:4145, d:37] Synthesized:[sz:7, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_98 ====================
+[INFO] [ORIGINAL]: (~c + c)*(--d ^ ~(c & c*d))
+[INFO] [RESULT]: -(~(d*c & c) ^ d)
+[INFO] [TIME]: 8.665s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:365, d:15] Triton:[sz:17977, d:43] Synthesized:[sz:9, d:6] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_99 ====================
+[INFO] [ORIGINAL]: b - c ^ (c | c) ^ c + b
+[INFO] [RESULT]: b - c ^ c + b ^ c
+[INFO] [TIME]: 2.391s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:141, d:14] Triton:[sz:3003, d:28] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_100 ====================
+[INFO] [ORIGINAL]: -((c ^ c & b | c) ^ a)
+[INFO] [RESULT]: -(c ^ a)
+[INFO] [TIME]: 1.114s
+[INFO] Orig:[sz:10, d:6] Obfu:[sz:143, d:20] Triton:[sz:1345, d:34] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_101 ====================
+[INFO] [ORIGINAL]: -(e ^ e) ^ (d + e | e + e | d)
+[INFO] [RESULT]: d + e | e + e | d
+[INFO] [TIME]: 2.104s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:171, d:13] Triton:[sz:2159, d:31] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_102 ====================
+[INFO] [ORIGINAL]: d + -(e*d) - (a ^ a)
+[INFO] [RESULT]: d - d*e
+[INFO] [TIME]: 2.079s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:85, d:12] Triton:[sz:1515, d:27] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_103 ====================
+[INFO] [ORIGINAL]: d + a - (a | d | a) ^ d & a & d - d
+[INFO] [RESULT]: d & a
+[INFO] [TIME]: 2.718s
+[INFO] Orig:[sz:17, d:5] Obfu:[sz:219, d:13] Triton:[sz:4295, d:33] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_104 ====================
+[INFO] [ORIGINAL]: a - a & (d*d ^ d*a)
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 2.526s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:98, d:12] Triton:[sz:4681, d:30] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_105 ====================
+[INFO] [ORIGINAL]: -(c + c & (c | b))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 0.479s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:36, d:9] Triton:[sz:165, d:17] Synthesized:[sz:116, d:16] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_106 ====================
+[INFO] [ORIGINAL]: ~~(-a)*(~(b + b | a*b) + b + a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 289.505s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:1025, d:18] Triton:[sz:29831, d:42] Synthesized:[sz:23327, d:44] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_107 ====================
+[INFO] [ORIGINAL]: -(~((-e + (e ^ b ^ a) & ~b) + (a & b)))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 24.050s
+[INFO] Orig:[sz:17, d:8] Obfu:[sz:268, d:15] Triton:[sz:5743, d:39] Synthesized:[sz:2867, d:37] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_108 ====================
+[INFO] [ORIGINAL]: -e - (~e + a)
+[INFO] [RESULT]: -(~(-a))
+[INFO] [TIME]: 0.109s
+[INFO] Orig:[sz:7, d:4] Obfu:[sz:58, d:9] Triton:[sz:193, d:18] Synthesized:[sz:4, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_109 ====================
+[INFO] [ORIGINAL]: ~~((e | a | a) - (d + a) ^ (e ^ d) - a ^ e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 19.794s
+[INFO] Orig:[sz:19, d:7] Obfu:[sz:348, d:17] Triton:[sz:5095, d:34] Synthesized:[sz:4351, d:36] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_110 ====================
+[INFO] [ORIGINAL]: (a ^ b) - b ^ a ^ --b
+[INFO] [RESULT]: (a ^ b) - b ^ a ^ b
+[INFO] [TIME]: 2.899s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:321, d:16] Triton:[sz:4511, d:35] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_111 ====================
+[INFO] [ORIGINAL]: b & --(b & b)*(-a ^ (a | b*b))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 235.979s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:419, d:16] Triton:[sz:33095, d:49] Synthesized:[sz:33063, d:49] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_112 ====================
+[INFO] [ORIGINAL]: ~(d | d | d & b)
+[INFO] [RESULT]: ~d
+[INFO] [TIME]: 0.047s
+[INFO] Orig:[sz:8, d:5] Obfu:[sz:74, d:15] Triton:[sz:93, d:21] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_113 ====================
+[INFO] [ORIGINAL]: e + ~e ^ (e & b | e) - --b
+[INFO] [RESULT]: ~e + b
+[INFO] [TIME]: 1.485s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:185, d:13] Triton:[sz:1583, d:29] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_114 ====================
+[INFO] [ORIGINAL]: --(~(a + a))
+[INFO] [RESULT]: ~(a + a)
+[INFO] [TIME]: 0.025s
+[INFO] Orig:[sz:6, d:5] Obfu:[sz:17, d:8] Triton:[sz:51, d:11] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_115 ====================
+[INFO] [ORIGINAL]: (e & a) + d | d ^ d | a - (d | e) - (e | a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 18.529s
+[INFO] Orig:[sz:19, d:5] Obfu:[sz:251, d:14] Triton:[sz:4103, d:34] Synthesized:[sz:2811, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_116 ====================
+[INFO] [ORIGINAL]: d + a*a + (a ^ (e | d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 72.846s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:536, d:16] Triton:[sz:16363, d:36] Synthesized:[sz:8489, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_117 ====================
+[INFO] [ORIGINAL]: ~(-(~(e + b - ((c ^ c) - e)) ^ ~c))
+[INFO] [RESULT]: ~(-(b + e + e ^ c))
+[INFO] [TIME]: 1.329s
+[INFO] Orig:[sz:15, d:8] Obfu:[sz:86, d:13] Triton:[sz:1489, d:27] Synthesized:[sz:9, d:6] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_118 ====================
+[INFO] [ORIGINAL]: b ^ c ^ (b | b | c)
+[INFO] [RESULT]: c & b
+[INFO] [TIME]: 0.303s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:65, d:9] Triton:[sz:519, d:24] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_119 ====================
+[INFO] [ORIGINAL]: -(d*d ^ (~c | c)) + ((d ^ d) & ~d)
+[INFO] [RESULT]: -(~(d*d))
+[INFO] [TIME]: 2.705s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:201, d:13] Triton:[sz:3542, d:31] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_120 ====================
+[INFO] [ORIGINAL]: ~((b*d ^ c) + (c + d ^ d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 15.108s
+[INFO] Orig:[sz:12, d:5] Obfu:[sz:130, d:14] Triton:[sz:3957, d:32] Synthesized:[sz:3635, d:34] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_121 ====================
+[INFO] [ORIGINAL]: d*(b*d - (d ^ d ^ b | d))
+[INFO] [RESULT]: (-(d | b) + d*b)*d
+[INFO] [TIME]: 13.196s
+[INFO] Orig:[sz:13, d:6] Obfu:[sz:1097, d:19] Triton:[sz:32269, d:47] Synthesized:[sz:10, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_122 ====================
+[INFO] [ORIGINAL]: c + ~e + (e - (c ^ b))*(-b - b)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 169.802s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:372, d:17] Triton:[sz:31983, d:43] Synthesized:[sz:23231, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_123 ====================
+[INFO] [ORIGINAL]: -(b ^ d*d + d)
+[INFO] [RESULT]: -(~d*-d ^ b)
+[INFO] [TIME]: 1.399s
+[INFO] Orig:[sz:8, d:5] Obfu:[sz:86, d:11] Triton:[sz:2199, d:31] Synthesized:[sz:8, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_124 ====================
+[INFO] [ORIGINAL]: (d + e | e + e ^ d)*(d - e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 69.965s
+[INFO] Orig:[sz:13, d:5] Obfu:[sz:473, d:16] Triton:[sz:15577, d:39] Synthesized:[sz:10675, d:41] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_125 ====================
+[INFO] [ORIGINAL]: -((a | b | b) ^ d & d)
+[INFO] [RESULT]: -((a | b) ^ d)
+[INFO] [TIME]: 0.481s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:138, d:14] Triton:[sz:581, d:25] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_126 ====================
+[INFO] [ORIGINAL]: (d + c)*a + -(~(a | a))
+[INFO] [RESULT]: -(~((d - ~c)*a))
+[INFO] [TIME]: 2.013s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:82, d:11] Triton:[sz:1633, d:27] Synthesized:[sz:8, d:6] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_127 ====================
+[INFO] [ORIGINAL]: (a | a)*(d + a - -(a - d)) ^ a & a & d & a
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 37.022s
+[INFO] Orig:[sz:20, d:6] Obfu:[sz:342, d:17] Triton:[sz:6061, d:33] Synthesized:[sz:5025, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_128 ====================
+[INFO] [ORIGINAL]: (a | d | a)*((a | a) & b)
+[INFO] [RESULT]: (d | a)*(a & b)
+[INFO] [TIME]: 2.421s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:213, d:12] Triton:[sz:2665, d:30] Synthesized:[sz:7, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_129 ====================
+[INFO] [ORIGINAL]: a - ~(---a)
+[INFO] [RESULT]: 1
+[INFO] [TIME]: 0.002s
+[INFO] Orig:[sz:7, d:6] Obfu:[sz:14, d:9] Triton:[sz:2, d:2] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_130 ====================
+[INFO] [ORIGINAL]: a & (b ^ b) & a & b
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 0.129s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:50, d:12] Triton:[sz:303, d:22] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_131 ====================
+[INFO] [ORIGINAL]: -(c - c | c + c | c) & -(d*d + c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 4.619s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:109, d:14] Triton:[sz:936, d:24] Synthesized:[sz:664, d:24] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_132 ====================
+[INFO] [ORIGINAL]: ~(--(c*a*b))
+[INFO] [RESULT]: ~(c*a*b)
+[INFO] [TIME]: 1.683s
+[INFO] Orig:[sz:8, d:6] Obfu:[sz:86, d:12] Triton:[sz:2651, d:29] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_133 ====================
+[INFO] [ORIGINAL]: e & d*d | d ^ e
+[INFO] [RESULT]: d*d & d | d ^ e
+[INFO] [TIME]: 1.422s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:71, d:11] Triton:[sz:1451, d:30] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_134 ====================
+[INFO] [ORIGINAL]: ~(e | (e | e) - b)*(b - (b | -e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 87.229s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:525, d:18] Triton:[sz:15649, d:40] Synthesized:[sz:10541, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_135 ====================
+[INFO] [ORIGINAL]: a*e - e*(e + a) - -e*(e - e)
+[INFO] [RESULT]: -e*e
+[INFO] [TIME]: 2.506s
+[INFO] Orig:[sz:16, d:5] Obfu:[sz:182, d:13] Triton:[sz:2645, d:26] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_136 ====================
+[INFO] [ORIGINAL]: (c | e & b | e) & b*b*c ^ b ^ e*b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 123.931s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:603, d:17] Triton:[sz:26799, d:44] Synthesized:[sz:26307, d:43] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_137 ====================
+[INFO] [ORIGINAL]: ~(-(a & a & a*e))
+[INFO] [RESULT]: ~(-(a*e & a))
+[INFO] [TIME]: 0.332s
+[INFO] Orig:[sz:9, d:5] Obfu:[sz:38, d:9] Triton:[sz:613, d:23] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_138 ====================
+[INFO] [ORIGINAL]: -(~((c + c)*(c | b - b)))
+[INFO] [RESULT]: -(~((c + c)*c))
+[INFO] [TIME]: 2.434s
+[INFO] Orig:[sz:11, d:6] Obfu:[sz:179, d:13] Triton:[sz:2777, d:30] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_139 ====================
+[INFO] [ORIGINAL]: ~~~(b*b)
+[INFO] [RESULT]: ~(b*b)
+[INFO] [TIME]: 0.133s
+[INFO] Orig:[sz:6, d:5] Obfu:[sz:26, d:11] Triton:[sz:251, d:17] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_140 ====================
+[INFO] [ORIGINAL]: b ^ b ^ c | e | e*c | b
+[INFO] [RESULT]: c*e | c | b | e
+[INFO] [TIME]: 2.895s
+[INFO] Orig:[sz:13, d:5] Obfu:[sz:252, d:16] Triton:[sz:3789, d:35] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_141 ====================
+[INFO] [ORIGINAL]: (-a + (a ^ a) | -a) ^ a*a
+[INFO] [RESULT]: a*a ^ -a
+[INFO] [TIME]: 1.763s
+[INFO] Orig:[sz:13, d:5] Obfu:[sz:227, d:12] Triton:[sz:2993, d:31] Synthesized:[sz:6, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_142 ====================
+[INFO] [ORIGINAL]: (a - d)*(a ^ b)*(a*(a ^ b) ^ ~b*(d - b))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 593.852s
+[INFO] Orig:[sz:20, d:5] Obfu:[sz:1385, d:16] Triton:[sz:68205, d:45] Synthesized:[sz:57837, d:46] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_143 ====================
+[INFO] [ORIGINAL]: -(a*c | a | a - -(b & a)) ^ -b - b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 23.953s
+[INFO] Orig:[sz:18, d:7] Obfu:[sz:309, d:17] Triton:[sz:4781, d:36] Synthesized:[sz:4412, d:36] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_144 ====================
+[INFO] [ORIGINAL]: (d & c) + -(c*a) ^ -(d - ~c - -c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 30.039s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:195, d:13] Triton:[sz:5299, d:33] Synthesized:[sz:5221, d:35] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_145 ====================
+[INFO] [ORIGINAL]: ((a | a) & ~(-b))*(c | c)*-(~c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 136.519s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:441, d:14] Triton:[sz:26211, d:43] Synthesized:[sz:16159, d:41] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_146 ====================
+[INFO] [ORIGINAL]: -(b | b & -e)
+[INFO] [RESULT]: -b
+[INFO] [TIME]: 0.031s
+[INFO] Orig:[sz:7, d:5] Obfu:[sz:36, d:11] Triton:[sz:63, d:16] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_147 ====================
+[INFO] [ORIGINAL]: (e ^ c) & e & (c - e)*(a + e) & (a - c ^ e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 39.057s
+[INFO] Orig:[sz:19, d:5] Obfu:[sz:250, d:13] Triton:[sz:8295, d:37] Synthesized:[sz:6359, d:37] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_148 ====================
+[INFO] [ORIGINAL]: ~(-c) ^ (c ^ a) - a
+[INFO] [RESULT]: (c ^ a) + ~a ^ c
+[INFO] [TIME]: 2.151s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:84, d:12] Triton:[sz:2067, d:29] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_149 ====================
+[INFO] [ORIGINAL]: ~a - (a + a*d) + (b ^ a) + (a & (b - a ^ a))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 47.076s
+[INFO] Orig:[sz:20, d:6] Obfu:[sz:289, d:16] Triton:[sz:9075, d:39] Synthesized:[sz:6885, d:40] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_150 ====================
+[INFO] [ORIGINAL]: (c & ~c) - d + (d + a | -a)*a
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 19.573s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:329, d:15] Triton:[sz:4625, d:33] Synthesized:[sz:2447, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_151 ====================
+[INFO] [ORIGINAL]: ~(--((a + e)*(b ^ a)*(b + a)))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 175.598s
+[INFO] Orig:[sz:14, d:7] Obfu:[sz:430, d:17] Triton:[sz:33019, d:39] Synthesized:[sz:25705, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_152 ====================
+[INFO] [ORIGINAL]: (b ^ e) + b + e + e
+[INFO] [RESULT]: (b | e) + (b | e) + e
+[INFO] [TIME]: 0.346s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:59, d:9] Triton:[sz:505, d:21] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_153 ====================
+[INFO] [ORIGINAL]: -(c*d & c + c) ^ ~~(-(d | d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 10.459s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:147, d:12] Triton:[sz:2245, d:31] Synthesized:[sz:1763, d:32] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_154 ====================
+[INFO] [ORIGINAL]: d*-(c & d | c)
+[INFO] [RESULT]: -d*c
+[INFO] [TIME]: 1.444s
+[INFO] Orig:[sz:8, d:5] Obfu:[sz:73, d:12] Triton:[sz:1197, d:29] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_155 ====================
+[INFO] [ORIGINAL]: a + (a | a) + a - b
+[INFO] [RESULT]: a - b + a + a
+[INFO] [TIME]: 1.244s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:129, d:10] Triton:[sz:1313, d:26] Synthesized:[sz:7, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_156 ====================
+[INFO] [ORIGINAL]: d + -(~(-d)) - (b ^ d) - (b - d)*b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 6.517s
+[INFO] Orig:[sz:16, d:7] Obfu:[sz:237, d:13] Triton:[sz:1552, d:25] Synthesized:[sz:1415, d:27] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_157 ====================
+[INFO] [ORIGINAL]: (d - (b ^ b))*(b - b)*((d*d | d) + d)
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 20.846s
+[INFO] Orig:[sz:17, d:5] Obfu:[sz:897, d:17] Triton:[sz:70837, d:45] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_158 ====================
+[INFO] [ORIGINAL]: (e*e*(a | e) | a) ^ ~((e ^ a)*(a - e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 264.591s
+[INFO] Orig:[sz:18, d:5] Obfu:[sz:372, d:15] Triton:[sz:35861, d:44] Synthesized:[sz:21571, d:44] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_159 ====================
+[INFO] [ORIGINAL]: -c*(d - d) | d | d | c
+[INFO] [RESULT]: d | c
+[INFO] [TIME]: 2.324s
+[INFO] Orig:[sz:12, d:4] Obfu:[sz:114, d:11] Triton:[sz:2015, d:30] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_160 ====================
+[INFO] [ORIGINAL]: d - a + (d ^ d) ^ a ^ d
+[INFO] [RESULT]: d - a ^ d ^ a
+[INFO] [TIME]: 1.226s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:89, d:9] Triton:[sz:1631, d:26] Synthesized:[sz:7, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_161 ====================
+[INFO] [ORIGINAL]: d ^ d | -(d ^ a ^ a)
+[INFO] [RESULT]: -d
+[INFO] [TIME]: 0.267s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:138, d:16] Triton:[sz:415, d:23] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_162 ====================
+[INFO] [ORIGINAL]: (~e ^ d) & d & ~(c - (d | e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 1.817s
+[INFO] Orig:[sz:13, d:6] Obfu:[sz:83, d:12] Triton:[sz:580, d:23] Synthesized:[sz:408, d:22] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_163 ====================
+[INFO] [ORIGINAL]: (b ^ -b) - b + (-d + d & (d | b*b))
+[INFO] [RESULT]: (-b ^ b) - b
+[INFO] [TIME]: 0.127s
+[INFO] Orig:[sz:17, d:5] Obfu:[sz:125, d:14] Triton:[sz:179, d:16] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_164 ====================
+[INFO] [ORIGINAL]: -(--(d | e) | ~(e - d) + d - e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 6.048s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:151, d:14] Triton:[sz:1687, d:28] Synthesized:[sz:1061, d:29] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_165 ====================
+[INFO] [ORIGINAL]: ~(d*e)*(d ^ d ^ e & e)*(d ^ d & d)
+[INFO] [RESULT]: 0
+[INFO] [TIME]: 103.876s
+[INFO] Orig:[sz:18, d:6] Obfu:[sz:1753, d:23] Triton:[sz:247807, d:53] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_166 ====================
+[INFO] [ORIGINAL]: (c | -b + c | ~b) + -b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 11.596s
+[INFO] Orig:[sz:12, d:6] Obfu:[sz:166, d:16] Triton:[sz:2683, d:35] Synthesized:[sz:1684, d:34] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_167 ====================
+[INFO] [ORIGINAL]: ~((b | b)*~(e*(e - (b - b))))
+[INFO] [RESULT]: ~(~(e*e)*b)
+[INFO] [TIME]: 14.575s
+[INFO] Orig:[sz:13, d:7] Obfu:[sz:584, d:20] Triton:[sz:34483, d:47] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_168 ====================
+[INFO] [ORIGINAL]: --(b*-a) | b + a ^ a
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 5.532s
+[INFO] Orig:[sz:12, d:6] Obfu:[sz:114, d:13] Triton:[sz:1169, d:27] Synthesized:[sz:947, d:28] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_169 ====================
+[INFO] [ORIGINAL]: ~(c*a*(c - (e ^ a)) | ~(a*e - (e & c)))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 52.752s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:215, d:17] Triton:[sz:9379, d:37] Synthesized:[sz:8943, d:37] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_170 ====================
+[INFO] [ORIGINAL]: -((d | a) - (a & e)) - d*a & (e ^ a + a | d)
+[INFO] [RESULT]: None (use Triton)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 25.448s
+[INFO] Orig:[sz:20, d:6] Obfu:[sz:359, d:16] Triton:[sz:5633, d:36] Synthesized:[sz:5633, d:36] [Simp:KO]  [FullSynth:KO]
+[INFO] ================ Processing function target_171 ====================
+[INFO] [ORIGINAL]: ~(e*d ^ e) + d + (-e ^ d) + (d & (d ^ d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 55.629s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:320, d:13] Triton:[sz:11005, d:34] Synthesized:[sz:3627, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_172 ====================
+[INFO] [ORIGINAL]: -(-(a + b) - (c & a))*(a + (a | c) & c + b)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 89.436s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:505, d:16] Triton:[sz:13781, d:39] Synthesized:[sz:12337, d:38] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_173 ====================
+[INFO] [ORIGINAL]: (e + b | b | e)*(-b ^ e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 30.295s
+[INFO] Orig:[sz:12, d:4] Obfu:[sz:221, d:11] Triton:[sz:4995, d:32] Synthesized:[sz:4315, d:32] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_174 ====================
+[INFO] [ORIGINAL]: (~b ^ e) + (b + b ^ b) + (-e ^ e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 42.312s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:347, d:15] Triton:[sz:8181, d:36] Synthesized:[sz:4487, d:36] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_175 ====================
+[INFO] [ORIGINAL]: ~~(e + b + b | -a)
+[INFO] [RESULT]: -a | b + b + e
+[INFO] [TIME]: 0.073s
+[INFO] Orig:[sz:10, d:6] Obfu:[sz:49, d:13] Triton:[sz:109, d:17] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_176 ====================
+[INFO] [ORIGINAL]: -(d & (c ^ c) ^ c - d + (d | c) | ~(c ^ c))
+[INFO] [RESULT]: 1
+[INFO] [TIME]: 2.666s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:378, d:19] Triton:[sz:7673, d:35] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_177 ====================
+[INFO] [ORIGINAL]: -(d - c + ~d) | -e | -(e - d)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 6.709s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:115, d:13] Triton:[sz:1477, d:27] Synthesized:[sz:1146, d:27] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_178 ====================
+[INFO] [ORIGINAL]: -(~((e | d) & e)) - -((d | a) & ~a)
+[INFO] [RESULT]: -(~d | a) + e
+[INFO] [TIME]: 1.508s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:106, d:13] Triton:[sz:1087, d:27] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_179 ====================
+[INFO] [ORIGINAL]: -d - (e ^ e) + (e*e & --e)
+[INFO] [RESULT]: (e*e & e) - d
+[INFO] [TIME]: 0.523s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:76, d:11] Triton:[sz:785, d:25] Synthesized:[sz:7, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_180 ====================
+[INFO] [ORIGINAL]: (a & b) - ~(e ^ e)
+[INFO] [RESULT]: -(~(a & b))
+[INFO] [TIME]: 0.056s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:19, d:7] Triton:[sz:109, d:13] Synthesized:[sz:5, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_181 ====================
+[INFO] [ORIGINAL]: (a*e & e)*b - (~b ^ a ^ --e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 181.376s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:441, d:15] Triton:[sz:32565, d:43] Synthesized:[sz:30033, d:44] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_182 ====================
+[INFO] [ORIGINAL]: c - (a & c) - (c & a + a)*c
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 13.469s
+[INFO] Orig:[sz:13, d:5] Obfu:[sz:113, d:14] Triton:[sz:2581, d:32] Synthesized:[sz:2245, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_183 ====================
+[INFO] [ORIGINAL]: (d | d) ^ e ^ ~(-((c | d) - c))*(e - e)
+[INFO] [RESULT]: d ^ e
+[INFO] [TIME]: 10.953s
+[INFO] Orig:[sz:17, d:7] Obfu:[sz:506, d:18] Triton:[sz:28533, d:40] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_184 ====================
+[INFO] [ORIGINAL]: ~(~(d - d) & a & (d ^ d - a) & d)
+[INFO] [RESULT]: ~(~d + a & d & a)
+[INFO] [TIME]: 0.252s
+[INFO] Orig:[sz:15, d:7] Obfu:[sz:67, d:16] Triton:[sz:405, d:23] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_185 ====================
+[INFO] [ORIGINAL]: (-d*~c ^ d) + d
+[INFO] [RESULT]: (d*c + d ^ d) + d
+[INFO] [TIME]: 1.443s
+[INFO] Orig:[sz:9, d:5] Obfu:[sz:189, d:13] Triton:[sz:2713, d:32] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_186 ====================
+[INFO] [ORIGINAL]: ~(b ^ b) | -e - (b - b)
+[INFO] [RESULT]: 18446744073709551615
+[INFO] [TIME]: 0.430s
+[INFO] Orig:[sz:11, d:4] Obfu:[sz:63, d:12] Triton:[sz:428, d:21] Synthesized:[sz:1, d:1] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_187 ====================
+[INFO] [ORIGINAL]: (c ^ b) + a ^ (c | c) - (b + c)
+[INFO] [RESULT]: (c ^ b) + a ^ -b
+[INFO] [TIME]: 0.910s
+[INFO] Orig:[sz:13, d:4] Obfu:[sz:125, d:10] Triton:[sz:1291, d:27] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_188 ====================
+[INFO] [ORIGINAL]: a + -(b - -a) | e & a & ~b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 1.911s
+[INFO] Orig:[sz:14, d:6] Obfu:[sz:97, d:15] Triton:[sz:411, d:22] Synthesized:[sz:321, d:23] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_189 ====================
+[INFO] [ORIGINAL]: ((c ^ c) & c*b & b - b) + ((b ^ b*b) & ~c)
+[INFO] [RESULT]: (b*b ^ b) & ~c
+[INFO] [TIME]: 5.600s
+[INFO] Orig:[sz:20, d:5] Obfu:[sz:246, d:14] Triton:[sz:11142, d:37] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_190 ====================
+[INFO] [ORIGINAL]: a ^ a*a ^ ~(d ^ a | a)
+[INFO] [RESULT]: (~d | a) ^ a*a
+[INFO] [TIME]: 2.975s
+[INFO] Orig:[sz:12, d:5] Obfu:[sz:121, d:12] Triton:[sz:4298, d:31] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_191 ====================
+[INFO] [ORIGINAL]: d + (c & c) + (~((c | c + d)*d) | ~(d & d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 192.361s
+[INFO] Orig:[sz:19, d:7] Obfu:[sz:512, d:19] Triton:[sz:26657, d:44] Synthesized:[sz:9162, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_192 ====================
+[INFO] [ORIGINAL]: d + d*(d + a) + (d & a)
+[INFO] [RESULT]: (d & a) - (~d - a)*d
+[INFO] [TIME]: 16.774s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:599, d:15] Triton:[sz:44563, d:40] Synthesized:[sz:10, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_193 ====================
+[INFO] [ORIGINAL]: e - (a + a) + ~(c & (c ^ c))
+[INFO] [RESULT]: ~(a + a) + e
+[INFO] [TIME]: 0.957s
+[INFO] Orig:[sz:12, d:5] Obfu:[sz:82, d:15] Triton:[sz:951, d:24] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_194 ====================
+[INFO] [ORIGINAL]: (b | e | b) + (b | b)
+[INFO] [RESULT]: (b | e) + b
+[INFO] [TIME]: 1.523s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:103, d:12] Triton:[sz:1151, d:26] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_195 ====================
+[INFO] [ORIGINAL]: a*e ^ d - (e & e)
+[INFO] [RESULT]: d - e ^ a*e
+[INFO] [TIME]: 1.053s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:99, d:9] Triton:[sz:1587, d:26] Synthesized:[sz:7, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_196 ====================
+[INFO] [ORIGINAL]: (d & e & b) - ((b & d) - e + e) + (b ^ -(e - d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 15.812s
+[INFO] Orig:[sz:20, d:6] Obfu:[sz:272, d:15] Triton:[sz:4193, d:34] Synthesized:[sz:2809, d:34] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_197 ====================
+[INFO] [ORIGINAL]: (a | a | c) - ~(-(~(a & c - a + c)))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 7.505s
+[INFO] Orig:[sz:16, d:8] Obfu:[sz:86, d:17] Triton:[sz:1407, d:32] Synthesized:[sz:945, d:30] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_198 ====================
+[INFO] [ORIGINAL]: e*c | c | e | b
+[INFO] [RESULT]: c*e | c | b | e
+[INFO] [TIME]: 1.041s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:106, d:12] Triton:[sz:793, d:24] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_199 ====================
+[INFO] [ORIGINAL]: -(e*(-e & e) | d - e - (d & d))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 7.061s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:169, d:14] Triton:[sz:1481, d:29] Synthesized:[sz:1095, d:29] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_200 ====================
+[INFO] [ORIGINAL]: ~c*e - (c - c & c + (e ^ e))
+[INFO] [RESULT]: ~c*e
+[INFO] [TIME]: 2.670s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:217, d:11] Triton:[sz:3481, d:36] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_201 ====================
+[INFO] [ORIGINAL]: c*(a*c ^ c | a) + a - a
+[INFO] [RESULT]: (c*a ^ c | a)*c
+[INFO] [TIME]: 39.503s
+[INFO] Orig:[sz:13, d:6] Obfu:[sz:595, d:18] Triton:[sz:97461, d:53] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_202 ====================
+[INFO] [ORIGINAL]: e - e + (a & e)*a
+[INFO] [RESULT]: (a & e)*a
+[INFO] [TIME]: 0.700s
+[INFO] Orig:[sz:9, d:4] Obfu:[sz:59, d:12] Triton:[sz:829, d:25] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_203 ====================
+[INFO] [ORIGINAL]: ((c ^ e) + -(a - c))*((c & e) + c & a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 97.714s
+[INFO] Orig:[sz:16, d:5] Obfu:[sz:421, d:16] Triton:[sz:18275, d:40] Synthesized:[sz:13275, d:42] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_204 ====================
+[INFO] [ORIGINAL]: -((c - -c | ~(c - d))*a*(c | a))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 54.363s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:420, d:16] Triton:[sz:7815, d:36] Synthesized:[sz:7681, d:36] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_205 ====================
+[INFO] [ORIGINAL]: -(e + e - (e | a)*e)*~(a & e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 70.634s
+[INFO] Orig:[sz:15, d:6] Obfu:[sz:253, d:17] Triton:[sz:11069, d:38] Synthesized:[sz:9817, d:37] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_206 ====================
+[INFO] [ORIGINAL]: (c - -a | e*c) + (a ^ e*e)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 70.626s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:371, d:15] Triton:[sz:13245, d:33] Synthesized:[sz:6851, d:32] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_207 ====================
+[INFO] [ORIGINAL]: ~(-(~(b + b + -a*e)))
+[INFO] [RESULT]: ~b + ~b + a*e
+[INFO] [TIME]: 1.459s
+[INFO] Orig:[sz:11, d:7] Obfu:[sz:124, d:13] Triton:[sz:1519, d:24] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_208 ====================
+[INFO] [ORIGINAL]: c + -d - ((c ^ e) - c)
+[INFO] [RESULT]: c + c - (c ^ e) - d
+[INFO] [TIME]: 0.191s
+[INFO] Orig:[sz:10, d:4] Obfu:[sz:41, d:11] Triton:[sz:197, d:16] Synthesized:[sz:9, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_209 ====================
+[INFO] [ORIGINAL]: (a ^ (d | a))*a + (a | -(a & (a ^ d)))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 106.549s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:575, d:18] Triton:[sz:16985, d:41] Synthesized:[sz:8729, d:39] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_210 ====================
+[INFO] [ORIGINAL]: ~((e ^ e - a - e) & a)
+[INFO] [RESULT]: ~((-a ^ e) & a)
+[INFO] [TIME]: 2.496s
+[INFO] Orig:[sz:10, d:6] Obfu:[sz:129, d:18] Triton:[sz:3131, d:34] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_211 ====================
+[INFO] [ORIGINAL]: (e - (e | ~e) - d)*((b - b | b) - (b + -d))
+[INFO] [RESULT]: -((~e + d)*d)
+[INFO] [TIME]: 8.310s
+[INFO] Orig:[sz:19, d:6] Obfu:[sz:929, d:17] Triton:[sz:19301, d:39] Synthesized:[sz:7, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_212 ====================
+[INFO] [ORIGINAL]: a & ~(~c | ~(e + ~(e & e)))
+[INFO] [RESULT]: c & a
+[INFO] [TIME]: 2.092s
+[INFO] Orig:[sz:13, d:8] Obfu:[sz:205, d:17] Triton:[sz:2183, d:32] Synthesized:[sz:3, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_213 ====================
+[INFO] [ORIGINAL]: -(~a + d & -b ^ (b - d ^ b)*~b)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 118.678s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:403, d:20] Triton:[sz:26192, d:43] Synthesized:[sz:14277, d:43] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_214 ====================
+[INFO] [ORIGINAL]: ~((e & e) + b - b) ^ (b ^ b) + b
+[INFO] [RESULT]: ~b ^ e
+[INFO] [TIME]: 1.887s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:127, d:12] Triton:[sz:1799, d:28] Synthesized:[sz:4, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_215 ====================
+[INFO] [ORIGINAL]: b - -a & (a | b & a)
+[INFO] [RESULT]: a + b & a
+[INFO] [TIME]: 0.254s
+[INFO] Orig:[sz:10, d:4] Obfu:[sz:63, d:11] Triton:[sz:385, d:24] Synthesized:[sz:5, d:3] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_216 ====================
+[INFO] [ORIGINAL]: ((c & a) - a)*-(a | a ^ a + c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 49.109s
+[INFO] Orig:[sz:14, d:6] Obfu:[sz:365, d:17] Triton:[sz:9461, d:38] Synthesized:[sz:4287, d:34] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_217 ====================
+[INFO] [ORIGINAL]: b*(b - (a ^ d) - (~b | a + d)) & b*a - a
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 122.973s
+[INFO] Orig:[sz:20, d:6] Obfu:[sz:897, d:20] Triton:[sz:20167, d:45] Synthesized:[sz:16581, d:47] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_218 ====================
+[INFO] [ORIGINAL]: (-a | ~e) & -a
+[INFO] [RESULT]: -a
+[INFO] [TIME]: 0.059s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:39, d:10] Triton:[sz:101, d:17] Synthesized:[sz:2, d:2] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_219 ====================
+[INFO] [ORIGINAL]: -(b & c) | e | c
+[INFO] [RESULT]: (c | b) - c - b | c | e
+[INFO] [TIME]: 0.164s
+[INFO] Orig:[sz:8, d:4] Obfu:[sz:26, d:9] Triton:[sz:161, d:18] Synthesized:[sz:11, d:5] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_220 ====================
+[INFO] [ORIGINAL]: d + ((e | d) ^ d ^ d ^ e)
+[INFO] [RESULT]: (~e & d) + d
+[INFO] [TIME]: 3.881s
+[INFO] Orig:[sz:11, d:5] Obfu:[sz:386, d:15] Triton:[sz:7769, d:36] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_221 ====================
+[INFO] [ORIGINAL]: (~c - c | e) + a + a
+[INFO] [RESULT]: (~(c + c) | e) + a + a
+[INFO] [TIME]: 0.115s
+[INFO] Orig:[sz:10, d:5] Obfu:[sz:67, d:12] Triton:[sz:185, d:18] Synthesized:[sz:10, d:6] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_222 ====================
+[INFO] [ORIGINAL]: ~(c*c) | (c | b - c) ^ c ^ c
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 13.472s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:241, d:14] Triton:[sz:2335, d:33] Synthesized:[sz:2252, d:34] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_223 ====================
+[INFO] [ORIGINAL]: (d & a) - d | e + d | e*d
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 12.082s
+[INFO] Orig:[sz:13, d:5] Obfu:[sz:235, d:15] Triton:[sz:2815, d:35] Synthesized:[sz:2186, d:36] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_224 ====================
+[INFO] [ORIGINAL]: (b ^ a - -b)*a*(--a - (a - a))
+[INFO] [RESULT]: (a + b ^ b)*a*a
+[INFO] [TIME]: 10.691s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:845, d:19] Triton:[sz:25833, d:41] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_225 ====================
+[INFO] [ORIGINAL]: ~(e*c) + (c & b & e) & (b ^ e)*(e - b)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 23.086s
+[INFO] Orig:[sz:18, d:5] Obfu:[sz:239, d:13] Triton:[sz:4907, d:32] Synthesized:[sz:3943, d:32] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_226 ====================
+[INFO] [ORIGINAL]: ~(((e | e) & e & e ^ ~a) + (a | -a))
+[INFO] [RESULT]: (a ^ e) - (-a | a)
+[INFO] [TIME]: 2.390s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:332, d:17] Triton:[sz:2868, d:31] Synthesized:[sz:8, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_227 ====================
+[INFO] [ORIGINAL]: (b & c) - c*b | ~b ^ c ^ --c
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 15.745s
+[INFO] Orig:[sz:16, d:5] Obfu:[sz:145, d:11] Triton:[sz:2895, d:32] Synthesized:[sz:2887, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_228 ====================
+[INFO] [ORIGINAL]: (c & b) - e ^ (b & c)*-b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 10.329s
+[INFO] Orig:[sz:12, d:4] Obfu:[sz:151, d:10] Triton:[sz:2523, d:31] Synthesized:[sz:2535, d:31] [Simp:KO]  [FullSynth:KO]
+[INFO] ================ Processing function target_229 ====================
+[INFO] [ORIGINAL]: (d | d + b) + d - (~(-(b*a)) ^ b + b)
+[INFO] [RESULT]: None (use Triton)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 6.190s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:153, d:13] Triton:[sz:1238, d:26] Synthesized:[sz:1238, d:26] [Simp:KO]  [FullSynth:KO]
+[INFO] ================ Processing function target_230 ====================
+[INFO] [ORIGINAL]: (b | d) & d*a*b ^ ((d ^ b) + b)*(d ^ b ^ a)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 237.813s
+[INFO] Orig:[sz:21, d:5] Obfu:[sz:625, d:14] Triton:[sz:36471, d:42] Synthesized:[sz:32325, d:43] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_231 ====================
+[INFO] [ORIGINAL]: (b ^ b) - c - e + (c*e | b - b)
+[INFO] [RESULT]: c*e - c - e
+[INFO] [TIME]: 4.673s
+[INFO] Orig:[sz:15, d:5] Obfu:[sz:228, d:16] Triton:[sz:8981, d:34] Synthesized:[sz:7, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_232 ====================
+[INFO] [ORIGINAL]: ~(d - c | ~(d & d))
+[INFO] [RESULT]: ~d + c & d
+[INFO] [TIME]: 0.180s
+[INFO] Orig:[sz:9, d:5] Obfu:[sz:39, d:11] Triton:[sz:315, d:20] Synthesized:[sz:6, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_233 ====================
+[INFO] [ORIGINAL]: ~~(c + d - -c) - (c | b)
+[INFO] [RESULT]: -(~c & b) + d + c
+[INFO] [TIME]: 0.038s
+[INFO] Orig:[sz:12, d:6] Obfu:[sz:26, d:9] Triton:[sz:59, d:12] Synthesized:[sz:9, d:5] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_234 ====================
+[INFO] [ORIGINAL]: b + -b | b | b*b | (d ^ b) - b
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 9.991s
+[INFO] Orig:[sz:16, d:6] Obfu:[sz:299, d:17] Triton:[sz:1908, d:29] Synthesized:[sz:1673, d:29] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_235 ====================
+[INFO] [ORIGINAL]: a & -(c + -c) | -(d & a) & ~(d | d)
+[INFO] [RESULT]: -(d & a) & ~d
+[INFO] [TIME]: 0.122s
+[INFO] Orig:[sz:17, d:6] Obfu:[sz:133, d:14] Triton:[sz:219, d:17] Synthesized:[sz:7, d:4] [Simp:OK]  [FullSynth:OK]
+[INFO] ================ Processing function target_236 ====================
+[INFO] [ORIGINAL]: e + e*c + e - (~a + (a & e))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 10.482s
+[INFO] Orig:[sz:14, d:5] Obfu:[sz:112, d:11] Triton:[sz:2677, d:32] Synthesized:[sz:1873, d:33] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_237 ====================
+[INFO] [ORIGINAL]: -((c + e + e | c ^ c) + -a - (e ^ ~a))
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 22.991s
+[INFO] Orig:[sz:18, d:6] Obfu:[sz:452, d:17] Triton:[sz:4727, d:36] Synthesized:[sz:4006, d:41] [Simp:OK]  [FullSynth:KO]
+[INFO] ================ Processing function target_238 ====================
+[INFO] [ORIGINAL]: (-c ^ c)*b & ~(b + c*c)
+[INFO] [RESULT]: too large
+[INFO] [TIME]: 21.605s
+[INFO] Orig:[sz:13, d:5] Obfu:[sz:194, d:11] Triton:[sz:4225, d:32] Synthesized:[sz:3111, d:31] [Simp:OK]  [FullSynth:KO]
+[INFO] ================== FINAL RESULTS ==================
+[INFO] Simplification: 234/239 (97.91%)
+[INFO] Full synthesis: 133/239 (55.65%)
+[INFO] Mean trace length: 3369.80
+[INFO] Mean sizes: [orig: 13.47] [obfu:246.50] [trit:9223.46] [synth:3812.84]
+[INFO] Scale size: [obf/orig:18.30] [synth/trit:0.41] [synth/orig:283.00]
+[INFO] Semantic equivalence: 0/239 (KO:0, UNK:239)
+[INFO] Time DSE:13m18s Synthesis:127m58s Total:8477.55s (Mean:35.47s/expr)
+[INFO] Overall time:8682.17s

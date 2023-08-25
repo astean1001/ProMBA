@@ -1,0 +1,1 @@
+python3 ./SiMBA/src/simplify.py "$1"
