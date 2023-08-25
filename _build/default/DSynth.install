@@ -1,7 +1,0 @@
-lib: [
-  "_build/install/default/lib/DSynth/META"
-  "_build/install/default/lib/DSynth/dune-package"
-]
-bin: [
-  "_build/install/default/bin/DSynth"
-]
