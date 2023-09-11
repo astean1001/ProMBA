@@ -1,0 +1,6 @@
+[submodule "SiMBA"]
+	path = SiMBA
+	url = git@github.com:astean1001/SiMBA.git
+[submodule "MBA-Solver"]
+	path = MBA-Solver
+	url = git@github.com:astean1001/MBA-Solver.git
