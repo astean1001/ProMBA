@@ -23,8 +23,8 @@ RUN sudo mkdir -p /experiment && sudo chown -R experiment /experiment
 WORKDIR /experiment
 
 # Install Duet
-RUN git clone https://github.com/wslee/duet.git
-RUN ["/bin/bash", "-c", "cd duet; ./build"]
+RUN git clone https://github.com/astean1001/duet.git
+RUN ["/bin/bash", "-c", "cd duet; ./build; eval `opam config env`; make"]
 
 # Install SimbaS
 RUN git clone https://github.com/astean1001/simba_synth.git
@@ -37,5 +37,6 @@ RUN ["/bin/bash", "-c", "cd eusolver; ./scripts/build.sh"]
 RUN mkdir -p /experiment/ProMBA
 COPY . /experiment/ProMBA/
 RUN cd /experiment/ProMBA; sudo chmod 777 *; ./build.sh
+RUN export LD_LIBRARY_PATH=/home/experiment/.opam/simba/lib/z3:~/.opam/4.08.0/lib/z3:$LD_LIBRARY_PATH 
 
 WORKDIR /experiment/ProMBA
