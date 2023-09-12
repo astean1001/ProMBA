@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ocaml/opam:ubuntu-20.04-opam
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y sudo && \
