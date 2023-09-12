@@ -1,9 +1,9 @@
 (lang dune 2.0)
 
-(name DSynth)
+(name ProMBA)
 
 (source
- (github pslhy/DSynth))
+ (github astean1001/ProMBA))
 
 (authors "@astean1001")
 
@@ -16,9 +16,9 @@
 (generate_opam_files true)
 
 (package
- (name DSynth)
- (synopsis "Binary Code Deobfuscation with DUET")
- (description "Improved program synthesis based approach on binary code deobfuscation with inductive program synthesizer that combines top-down deduction and bottom-up enumeration")
+ (name ProMBA)
+ (synopsis "MBA deobfuscator via Program Synthesis and Term Rewriting")
+ (description "ProMBA is a deobfuscator for the MBA obfuscator. It uses Program Synthesis and Term Rewriting to deobfuscate the obfuscated code.")
  (depends
   (ocaml (<= 4.6.0))
   (dune (>= 2.9.0))

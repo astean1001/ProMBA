@@ -1,1 +1,0 @@
-Name: target_352, Result: ((~ x) + (x * y)), Size: 6, OrigSize: 49, VarNum: 2, IsPoly: true, AlterOrig: 1, AlterDeob: 1, RuleNumber: 12, RuleCount: 3, LinearReduce: 29, SynthReduce: 0, RuleReduce: 20, Time: 1.000000

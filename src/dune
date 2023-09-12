@@ -1,5 +1,5 @@
 (executable
- (public_name DSynth)
+ (public_name ProMBA)
  (libraries yojson batteries cil lacaml integers)
  (name main)
  (promote

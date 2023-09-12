@@ -428,7 +428,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed top_succ
 (* 	|> solve *)
 
 (* 
-	DSynth : Binary Code Deobfuscation with DUET
+	ProMBA : MBA deobfuscator via Program Synthesis and Term Rewriting
 	Assumption :
 		i)   Function name with prefix "target_" is considered as deobfuscation problem
 *)

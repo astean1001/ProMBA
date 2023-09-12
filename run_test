@@ -1,0 +1,27 @@
+if [ "$1" = "qsynth" ]; then
+  ./promba.exe -debug -timeout 4000.0 -rulefile ./no.rules -norule -height 10 -timeout_sygus 3.0 -sygus ./simbas.sh -synth2 ./synth.sh -lsolver ./simbad ./qsynth_benchmark/qsynth.c 
+  exit 0;
+fi
+
+if [ "$1" = "mbasolve-poly" ]; then
+  ./promba.exe -debug -timeout 4000.0 -rulefile ./no.rules -norule -height 30 -timeout_sygus 3.0 -sygus ./simbas.sh -synth2 ./synth.sh -lsolver ./simbad ./mbasolve_benchmark/dataset_poly.c
+  exit 0;
+fi
+
+if [ "$1" = "mbasolve-nonpoly" ]; then
+  ./promba.exe -debug -timeout 4000.0 -rulefile ./no.rules -norule -height 30 -timeout_sygus 3.0 -sygus ./simbas.sh -synth2 ./synth.sh -lsolver ./simbad ./mbasolve_benchmark/dataset_nonpoly.c
+  exit 0;
+fi
+
+if [ "$1" = "loki" ]; then
+  ./promba.exe -debug -timeout 4000.0 -rulefile ./no.rules -norule -height 30 -timeout_sygus 3.0 -sygus ./simbas.sh -synth2 ./synth.sh -lsolver ./simbad ./loki_benchmark/loki.c
+  exit 0;
+fi
+
+if [ "$1" = "floki" ]; then
+  ./promba.exe -debug -timeout 4000.0 -rulefile ./no.rules -norule -height 30 -timeout_sygus 3.0 -sygus ./simbas.sh -synth2 ./synth.sh -lsolver ./simbad ./loki_benchmark/floki.c
+  exit 0;
+fi
+
+echo "Invaild Test benchmark! (qsynth|mbasolve-poly|mbasolve-nonpoly|loki|floki)"
+exit 1;
