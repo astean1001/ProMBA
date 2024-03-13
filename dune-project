@@ -5,7 +5,7 @@
 (source
  (github astean1001/ProMBA))
 
-(authors "@astean1001")
+(authors "Jane Doe <jane.doe@example.com>")
 
 (maintainers "@astean1001")
 
