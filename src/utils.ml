@@ -176,7 +176,7 @@ let to_sygus_pbe_file valuations varset =
 let base_const = BatSet.of_list [0;1;2;4;8]
 
 let to_sygus_file expr varset constset linear = 
-  let expr_refine = if Expr.size_of_expr expr = 1 then Expr.BExpr (Expr.Add (expr, Expr.Constant(0))) else expr in
+  let expr_refine = if Expr.size_of_expr expr = 1 then Expr.BExpr (Expr.Add, expr, Expr.Constant(0)) else expr in
   let varset = if BatSet.is_empty varset then BatSet.add "some_var" varset else varset in
   let nbit = if not linear then "64" else try bitvec_length (BatSet.max_elt constset) with _ -> "4" in
   let param_str = BatSet.fold (fun elem str -> str ^ " (" ^ elem ^ " (BitVec "^nbit^"))") varset "" in
