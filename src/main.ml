@@ -82,7 +82,7 @@ let rec normalize l r =
 				let repr = replace_subexpr expr r' (Var ("tmp"^(string_of_int cnt))) in
 				let constset = BatSet.union (set_of_const repl) (set_of_const repr) in
 				(* Ask SMT whether left and right side are semantically equivalent *)
-				let _ = Utils.to_smt_file repl repr (BatSet.union (set_of_var repl) (set_of_var repr)) (Utils.bitvec_length (try (BatSet.max_elt constset) with _ -> 0) ) in
+				let _ = Utils.to_smt_file repl repr (BatSet.union (set_of_var repl) (set_of_var repr)) (Utils.bitvec_length (try (BatSet.max_elt constset) with _ -> BV64.zero) ) in
 				if Utils.ask_smt false then
 					(repl, repr, cnt+1)
 				else 
@@ -278,7 +278,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 			if BatSet.is_empty nodeset_diff  then 
 				if top_succ then
 					let _ = debug "timeout : %f\n" !Options.timeout_sygus in
-					let _ = to_sygus_file problem (set_of_var problem) (BatSet.add (int_of_float (2. ** 33.)) BatSet.empty) (is_linear2 problem) in
+					let _ = to_sygus_file problem (set_of_var problem) (BatSet.add (BV64.int64 8589934592L) BatSet.empty) (is_linear2 problem) in
 					let sol' = if (check true)
 						then 
 							let csol = (evaluate_all_const_expr (parse_sygus false)) in
@@ -362,7 +362,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 					let _ = debug "solve status : %d\n" solve_status in
 					if (solve_status mod 2) = 0 then 
 						let sol = 
-							if sstat = 2 then (Constant 0) else if expr_lsolve || nary_linear then (substitute (evaluate_all_const_expr (parse_linear true)) varmap) else
+							if sstat = 2 then (Constant BV64.zero) else if expr_lsolve || nary_linear then (substitute (evaluate_all_const_expr (parse_linear true)) varmap) else
 							(substitute (evaluate_all_const_expr (parse_sygus (solve_status = 0))) varmap) in
 						let successed' = if expr_lsolve || nary_linear then successed else BatSet.add (substitute sol varmap) (BatSet.add limited successed) in
 						let linear_successed' = if expr_lsolve || nary_linear then BatSet.add (substitute sol varmap) (BatSet.add limited linear_successed) else linear_successed in

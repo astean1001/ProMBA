@@ -85,7 +85,7 @@ let rec set_of_int i =
 
 let rec minus_pos_to_neg_postive e = 
   match e with
-  | Constant c -> if c < BV64.zero then UExpr(Neg, Constant (Bv64.neg c)) else e
+  | Constant c -> if c < BV64.zero then UExpr(Neg, Constant (BV64.neg c)) else e
   | BExpr (b, e1, e2) -> BExpr (b, minus_pos_to_neg_postive e1, minus_pos_to_neg_postive e2)
   | UExpr (u, e1) -> UExpr (u, minus_pos_to_neg_postive e1)
   | Var _ -> e
@@ -258,7 +258,13 @@ let limit e height =
     in
     limit_inner e height BatMap.empty BatMap.empty
 
-let bitvec_of_int c = Bitvec.to_string c
+let to_bv64_str c = 
+  let bvstr = Bitvec.to_string c in
+  let bvstr = String.sub bvstr 2 ((String.length bvstr) - 2) in
+  let bvstr = String.make (16 - (String.length bvstr)) '0' ^ bvstr in
+  "#x" ^ bvstr
+
+let bitvec_of_int c = to_bv64_str c
 
 let bitvec_length c =
   if c <= (BV64.int64 16L)  then "4"
@@ -272,7 +278,7 @@ let bitvec_n_of_int n c =
   else if n = "8" then Printf.sprintf "#x%02x" (Bitvec.to_int c)
   else if n = "16" then  Printf.sprintf "#x%04x" (Bitvec.to_int c)
   else if n = "32" then  Printf.sprintf "#x%08x" (Bitvec.to_int c)
-  else  Bitvec.to_string c
+  else  to_bv64_str c
 
 let sygus_of_bop b =
   match b with

@@ -32,23 +32,22 @@ let linear_err = "linear_solve.err"
 let generated_cfile = "target.c"
 
 let bitvec_length c =
-  if c <= (int_of_float (2. ** 5.)) then "8"
-  else if c <= (int_of_float (2. ** 9.)) then "12"
-  else if c <= (int_of_float (2. ** 13.)) then "16"
-  else if c <= (int_of_float (2. ** 17.)) then "24"
-  else if c <= (int_of_float (2. ** 25.)) then "32"
+  if c <= (Expr.BV64.int64 16L)  then "4"
+  else if c <= (Expr.BV64.int64 256L) then "8"
+  else if c <= (Expr.BV64.int64 65536L) then "16"
+  else if c <= (Expr.BV64.int64 4294967296L) then "32"
   else "64"
 
-let bitvec_of_int c = if c = (-1) then "#xffffffffffffffff" else Printf.sprintf "#x%016x" c
+let bitvec_of_int c = Bitvec.to_string c
 
 let bitvec_n_of_int n c = 
-  if n = "4" then Printf.sprintf "#x%01x" c
-  else if n = "8" then Printf.sprintf "#x%02x" c
-  else if n = "12" then Printf.sprintf "#x%03x" c
-  else if n = "16" then Printf.sprintf "#x%04x" c
-  else if n = "24" then  Printf.sprintf "#x%06x" c
-  else if n = "32" then  Printf.sprintf "#x%08x" c
-  else  Printf.sprintf "#x%016x" c
+  if n = "4" then Printf.sprintf "#x%01x" (Bitvec.to_int c)
+  else if n = "8" then Printf.sprintf "#x%02x" (Bitvec.to_int c)
+  else if n = "12" then Printf.sprintf "#x%03x" (Bitvec.to_int c)
+  else if n = "16" then Printf.sprintf "#x%04x" (Bitvec.to_int c)
+  else if n = "24" then  Printf.sprintf "#x%06x" (Bitvec.to_int c)
+  else if n = "32" then  Printf.sprintf "#x%08x" (Bitvec.to_int c)
+  else  Bitvec.to_string c
 
 let time_of_string _ = 
   let time = Unix.time () in
@@ -173,7 +172,7 @@ let to_sygus_pbe_file valuations varset =
   let _ = string_to_file (sygus_dir ^ !Options.runid ^ sygus_file2) sygus in
   string_to_file (sygus_dir ^ !Options.runid ^ sygus_file) sygus
 
-let base_const = BatSet.of_list [0;1;2;4;8]
+let base_const = BatSet.of_list [(Expr.BV64.int 0);(Expr.BV64.int 1);(Expr.BV64.int 2);(Expr.BV64.int 4);(Expr.BV64.int 8)]
 
 let to_sygus_file expr varset constset linear = 
   let expr_refine = if (Expr.size_of_expr expr) < 2 then Expr.BExpr (Expr.Plus, expr, Expr.Constant(Expr.BV64.zero)) else expr in
