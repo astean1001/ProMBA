@@ -318,7 +318,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 					else if not (BatSet.is_empty nodeset_linear_diff) then get_largest_expr nodeset_linear_diff else get_smallest nodeset_diff in
 				if (size_of_expr choiced_expr) <= 2 then (* If it's already too small *)
 					let _ = debug "Choiced Expr is already small :: %s \n" (string_of_expr choiced_expr) in
-					solve_cegis probname origprob problem ruleset (BatSet.add choiced_expr visited) successed linear_successed top_succ start_time
+					solve_cegis probname origprob problem ruleset (BatSet.add choiced_expr visited) (BatSet.add choiced_expr successed) (BatSet.add choiced_expr linear_successed) top_succ start_time
 				else
 				let expr_linear = (is_linear2 choiced_expr) in
 				let expr_lsolve = not (!Options.lsolver = "") && expr_linear && not (BatSet.mem choiced_expr linear_successed) && ((BatSet.cardinal (set_of_var choiced_expr)) < 4) in (* 나온 결과가 최소 크기가 아닐 수도 있으므로, 합성기를 돌림 *)
