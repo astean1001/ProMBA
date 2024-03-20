@@ -4,9 +4,9 @@ synopsis: "MBA deobfuscator via Program Synthesis and Term Rewriting"
 description:
   "ProMBA is a deobfuscator for the MBA obfuscator. It uses Program Synthesis and Term Rewriting to deobfuscate the obfuscated code."
 maintainer: ["@astean1001"]
-authors: ["@astean1001"]
+authors: ["Jane Doe <jane.doe@example.com>"]
 license: "GPL-3.0-or-later"
-tags: ["deobfuscation", "Program Synthesis", "Term Rewriting"]
+tags: ["deobfuscation," "Program" "Synthesis"]
 homepage: "https://github.com/astean1001/ProMBA"
 doc: "https://psl.hanyang.ac.kr"
 bug-reports: "https://github.com/astean1001/ProMBA/issues"
