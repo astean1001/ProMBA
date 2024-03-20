@@ -206,8 +206,7 @@ let rec to_temp_var expr vnumber =
   | BExpr(And, e1, e2) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
   | BExpr(Or, e1, e2) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
   | BExpr(Xor, e1, e2) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
-  | UExpr(Neg, Constant BV64.one) -> Constant (BV64.int (-1))
-  | UExpr(Neg, e) -> UExpr(Neg, (to_temp_var e vnumber))
+  | UExpr(Neg, e) -> if e = Constant BV64.one then Constant (BV64.int (-1)) else UExpr(Neg, (to_temp_var e vnumber))
   | UExpr(Not, e) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
   | Var _ -> Var ("temp"^ (string_of_int (find_idx expr basis)))
   | Constant _ -> expr
@@ -305,9 +304,9 @@ let rec from_linear e varmap =
   | Constant _ -> e
 
 let rec replace_not_zero_to_minus_one e =
+  if e = UExpr(Not, Constant BV64.zero) then UExpr(Neg, Constant BV64.one) else
   match e with
   | BExpr(t,e1,e2) -> BExpr(t,replace_not_zero_to_minus_one e1, replace_not_zero_to_minus_one e2)
-  | UExpr(Not, Constant BV64.zero) -> UExpr(Neg, Constant BV64.one)
   | UExpr(t,e1) -> UExpr(t, replace_not_zero_to_minus_one e1)
   | Constant _ -> e
   | Var _ -> e
@@ -439,9 +438,7 @@ let rec remove_zeros expr =
   | BExpr(Minus,e1,e2) -> if (equal_expr e1 zero) then e2 else if (equal_expr e2 zero) then e1 else BExpr(Minus,remove_zeros e1,remove_zeros e2)
   | BExpr(Or,e1,e2) -> if (equal_expr e1 zero) then e2 else if (equal_expr e2 zero) then e1 else BExpr(Or,remove_zeros e1,remove_zeros e2)
   | BExpr(Xor,e1,e2) -> if (equal_expr e1 zero) then e2 else if (equal_expr e2 zero) then e1 else BExpr(Xor,remove_zeros e1,remove_zeros e2)
-  | UExpr(Not, Constant BV64.zero) -> Constant (BV64.int (-1))
-  | UExpr(Neg, Constant BV64.zero) -> zero
-  | _ -> expr
+  | _ -> if expr = UExpr(Not, Constant BV64.zero) then Constant (BV64.int (-1)) else if expr = UExpr(Neg, Constant BV64.zero) then zero else expr
 
 let mba_blast expr = 
   let (target, rvarmap) = to_linear expr BatMap.empty in
