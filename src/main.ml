@@ -444,7 +444,7 @@ let main () =
 			if !Options.mbasolve then 
 				let resexpr = solve_mbasolve "mba_problem" mbaexp (Unix.time ()) BatSet.empty in
 				(resexpr, prerule)
-			else solve_cegis "mba_problem" mbaexp mbaexp prerule BatSet.empty BatSet.empty false (Unix.time ()) in
+			else solve_cegis "mba_problem" mbaexp mbaexp prerule BatSet.empty BatSet.empty BatSet.empty false (Unix.time ()) in
 		let str_rules = BatSet.fold 
 			(fun rule str -> str ^ (string_of_expr (fst rule)) ^ "\n" ^ (string_of_expr (snd rule)) ^ "\n" )
 			ruleset' "" in
