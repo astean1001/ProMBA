@@ -25,9 +25,9 @@ let rec check_equiv_by_example n e1 e2 =
   if n = 0 then true
   else 
     let varmap = BatMap.add "var2" (Random.int 99999) (BatMap.add "var1" (Random.int 99999) BatMap.empty) in
-    let e1_res = evaluate e1 varmap in
-    let e2_res = evaluate e2 varmap in
-    if (Unsigned.UInt64.to_int e1_res) = (Unsigned.UInt64.to_int e2_res) then
+    let e1_res = evaluate_bitvec e1 varmap in
+    let e2_res = evaluate_bitvec e2 varmap in
+    if e1_res = e2_res then
       check_equiv_by_example (n-1) e1 e2
     else 
       false

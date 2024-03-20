@@ -25,7 +25,7 @@ let ruleapply = ref 0
 
 type id = string 
 
-type constant = int
+type constant = BV64.t
 
 type bop =
 | Plus  
@@ -85,14 +85,14 @@ let rec set_of_int i =
 
 let rec minus_pos_to_neg_postive e = 
   match e with
-  | Constant c -> if c < 0 then UExpr(Neg, Constant (-c)) else e
+  | Constant c -> if c < BV64.zero then UExpr(Neg, Constant (~- c)) else e
   | BExpr (b, e1, e2) -> BExpr (b, minus_pos_to_neg_postive e1, minus_pos_to_neg_postive e2)
   | UExpr (u, e1) -> UExpr (u, minus_pos_to_neg_postive e1)
   | Var _ -> e
 
 let rec expr_of_cil cexpr = 
   match cexpr with
-  | Const (CInt64 (i, _, _)) -> Constant(Int64.to_int i)
+  | Const (CInt64 (i, _, _)) -> Constant(BV64.int64 i)
   | Lval l -> Var (CilHelper.s_lv l)
   | CastE (t,e) -> (expr_of_cil e)
   | UnOp (u, e, _) -> 
@@ -147,14 +147,14 @@ let string_of_uop u =
 
 let rec string_of_expr e = 
   match e with
-  | Constant c -> string_of_int c
+  | Constant c -> Int64.to_string (BV64.to_int64 c)
   | BExpr (b, e1, e2) -> "(" ^ (string_of_expr e1) ^ " " ^ (string_of_bop b) ^ " " ^ (string_of_expr e2) ^ ")"
   | UExpr (u, e1) -> "(" ^ (string_of_uop u) ^ " " ^ (string_of_expr e1) ^ ")"
   | Var v -> v
 
 let rec string_of_expr2 e = 
   match e with
-  | Constant c -> string_of_int c
+  | Constant c -> Int64.to_string (BV64.to_int64 c)
   | BExpr (Xor, e1, e2) -> "(" ^ (string_of_expr2 e1) ^ (string_of_bop Xor)  ^ (string_of_expr2 e2) ^ ")"
   | BExpr (And, e1, e2) -> "(" ^ (string_of_expr2 e1)  ^ (string_of_bop And)  ^ (string_of_expr2 e2) ^ ")"
   | BExpr (Or, e1, e2) ->  "(" ^ (string_of_expr2 e1)  ^ (string_of_bop Or) ^ (string_of_expr2 e2) ^ ")"
@@ -258,21 +258,21 @@ let limit e height =
     in
     limit_inner e height BatMap.empty BatMap.empty
 
-let bitvec_of_int c = if c = (-1) then "#xffffffffffffffff" else Printf.sprintf "#x%016x" c
+let bitvec_of_int c = BV64.to_string c
 
 let bitvec_length c =
-  if c <= (int_of_float (2. ** 4.)) then "4"
-  else if c <= (int_of_float (2. ** 8.)) then "8"
-  else if c <= (int_of_float (2. ** 16.)) then "16"
-  else if c <= (int_of_float (2. ** 32.)) then "32"
+  if c <= (BV64.int64 16L)  then "4"
+  else if c <= (BV64.int64 256L) then "8"
+  else if c <= (BV64.int64 65536L) then "16"
+  else if c <= (BV64.int64 4294967296L) then "32"
   else "64"
 
 let bitvec_n_of_int n c = 
-  if n = "4" then Printf.sprintf "#x%01x" c
-  else if n = "8" then Printf.sprintf "#x%02x" c
-  else if n = "16" then  Printf.sprintf "#x%04x" c
-  else if n = "32" then  Printf.sprintf "#x%08x" c
-  else  Printf.sprintf "#x%016x" c
+  if n = "4" then Printf.sprintf "#x%01x" (BV64.to_int c)
+  else if n = "8" then Printf.sprintf "#x%02x" (BV64.to_int c)
+  else if n = "16" then  Printf.sprintf "#x%04x" (BV64.to_int c)
+  else if n = "32" then  Printf.sprintf "#x%08x" (BV64.to_int c)
+  else  BV64.to_string c
 
 let sygus_of_bop b =
   match b with
@@ -424,7 +424,7 @@ let rec apply_rules e ruleset mem =
 (* Take expr and inputMap (String -> Int) and give evaluation result  *)
 let rec evaluate expr inputMap = 
   match expr with
-  | Constant c -> Unsigned.UInt64.of_int c
+  | Constant c -> Unsigned.UInt64.of_int64 (BV64.to_int64 c)
   | BExpr(Plus, e1, e2) -> Unsigned.UInt64.add (evaluate e1 inputMap) (evaluate e2 inputMap)
   | BExpr(Minus, e1, e2) -> Unsigned.UInt64.sub (evaluate e1 inputMap) (evaluate e2 inputMap)
   | BExpr(Mul, e1, e2) -> Unsigned.UInt64.mul (evaluate e1 inputMap) (evaluate e2 inputMap)
@@ -522,9 +522,8 @@ let rec is_linear2 e =
 
 let rec evaluate_all_const_expr e = 
   if not !Options.evaluate_expr then e
-  else if BatSet.is_empty (set_of_var e) && 
-    not ((Unsigned.UInt64.compare (evaluate e BatMap.empty) (Unsigned.UInt64.of_int max_int)) > 0) then
-      (Constant (Unsigned.UInt64.to_int (evaluate e BatMap.empty)))
+  else if BatSet.is_empty (set_of_var e) then
+      (Constant (evaluate_bitvec e BatMap.empty))
   else match e with
   | Constant c -> e
   | BExpr(b,e1,e2) -> BExpr(b,evaluate_all_const_expr e1,evaluate_all_const_expr e2)
@@ -543,9 +542,9 @@ let limit2 e height =
   in
   let rec limit2_inner ei heighti varmap rev_varmap = 
     let target_set = find_limit_target ei heighti in
-    let smallest = try BatSet.fold (fun e se -> if (size_of_expr e) < (size_of_expr se) then e else se ) target_set (BatSet.any target_set) with _ -> Constant 0 in
+    let smallest = try BatSet.fold (fun e se -> if (size_of_expr e) < (size_of_expr se) then e else se ) target_set (BatSet.any target_set) with _ -> (Constant BV64.zero) in
     let varname = "tempvar" ^ (string_of_int (BatMap.cardinal varmap)) in
-    if not (equal_expr smallest (Constant 0)) then 
+    if not (equal_expr smallest (Constant BV64.zero)) then 
       limit2_inner (replace_expr ei (Var varname) smallest) heighti (BatMap.add varname smallest varmap) (BatMap.add smallest varname rev_varmap)
     else ei, varmap, rev_varmap
   in

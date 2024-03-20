@@ -211,14 +211,8 @@ let rec solve_onlyrule probname origprob problem ruleset visited start_time =
 				let choiced_expr = get_smallest nodeset_diff in
 				let visited' = BatSet.add choiced_expr visited in
 				if !Options.evaluate_expr && (is_constant choiced_expr) then (* If there is no var in expr *)
-					if (Unsigned.UInt64.compare (evaluate choiced_expr BatMap.empty) (Unsigned.UInt64.of_int max_int)) > 0 then 
-						solve_onlyrule probname origprob problem ruleset visited' start_time
-					else
-						if (Unsigned.UInt64.compare (evaluate choiced_expr BatMap.empty) (Unsigned.UInt64.of_int max_int)) > 0 then 
-							solve_onlyrule probname origprob problem ruleset visited' start_time
-						else
-							let evaluated = if !Options.evaluate_expr then (Constant (Unsigned.UInt64.to_int (evaluate choiced_expr BatMap.empty))) else choiced_expr in
-							solve_onlyrule probname origprob (replace_expr problem evaluated choiced_expr) ruleset visited' start_time
+					let evaluated = if !Options.evaluate_expr then (Constant (evaluate_bitvec choiced_expr BatMap.empty)) else choiced_expr in
+					solve_onlyrule probname origprob (replace_expr problem evaluated choiced_expr) ruleset visited' start_time
 			else 
 				let _ = debug "Orig Expr: %s\n" (string_of_expr problem)  in
 				let _ = debug "Size of Orig Expr: %d\n" (size_of_expr problem)  in
@@ -348,7 +342,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 				let _ = if (is_poly limited) then debug "Poly expr : %s\n" (string_of_expr2 limited) else () in
 				let visited' = if expr_lsolve || nary_linear then visited else if expr_nary_solvable && (not nary_linear) then BatSet.add limited visited else BatSet.add choiced_expr visited in (* Linear expr should be synthesized *)
 				if !Options.evaluate_expr && is_constant choiced_expr then (* If there is no var in expr *)
-					let evaluated = if !Options.evaluate_expr then (Constant (Bitvec.to_int (evaluate_bitvec choiced_expr BatMap.empty))) else choiced_expr in
+					let evaluated = if !Options.evaluate_expr then (Constant (evaluate_bitvec choiced_expr BatMap.empty)) else choiced_expr in
 					solve_cegis probname origprob (replace_expr problem evaluated choiced_expr) ruleset visited' successed linear_successed top_succ start_time
 				else 
 					let _ = debug "Orig Expr: %s\n" (string_of_expr problem)  in
