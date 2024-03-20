@@ -366,7 +366,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 						let sol = 
 							if sstat = 2 then (Constant 0) else if expr_lsolve || nary_linear then (substitute (evaluate_all_const_expr (parse_linear true)) varmap) else
 							(substitute (evaluate_all_const_expr (parse_sygus (solve_status = 0))) varmap) in
-						let successed' = if expr_lsolve || nary_linear then suuccessed else BatSet.add (substitute sol varmap) (BatSet.add limited successed) in
+						let successed' = if expr_lsolve || nary_linear then successed else BatSet.add (substitute sol varmap) (BatSet.add limited successed) in
 						let linear_successed' = if expr_lsolve || nary_linear then BatSet.add (substitute sol varmap) (BatSet.add limited linear_successed) else linear_successed in
 						let _ = if solve_status = 2 then debug "Deobfuscate Sucessful! (Trivial Answer)\n" 
 							else if solve_status = 4 then debug "Deobfuscate Sucessful! (Checker Answer)\n" 
