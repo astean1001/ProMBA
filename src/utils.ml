@@ -38,7 +38,13 @@ let bitvec_length c =
   else if c <= (Expr.BV64.int64 4294967296L) then "32"
   else "64"
 
-let bitvec_of_int c = Bitvec.to_string c
+let to_bv64_str c = 
+  let bvstr = Bitvec.to_string c in
+  let bvstr = String.sub bvstr 2 ((String.length bvstr) - 2) in
+  let bvstr = String.make (16 - (String.length bvstr)) '0' ^ bvstr in
+  "#x" ^ bvstr
+
+let bitvec_of_int c = to_bv64_str c
 
 let bitvec_n_of_int n c = 
   if n = "4" then Printf.sprintf "#x%01x" (Bitvec.to_int c)
@@ -47,7 +53,7 @@ let bitvec_n_of_int n c =
   else if n = "16" then Printf.sprintf "#x%04x" (Bitvec.to_int c)
   else if n = "24" then  Printf.sprintf "#x%06x" (Bitvec.to_int c)
   else if n = "32" then  Printf.sprintf "#x%08x" (Bitvec.to_int c)
-  else  Bitvec.to_string c
+  else  to_bv64_str c
 
 let time_of_string _ = 
   let time = Unix.time () in
