@@ -12,6 +12,8 @@
 open Cil
 open CilHelper
 
+module BV64 = Bitvec.M64 
+
 exception BadCode
 exception Mismatch
 exception ReplaceFailed
@@ -437,6 +439,23 @@ let rec evaluate expr inputMap =
   | UExpr(Not, e1) -> Unsigned.UInt64.lognot (evaluate e1 inputMap)
   | Var v ->  Unsigned.UInt64.of_int (BatMap.find v inputMap)
 
+
+  let rec evaluate_bitvec expr inputMap = 
+    match expr with
+    | Constant c -> BV64.int c
+    | BExpr(Plus, e1, e2) -> BV64.add (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(Minus, e1, e2) -> BV64.sub (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(Mul, e1, e2) -> BV64.mul (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(Xor, e1, e2) -> BV64.logxor (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(And, e1, e2) -> BV64.logand (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(Or, e1, e2) -> BV64.logor (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(Div, e1, e2) -> BV64.div (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(RShift, e1, e2) -> BV64.rshift (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(Mod, e1, e2) -> BV64.rem (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | BExpr(LShift, e1, e2) -> BV64.lshift (evaluate e1 inputMap) (evaluate e2 inputMap)
+    | UExpr(Neg, e1) -> BV64.neg (evaluate e1 inputMap)
+    | UExpr(Not, e1) -> BV64.lnot (evaluate e1 inputMap)
+    | Var v ->  BV64.int (BatMap.find v inputMap)
 
 let rec no_nonpoly e =
   match e with 

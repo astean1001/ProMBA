@@ -19,6 +19,7 @@ depends: [
   "yojson"
   "lacaml"
   "integers"
+  "bitvec"
 ]
 build: [
   ["dune" "subst"] {pinned}

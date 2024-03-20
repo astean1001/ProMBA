@@ -1,6 +1,6 @@
 (executable
  (public_name ProMBA)
- (libraries yojson batteries cil lacaml integers)
+ (libraries yojson batteries cil lacaml integers bitvec)
  (name main)
  (promote
   (until-clean)

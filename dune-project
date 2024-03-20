@@ -22,7 +22,7 @@
  (depends
   (ocaml (<= 4.6.0))
   (dune (>= 2.9.0))
-  z3 batteries cil yojson lacaml integers
+  z3 batteries cil yojson lacaml integers bitvec
  )
  (tags
   (deobfuscation, Program Synthesis)
