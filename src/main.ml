@@ -272,7 +272,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 			(problem, ruleset)
 		else
 			let nodeset_linear = BatSet.filter (fun e -> (is_linear2 e) && not (is_constant e) ) nodeset in 
-			let nodeset_linear_diff = BatSet.diff nodeset_linear successed in
+			let nodeset_linear_diff = BatSet.diff nodeset_linear visited in
 			let nodeset_limit = BatSet.filter (fun e -> true) nodeset in 
 			let nodeset_diff = BatSet.diff nodeset_limit visited in
 			if BatSet.is_empty nodeset_diff  then 
