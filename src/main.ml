@@ -317,6 +317,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 				let choiced_expr = if BatSet.is_empty visited && (not top_succ) then problem 
 					else if not (BatSet.is_empty nodeset_linear_diff) then get_largest_expr nodeset_linear_diff else get_smallest nodeset_diff in
 				if (size_of_expr choiced_expr) <= 2 then (* If it's already too small *)
+					let _ = debug "Choiced Expr is already small :: %s \n" (string_of_expr choiced_expr) in
 					solve_cegis probname origprob problem ruleset (BatSet.add choiced_expr visited) successed linear_successed top_succ start_time
 				else
 				let expr_linear = (is_linear2 choiced_expr) in
