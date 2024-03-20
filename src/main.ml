@@ -316,6 +316,9 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 			else 
 				let choiced_expr = if BatSet.is_empty visited && (not top_succ) then problem 
 					else if not (BatSet.is_empty nodeset_linear_diff) then get_largest_expr nodeset_linear_diff else get_smallest nodeset_diff in
+				if (size_of_expr choiced_expr) <= 2 then (* If it's already too small *)
+					solve_cegis probname origprob problem ruleset (BatSet.add choiced_expr visited) successed linear_successed top_succ start_time
+				else
 				let expr_linear = (is_linear2 choiced_expr) in
 				let expr_lsolve = not (!Options.lsolver = "") && expr_linear && not (BatSet.mem choiced_expr linear_successed) && ((BatSet.cardinal (set_of_var choiced_expr)) < 4) in (* 나온 결과가 최소 크기가 아닐 수도 있으므로, 합성기를 돌림 *)
 				(* 쪼갠 게 Linear이면 *)
@@ -342,7 +345,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 				let nary_linear = not (!Options.lsolver = "") && expr_nary_solvable && (is_linear2 limited) &&  not (BatSet.mem limited linear_successed) && ((BatSet.cardinal (set_of_var limited)) < 4) in 
 				let _ = if expr_nary_solvable then debug "Target expr can be solved with nary tatics %s\n" (if nary_linear then " (linear)" else "") else () in
 				let _ = if (is_poly limited) then debug "Poly expr : %s\n" (string_of_expr2 limited) else () in
-				let visited' = if expr_nary_solvable && (not nary_linear) then BatSet.add limited visited else if expr_linear || nary_linear then visited else BatSet.add choiced_expr visited in (* Linear expr should be synthesized *)
+				let visited' = if expr_lsolve || nary_linear then visited else if expr_nary_solvable && (not nary_linear) then BatSet.add limited visited else BatSet.add choiced_expr visited in (* Linear expr should be synthesized *)
 				if !Options.evaluate_expr && is_constant choiced_expr then (* If there is no var in expr *)
 					let evaluated = if !Options.evaluate_expr then (Constant (Unsigned.UInt64.to_int (evaluate choiced_expr BatMap.empty))) else choiced_expr in
 					solve_cegis probname origprob (replace_expr problem evaluated choiced_expr) ruleset visited' successed linear_successed top_succ start_time
