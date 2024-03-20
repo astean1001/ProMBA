@@ -343,6 +343,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 				let visited' = if expr_lsolve || nary_linear then visited else if expr_nary_solvable && (not nary_linear) then BatSet.add limited visited else BatSet.add choiced_expr visited in (* Linear expr should be synthesized *)
 				if !Options.evaluate_expr && is_constant choiced_expr then (* If there is no var in expr *)
 					let evaluated = if !Options.evaluate_expr then (Constant (evaluate_bitvec choiced_expr BatMap.empty)) else choiced_expr in
+					let _ = if !Options.evaluate_expr then debug "Evaluated : %s -> %s\n" (string_of_expr choiced_expr) (string_of_expr evaluated) else () in
 					solve_cegis probname origprob (replace_expr problem evaluated choiced_expr) ruleset visited' successed linear_successed top_succ start_time
 				else 
 					let _ = debug "Orig Expr: %s\n" (string_of_expr problem)  in
