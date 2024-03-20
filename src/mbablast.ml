@@ -42,16 +42,16 @@ let get_basis vnumber =
   let x = Var "var1" in
   let y = Var "var2" in
   let z = Var "var3" in
-  if vnumber = 1 then [x; UExpr(Neg, Constant 1)]
-  else if vnumber = 2 then [x; y; BExpr(And,x,y); UExpr(Neg, Constant 1)]
-  else if vnumber = 3 then [x; y; z; BExpr(And,x,y); BExpr(And,x,z); BExpr(And,y,z); BExpr(And,x,BExpr(And,y,z)); UExpr(Neg, Constant 1)]
+  if vnumber = 1 then [x; UExpr(Neg, Constant BV64.one)]
+  else if vnumber = 2 then [x; y; BExpr(And,x,y); UExpr(Neg, Constant BV64.one)]
+  else if vnumber = 3 then [x; y; z; BExpr(And,x,y); BExpr(And,x,z); BExpr(And,y,z); BExpr(And,x,BExpr(And,y,z)); UExpr(Neg, Constant BV64.one)]
   else raise NotSupported
 
 let get_replaceable_bit vnumber =
   let x = Var "var1" in
   let y = Var "var2" in
   let z = Var "var3" in
-  if vnumber = 1 then [Constant 0; x; UExpr(Not, x); UExpr(Neg, Constant 1)]
+  if vnumber = 1 then [Constant BV64.zero; x; UExpr(Not, x); UExpr(Neg, Constant BV64.one)]
   else if vnumber = 2 then List.map (fun s -> Utils.parse_mba s) (Utils.get_lines "2variable_booltable.txt")
   else if vnumber = 3 then List.map (fun s -> Utils.parse_mba s) (Utils.get_lines "3variable_booltable.txt")
   else raise NotSupported
@@ -98,9 +98,9 @@ let to_floatlist l =
 
 let rec bit_to_expr bitlist basis =
   match bitlist, basis with
-  | n::[], e::[] -> BExpr(Mul, (if n > 0 then Constant n else if n = 0 then Constant 0 else UExpr(Neg, Constant (-n))), e)
+  | n::[], e::[] -> BExpr(Mul, (if n > 0 then Constant (BV64.int n) else if n = 0 then Constant (BV64.int n) else UExpr(Neg, Constant (BV64.int (-n)))), e)
   | 0::t1, e::t2 -> bit_to_expr t1 t2
-  | n::t1, e::t2 -> BExpr(Plus,BExpr(Mul, (if n > 0 then Constant n else UExpr(Neg, Constant (-n))), e), bit_to_expr t1 t2)
+  | n::t1, e::t2 -> BExpr(Plus,BExpr(Mul, (if n > 0 then Constant (BV64.int n) else UExpr(Neg, Constant (BV64.int (-n)))), e), bit_to_expr t1 t2)
   | _, _ -> raise BadParams
 
 let basis_of_bittable vnumber = 
@@ -198,7 +198,7 @@ let rec to_temp_var expr vnumber =
     | [] -> 0
     | v::t -> if equal_expr e v then 1 else (find_idx e t) + 1
   in
-  let minusone = UExpr(Neg, Constant 1) in
+  let minusone = UExpr(Neg, Constant BV64.one) in
   match expr with
   | BExpr(Plus, e1, e2) -> BExpr(Plus, (to_temp_var e1 vnumber), (to_temp_var e2 vnumber))
   | BExpr(Minus, e1, e2) -> BExpr(Minus, (to_temp_var e1 vnumber), (to_temp_var e2 vnumber))
@@ -206,7 +206,7 @@ let rec to_temp_var expr vnumber =
   | BExpr(And, e1, e2) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
   | BExpr(Or, e1, e2) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
   | BExpr(Xor, e1, e2) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
-  | UExpr(Neg, Constant 1) -> Constant (-1)
+  | UExpr(Neg, Constant BV64.one) -> Constant (BV64.int (-1))
   | UExpr(Neg, e) -> UExpr(Neg, (to_temp_var e vnumber))
   | UExpr(Not, e) -> Var ("temp"^ (string_of_int (find_idx expr basis)))
   | Var _ -> Var ("temp"^ (string_of_int (find_idx expr basis)))
@@ -307,7 +307,7 @@ let rec from_linear e varmap =
 let rec replace_not_zero_to_minus_one e =
   match e with
   | BExpr(t,e1,e2) -> BExpr(t,replace_not_zero_to_minus_one e1, replace_not_zero_to_minus_one e2)
-  | UExpr(Not, Constant 0) -> UExpr(Neg, Constant 1)
+  | UExpr(Not, Constant BV64.zero) -> UExpr(Neg, Constant BV64.one)
   | UExpr(t,e1) -> UExpr(t, replace_not_zero_to_minus_one e1)
   | Constant _ -> e
   | Var _ -> e
@@ -339,7 +339,7 @@ let rec get_coefficients expr is_minus res vnumber =
   | BExpr(Mul, Var x, Constant c) -> 
     let idx = ((int_of_string (BatString.lchop ~n:4 x))-1) in
     (* let _ = debug "idx : %d\n" idx in *)
-    list_update res idx ((List.nth res idx) + (is_minus*c))
+    list_update res idx ((List.nth res idx) + (is_minus*(Bitvec.to_int c)))
   | BExpr(Minus, e1, e2) -> get_coefficients e2 (-is_minus) (get_coefficients e1 is_minus res vnumber) vnumber
   | UExpr(Neg, e1) -> get_coefficients e1 (-is_minus) res vnumber
   | BExpr(b,e1,e2) -> get_coefficients e2 is_minus (get_coefficients e1 is_minus res vnumber) vnumber
@@ -347,14 +347,14 @@ let rec get_coefficients expr is_minus res vnumber =
   | Var x -> 
     let idx = ((int_of_string (BatString.lchop ~n:4 x))-1) in
     list_update res idx ((List.nth res idx) + is_minus)
-  | Constant c -> list_update res (bit_length-1) (((List.nth res (bit_length-1))) + (-1 * c * is_minus))
+  | Constant c -> list_update res (bit_length-1) (((List.nth res (bit_length-1))) + (-1 * (Bitvec.to_int c) * is_minus))
   | _ -> res
 
 let rec list_to_exprlist l i vnumber =
   let bits = get_replaceable_bit vnumber in
   match l with
   | 0::t -> (list_to_exprlist t (i+1) vnumber)
-  | h::t -> BExpr(Mul, Constant h, (List.nth bits i)) :: (list_to_exprlist t (i+1) vnumber)
+  | h::t -> BExpr(Mul, Constant (BV64.int h), (List.nth bits i)) :: (list_to_exprlist t (i+1) vnumber)
   | [] -> [] 
 
 let rec exprlist_to_expr l = 
@@ -431,7 +431,7 @@ let reduce_mba_with_bool e vnumber =
   else e
 
 let rec remove_zeros expr =
-  let zero = Constant 0 in
+  let zero = Constant BV64.zero in
   match expr with
   | BExpr(And,e1,e2) -> if (equal_expr e1 zero) || (equal_expr e2 zero) then zero else BExpr(And,remove_zeros e1,remove_zeros e2)
   | BExpr(Mul,e1,e2) -> if (equal_expr e1 zero) || (equal_expr e2 zero) then zero else BExpr(Mul,remove_zeros e1,remove_zeros e2)
@@ -439,8 +439,8 @@ let rec remove_zeros expr =
   | BExpr(Minus,e1,e2) -> if (equal_expr e1 zero) then e2 else if (equal_expr e2 zero) then e1 else BExpr(Minus,remove_zeros e1,remove_zeros e2)
   | BExpr(Or,e1,e2) -> if (equal_expr e1 zero) then e2 else if (equal_expr e2 zero) then e1 else BExpr(Or,remove_zeros e1,remove_zeros e2)
   | BExpr(Xor,e1,e2) -> if (equal_expr e1 zero) then e2 else if (equal_expr e2 zero) then e1 else BExpr(Xor,remove_zeros e1,remove_zeros e2)
-  | UExpr(Not, Constant 0) -> Constant (-1)
-  | UExpr(Neg, Constant 0) -> zero
+  | UExpr(Not, Constant BV64.zero) -> Constant (BV64.int (-1))
+  | UExpr(Neg, Constant BV64.zero) -> zero
   | _ -> expr
 
 let mba_blast expr = 
@@ -448,7 +448,7 @@ let mba_blast expr =
   if not (is_reducible target) then (false, expr) 
   else
     let vnumber = BatSet.cardinal (set_of_var target) in
-    if vnumber = 0 then (true, Constant (Unsigned.UInt64.to_int (evaluate expr BatMap.empty)))
+    if vnumber = 0 then (true, Constant (evaluate_bitvec expr BatMap.empty))
     else
       let btb = basis_of_bit vnumber in
       let (cexpr, varmap) = replace_to_varname target in
@@ -464,7 +464,7 @@ let mba_blast expr =
         let res' = varname_to_original res' varmap in
         (* let _ = debug "After Simplify\n" in *)
         let res' = from_linear res' rvarmap in
-        let res' = if BatSet.is_empty (set_of_var res') then Constant (Unsigned.UInt64.to_int (evaluate res' BatMap.empty)) else res' in
+        let res' = if BatSet.is_empty (set_of_var res') then Constant (evaluate_bitvec res' BatMap.empty) else res' in
         (true, remove_zeros res')
       else
         (false, expr) 

@@ -25,7 +25,7 @@ let ruleapply = ref 0
 
 type id = string 
 
-type constant = BV64.t
+type constant = Bitvec.t
 
 type bop =
 | Plus  
@@ -85,7 +85,7 @@ let rec set_of_int i =
 
 let rec minus_pos_to_neg_postive e = 
   match e with
-  | Constant c -> if c < BV64.zero then UExpr(Neg, Constant (~- c)) else e
+  | Constant c -> if c < BV64.zero then UExpr(Neg, Constant (Bv64.neg c)) else e
   | BExpr (b, e1, e2) -> BExpr (b, minus_pos_to_neg_postive e1, minus_pos_to_neg_postive e2)
   | UExpr (u, e1) -> UExpr (u, minus_pos_to_neg_postive e1)
   | Var _ -> e
@@ -147,14 +147,14 @@ let string_of_uop u =
 
 let rec string_of_expr e = 
   match e with
-  | Constant c -> Int64.to_string (BV64.to_int64 c)
+  | Constant c -> Int64.to_string (Bitvec.to_int64 c)
   | BExpr (b, e1, e2) -> "(" ^ (string_of_expr e1) ^ " " ^ (string_of_bop b) ^ " " ^ (string_of_expr e2) ^ ")"
   | UExpr (u, e1) -> "(" ^ (string_of_uop u) ^ " " ^ (string_of_expr e1) ^ ")"
   | Var v -> v
 
 let rec string_of_expr2 e = 
   match e with
-  | Constant c -> Int64.to_string (BV64.to_int64 c)
+  | Constant c -> Int64.to_string (Bitvec.to_int64 c)
   | BExpr (Xor, e1, e2) -> "(" ^ (string_of_expr2 e1) ^ (string_of_bop Xor)  ^ (string_of_expr2 e2) ^ ")"
   | BExpr (And, e1, e2) -> "(" ^ (string_of_expr2 e1)  ^ (string_of_bop And)  ^ (string_of_expr2 e2) ^ ")"
   | BExpr (Or, e1, e2) ->  "(" ^ (string_of_expr2 e1)  ^ (string_of_bop Or) ^ (string_of_expr2 e2) ^ ")"
@@ -258,7 +258,7 @@ let limit e height =
     in
     limit_inner e height BatMap.empty BatMap.empty
 
-let bitvec_of_int c = BV64.to_string c
+let bitvec_of_int c = Bitvec.to_string c
 
 let bitvec_length c =
   if c <= (BV64.int64 16L)  then "4"
@@ -268,11 +268,11 @@ let bitvec_length c =
   else "64"
 
 let bitvec_n_of_int n c = 
-  if n = "4" then Printf.sprintf "#x%01x" (BV64.to_int c)
-  else if n = "8" then Printf.sprintf "#x%02x" (BV64.to_int c)
-  else if n = "16" then  Printf.sprintf "#x%04x" (BV64.to_int c)
-  else if n = "32" then  Printf.sprintf "#x%08x" (BV64.to_int c)
-  else  BV64.to_string c
+  if n = "4" then Printf.sprintf "#x%01x" (Bitvec.to_int c)
+  else if n = "8" then Printf.sprintf "#x%02x" (Bitvec.to_int c)
+  else if n = "16" then  Printf.sprintf "#x%04x" (Bitvec.to_int c)
+  else if n = "32" then  Printf.sprintf "#x%08x" (Bitvec.to_int c)
+  else  Bitvec.to_string c
 
 let sygus_of_bop b =
   match b with
@@ -424,7 +424,7 @@ let rec apply_rules e ruleset mem =
 (* Take expr and inputMap (String -> Int) and give evaluation result  *)
 let rec evaluate expr inputMap = 
   match expr with
-  | Constant c -> Unsigned.UInt64.of_int64 (BV64.to_int64 c)
+  | Constant c -> Unsigned.UInt64.of_int64 (Bitvec.to_int64 c)
   | BExpr(Plus, e1, e2) -> Unsigned.UInt64.add (evaluate e1 inputMap) (evaluate e2 inputMap)
   | BExpr(Minus, e1, e2) -> Unsigned.UInt64.sub (evaluate e1 inputMap) (evaluate e2 inputMap)
   | BExpr(Mul, e1, e2) -> Unsigned.UInt64.mul (evaluate e1 inputMap) (evaluate e2 inputMap)
@@ -442,7 +442,7 @@ let rec evaluate expr inputMap =
 
   let rec evaluate_bitvec expr inputMap = 
     match expr with
-    | Constant c -> BV64.int c
+    | Constant c -> c
     | BExpr(Plus, e1, e2) -> BV64.add (evaluate_bitvec e1 inputMap) (evaluate_bitvec e2 inputMap)
     | BExpr(Minus, e1, e2) -> BV64.sub (evaluate_bitvec e1 inputMap) (evaluate_bitvec e2 inputMap)
     | BExpr(Mul, e1, e2) -> BV64.mul (evaluate_bitvec e1 inputMap) (evaluate_bitvec e2 inputMap)
@@ -754,13 +754,15 @@ let rec is_poly e =
 let get_largest_expr eset = 
   BatSet.fold (fun e maxe -> if (size_of_expr e) > (size_of_expr maxe) then e else maxe ) eset (BatSet.any eset)
 
-let rec eliminate_coefficient_one e = 
-  match e with
-  | BExpr(Mul, Constant 1, e1)
-  | BExpr(Mul, e1, Constant 1) -> e1
-  | BExpr(b,e1,e2) -> BExpr(b, eliminate_coefficient_one e1, eliminate_coefficient_one e2)
-  | UExpr(u,e1) -> UExpr(u, eliminate_coefficient_one e1)
-  | _ -> e
+  let rec eliminate_coefficient_one e =
+    match e with
+    | BExpr(Mul,e1,e2) ->
+       if e1 = Constant (BV64.one) then e2 else if e2 = Constant (BV64.one) then e1
+       else BExpr(Mul, eliminate_coefficient_one e1, eliminate_coefficient_one e2)
+    | BExpr(b,e1,e2) -> 
+       BExpr(b, eliminate_coefficient_one e1, eliminate_coefficient_one e2)
+    | UExpr(u,e1) -> UExpr(u, eliminate_coefficient_one e1)
+    | _ -> e
 
 let is_boolop e =
   match e with 

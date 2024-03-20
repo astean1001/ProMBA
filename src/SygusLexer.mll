@@ -16,7 +16,7 @@
 		| "BitVec 32" { TK_BV }
     | "(" { TK_LPAREN }
     | ")" { TK_RPAREN }
-		| bv as lxm { TK_BV_LITERAL (Int64.to_int (Int64.of_string ("0x" ^ (BatString.lchop ~n:2 lxm)))) }
+		| bv as lxm { TK_BV_LITERAL ((Int64.of_string ("0x" ^ (BatString.lchop ~n:2 lxm)))) }
 		| "bvnot" as lxm { TK_OP lxm }
 		| "bvxor" as lxm { TK_OP lxm }
 		| "bvand" as lxm { TK_OP lxm }

@@ -42,9 +42,9 @@ let check_equivalence e1 e2 =
 
 let initial_keys =
   [ Var "var1"; BExpr(Plus, Var "var1", Var "var2"); BExpr(Mul, Var "var1", Var "var2"); BExpr(Mul, Var "var1", Var "var1"); 
-    BExpr(Mod, Var "var1", Var "var2"); BExpr(Div, Var "var1", Var "var1"); BExpr(Mul, Var "var1", Constant 2);
+    BExpr(Mod, Var "var1", Var "var2"); BExpr(Div, Var "var1", Var "var1"); BExpr(Mul, Var "var1", Constant (BV64.int 2));
     BExpr(And, Var "var1", Var "var2"); BExpr(Or, Var "var1", Var "var2"); BExpr(Xor, Var "var1", Var "var2");
-    Constant 1; Constant 2; Constant 0;
+    Constant BV64.one; Constant (BV64.int 2); Constant BV64.zero;
   ]
 
 let initial_rules = BatList.fold (fun m e -> BatMap.add e BatSet.empty m) BatMap.empty initial_keys
@@ -114,7 +114,7 @@ let rec should_has_hardexpr e =
 let enumerate_without_z3 size = 
   (* Two variables at first *)
   (* let size_one = BatSet.of_list [ (Constant 0); (Constant 1); (Constant 2); (Var "var1"); (Var "var2") ] in *)
-  let size_one = BatSet.of_list [ (Constant 1); (Var "var1"); (Var "var2") ] in
+  let size_one = BatSet.of_list [ (Constant BV64.one); (Var "var1"); (Var "var2") ] in
   let rec enumerate_inner init_size init_comps visited = 
     let rec compose s comps = 
       if (BatSet.cardinal comps) < 1 then BatSet.empty else
@@ -174,7 +174,7 @@ let obfuscate e ruleenu =
       let ruled = BatMap.foldi (fun k v es -> 
         apply_rule es (k,(BatRandom.choice (BatSet.enum v)))) ruleenum 
           (if (BatSet.cardinal (set_of_var expr)) < 2 then 
-              BExpr(Plus, BExpr(Mul, Constant 0, Var "dummy"), expr)
+              BExpr(Plus, BExpr(Mul, Constant BV64.zero, Var "dummy"), expr)
             else expr) in
       inner_obfucscate ruled (depth-1)
   in

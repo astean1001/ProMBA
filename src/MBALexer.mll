@@ -22,6 +22,6 @@
 		| "%" as lxm { TK_OP (String.make 1 lxm) }
 		| "~" as lxm { TK_OP (String.make 1 lxm) }
     | id as lxm { TK_SYMBOL lxm }
-    | num as lxm { TK_INT_LITERAL (Int64.to_int (Int64.of_string lxm)) }
-	| num2 as lxm { TK_INT_LITERAL (Int64.to_int (Int64.of_string lxm)) }
+    | num as lxm { TK_INT_LITERAL ((Int64.of_string lxm)) }
+	| num2 as lxm { TK_INT_LITERAL ((Int64.of_string lxm)) }
     | eof { EOF }

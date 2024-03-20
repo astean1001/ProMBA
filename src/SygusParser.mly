@@ -7,7 +7,7 @@
 %token TK_LPAREN TK_RPAREN 
 %token TK_BV
 
-%token<int> TK_BV_LITERAL
+%token<int64> TK_BV_LITERAL
 %token<string> TK_SYMBOL
 %token<string> TK_OP 
 
@@ -65,7 +65,7 @@ symbol:
   TK_SYMBOL { Var ($1) }
 ;
 literal: 
-  TK_BV_LITERAL { Constant ($1) }
+  TK_BV_LITERAL { Constant (BV64.int64 $1) }
 ;
 sortexpr: 
   TK_LPAREN TK_BV TK_RPAREN {  } 
