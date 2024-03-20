@@ -257,7 +257,7 @@ let rec solve_onlyrule probname origprob problem ruleset visited start_time =
 					(* if solve_status = 1 then raise NotImplemented else *)
 					solve_onlyrule probname origprob problem ruleset visited' start_time 
 
-let rec solve_cegis probname origprob problem ruleset visited successed top_succ start_time =
+let rec solve_cegis probname origprob problem ruleset visited successed linear_successed top_succ start_time =
 	let problem = minus_pos_to_neg_postive problem in
 	let _ = Expr.ruleapply := 0 in
 	let problem = 
@@ -305,19 +305,19 @@ let rec solve_cegis probname origprob problem ruleset visited successed top_succ
 				(* else if (size_of_expr problem) <= !Options.size then  *)
 					let _ = debug "All Node Visited! Increasing Time... \n" in
 					let _ = Options.timeout_sygus := if (!Options.timeout_sygus *. 2.) < !Options.max_timeout then !Options.timeout_sygus *. 2. else !Options.max_timeout in
-					solve_cegis probname origprob problem ruleset BatSet.empty successed top_succ start_time
+					solve_cegis probname origprob problem ruleset BatSet.empty successed linear_successed top_succ start_time
 				else 
 					let _ = debug "All Node Visited! Increasing Height and Time... \n" in
 					(* If All Node Visited, Increase Height and Synthesis Time Limit *)
 					let _ = Options.timeout_sygus := if (!Options.timeout_sygus *. 2.) < !Options.max_timeout then !Options.timeout_sygus *. 2. else !Options.max_timeout in
 					let _ = Options.height := if (!Options.height + 1) < (height_of_expr problem) then !Options.height + 1 else (height_of_expr problem) in
 					(* let _ = Options.size := if (!Options.size + 10) < (size_of_expr problem) then !Options.size + 10 else (size_of_expr problem) in *)
-					solve_cegis probname origprob problem ruleset BatSet.empty successed top_succ start_time
+					solve_cegis probname origprob problem ruleset BatSet.empty successed linear_successed top_succ start_time
 			else 
 				let choiced_expr = if BatSet.is_empty visited && (not top_succ) then problem 
 					else if not (BatSet.is_empty nodeset_linear_diff) then get_largest_expr nodeset_linear_diff else get_smallest nodeset_diff in
 				let expr_linear = (is_linear2 choiced_expr) in
-				let expr_lsolve = not (!Options.lsolver = "") && expr_linear && not (BatSet.mem choiced_expr successed) && ((BatSet.cardinal (set_of_var choiced_expr)) < 4) in (* 나온 결과가 최소 크기가 아닐 수도 있으므로, 합성기를 돌림 *)
+				let expr_lsolve = not (!Options.lsolver = "") && expr_linear && not (BatSet.mem choiced_expr linear_successed) && ((BatSet.cardinal (set_of_var choiced_expr)) < 4) in (* 나온 결과가 최소 크기가 아닐 수도 있으므로, 합성기를 돌림 *)
 				(* 쪼갠 게 Linear이면 *)
 				let _ = if expr_linear then debug "Target expr is linear\n" else () in
 				let _ = if expr_lsolve then debug "Target expr should be solved by linear solver\n" else () in
@@ -339,13 +339,13 @@ let rec solve_cegis probname origprob problem ruleset visited successed top_succ
 						in
 						if BatSet.mem largest visited then BatSet.any (BatSet.diff nary_subexpr visited) else largest
 					else limited in
-				let nary_linear = not (!Options.lsolver = "") && expr_nary_solvable && (is_linear2 limited) &&  not (BatSet.mem limited successed) && ((BatSet.cardinal (set_of_var limited)) < 4) in 
+				let nary_linear = not (!Options.lsolver = "") && expr_nary_solvable && (is_linear2 limited) &&  not (BatSet.mem limited linear_successed) && ((BatSet.cardinal (set_of_var limited)) < 4) in 
 				let _ = if expr_nary_solvable then debug "Target expr can be solved with nary tatics %s\n" (if nary_linear then " (linear)" else "") else () in
 				let _ = if (is_poly limited) then debug "Poly expr : %s\n" (string_of_expr2 limited) else () in
 				let visited' = if expr_nary_solvable then BatSet.add limited visited else BatSet.add choiced_expr visited in
 				if !Options.evaluate_expr && is_constant choiced_expr then (* If there is no var in expr *)
 					let evaluated = if !Options.evaluate_expr then (Constant (Unsigned.UInt64.to_int (evaluate choiced_expr BatMap.empty))) else choiced_expr in
-					solve_cegis probname origprob (replace_expr problem evaluated choiced_expr) ruleset visited' successed top_succ start_time
+					solve_cegis probname origprob (replace_expr problem evaluated choiced_expr) ruleset visited' successed linear_successed top_succ start_time
 				else 
 					let _ = debug "Orig Expr: %s\n" (string_of_expr problem)  in
 					let _ = debug "Size of Orig Expr: %d\n" (size_of_expr problem)  in
@@ -366,7 +366,8 @@ let rec solve_cegis probname origprob problem ruleset visited successed top_succ
 						let sol = 
 							if sstat = 2 then (Constant 0) else if expr_lsolve || nary_linear then (substitute (evaluate_all_const_expr (parse_linear true)) varmap) else
 							(substitute (evaluate_all_const_expr (parse_sygus (solve_status = 0))) varmap) in
-						let successed' = BatSet.add (substitute sol varmap) (BatSet.add limited successed) in
+						let successed' = if expr_lsolve || nary_linear then suuccessed else BatSet.add (substitute sol varmap) (BatSet.add limited successed) in
+						let linear_successed' = if expr_lsolve || nary_linear then BatSet.add (substitute sol varmap) (BatSet.add limited linear_successed) else linear_successed in
 						let _ = if solve_status = 2 then debug "Deobfuscate Sucessful! (Trivial Answer)\n" 
 							else if solve_status = 4 then debug "Deobfuscate Sucessful! (Checker Answer)\n" 
 							else debug "Deobfuscate Sucessful!\n" in
@@ -379,7 +380,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed top_succ
 						let _ = if expr_nary_solvable then debug "Replaced : %s -> %s\n" (string_of_expr choiced_expr) (string_of_expr (substitute sol varmap)) else ()in
 						if (size_of_expr choiced_expr) < (size_of_expr (substitute sol varmap)) then
 							let _ = debug "Rule makes no size change - reverting...\n" in
-							solve_cegis probname origprob problem ruleset visited' successed' ((equal_expr limited problem) || top_succ) start_time
+							solve_cegis probname origprob problem ruleset visited' successed' linear_successed' ((equal_expr limited problem) || top_succ) start_time
 						else
 						let ruleset' = if not (expr_lsolve || nary_linear) then add_rule choiced_expr (substitute sol varmap) ruleset else ruleset in
 						let ruleset' = if not (expr_lsolve || nary_linear) then normalize_rules ruleset' else ruleset' in 
@@ -397,7 +398,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed top_succ
 							let reduced_size = (size_of_expr problem) - (size_of_expr applyed) in
 							let _ = reduced_info := BatMap.add probname ((orig_size), ((linear_reduce + (if expr_lsolve || nary_linear then reduced_size else 0)),
 							(synth_reduce + (if not (expr_lsolve || nary_linear) then reduced_size else 0)))) !reduced_info in
-							solve_cegis probname origprob applyed ruleset' visited' successed' true start_time
+							solve_cegis probname origprob applyed ruleset' visited' successed' linear_successed' true start_time
 						else if (size_of_expr applyed) <= (size_of_expr problem) then
 							let (orig_size, (linear_reduce, synth_reduce)) = BatMap.find probname !reduced_info in
 							let ((ispoly, varn), (alterorig, rulec)) = BatMap.find probname !alter_rulecount in
@@ -406,20 +407,20 @@ let rec solve_cegis probname origprob problem ruleset visited successed top_succ
 							(synth_reduce + (if not (expr_lsolve || nary_linear) then reduced_size else 0)))) !reduced_info in
 							let _ = alter_rulecount := BatMap.add probname ((ispoly, varn), (alterorig, (rulec + (!Expr.ruleapply)))) !alter_rulecount in
 							if (size_of_expr applyed) < (size_of_expr problem) 
-							then solve_cegis probname origprob applyed ruleset' visited' successed' top_succ start_time
+							then solve_cegis probname origprob applyed ruleset' visited' successed' linear_successed' top_succ start_time
 							else if equal_expr (substitute sol varmap) problem then 
-								solve_cegis probname origprob problem ruleset visited' successed' true start_time
+								solve_cegis probname origprob problem ruleset visited' successed' linear_successed' true start_time
 							else 
 								let _ = debug "Rule makes no size change - reverting...\n" in
-								solve_cegis probname origprob problem ruleset visited' successed' top_succ start_time
+								solve_cegis probname origprob problem ruleset visited' successed' linear_successed' top_succ start_time
 						else
 							let _ = debug "Rule makes expr bigger - reverting...\n" in
-							solve_cegis probname origprob problem ruleset visited' successed' top_succ start_time
+							solve_cegis probname origprob problem ruleset visited' successed' linear_successed' top_succ start_time
 					else 
 						(* if succ && solve_status = 3 then raise NotImplemented else  *)
 						let _ = debug (if solve_status = 1 then "Error occured in synthesizer!\n" else "Synthesizer timed out.\n") in
 						(* if solve_status = 1 then raise NotImplemented else *)
-						solve_cegis probname origprob problem ruleset visited' successed top_succ start_time
+						solve_cegis probname origprob problem ruleset visited' successed linear_successed top_succ start_time
 
 (* let deobfuscate probinfo = *)
 	(* Translate each problem into SyGuS and Solve *)
@@ -492,7 +493,7 @@ let main () =
 					let (applyed, ruleset') = solve_onlyrule k problem problem rules BatSet.empty (Unix.time ()) in
 					ruleset'
 				else 
-					let (applyed, ruleset') = solve_cegis k (Expr.expr_of_cil v) (Expr.expr_of_cil v) rules BatSet.empty BatSet.empty false (Unix.time ()) in
+					let (applyed, ruleset') = solve_cegis k (Expr.expr_of_cil v) (Expr.expr_of_cil v) rules BatSet.empty BatSet.empty BatSet.empty false (Unix.time ()) in
 					let str_rules = BatSet.fold 
 						(fun rule str -> str ^ (string_of_expr (fst rule)) ^ "\n" ^ (string_of_expr (snd rule)) ^ "\n" )
 						ruleset' "" in
