@@ -85,7 +85,7 @@ let rec set_of_int i =
 
 let rec minus_pos_to_neg_postive e = 
   match e with
-  | Constant c -> if c < BV64.zero then UExpr(Neg, Constant (BV64.neg c)) else e
+  | Constant c -> if (BV64.to_int64 c) < Int64.zero then UExpr(Neg, Constant (BV64.neg c)) else e
   | BExpr (b, e1, e2) -> BExpr (b, minus_pos_to_neg_postive e1, minus_pos_to_neg_postive e2)
   | UExpr (u, e1) -> UExpr (u, minus_pos_to_neg_postive e1)
   | Var _ -> e
@@ -144,6 +144,13 @@ let string_of_uop u =
   match u with
   | Neg -> "-"
   | Not -> "~"
+
+let rec abs_string_of_expr e = 
+  match e with
+  | Constant _ -> "Const"
+  | BExpr (b, e1, e2) -> "(" ^ (abs_string_of_expr e1) ^ " " ^ (string_of_bop b) ^ " " ^ (abs_string_of_expr e2) ^ ")"
+  | UExpr (u, e1) -> "(" ^ (string_of_uop u) ^ " " ^ (abs_string_of_expr e1) ^ ")"
+  | Var _ -> "Var"
 
 let rec string_of_expr e = 
   match e with
@@ -267,16 +274,18 @@ let to_bv64_str c =
 let bitvec_of_int c = to_bv64_str c
 
 let bitvec_length c =
-  if c <= (BV64.int64 16L)  then "4"
-  else if c <= (BV64.int64 256L) then "8"
-  else if c <= (BV64.int64 65536L) then "16"
-  else if c <= (BV64.int64 4294967296L) then "32"
+  if c <= (BV64.int64 16L)  then "8"
+  else if c <= (BV64.int64 256L) then "12"
+  else if c <= (BV64.int64 65536L) then "24"
+  else if c <= (BV64.int64 16777216L) then "32"
   else "64"
 
 let bitvec_n_of_int n c = 
   if n = "4" then Printf.sprintf "#x%01x" (Bitvec.to_int c)
   else if n = "8" then Printf.sprintf "#x%02x" (Bitvec.to_int c)
-  else if n = "16" then  Printf.sprintf "#x%04x" (Bitvec.to_int c)
+  else if n = "12" then Printf.sprintf "#x%03x" (Bitvec.to_int c)
+  else if n = "16" then Printf.sprintf "#x%04x" (Bitvec.to_int c)
+  else if n = "24" then  Printf.sprintf "#x%06x" (Bitvec.to_int c)
   else if n = "32" then  Printf.sprintf "#x%08x" (Bitvec.to_int c)
   else  to_bv64_str c
 
@@ -796,3 +805,11 @@ let rec count_alternation e =
     (if ((is_boolop e1) && (is_arithop e2)) || ((is_boolop e2) && (is_arithop e1)) then 1 else 0) + (count_alternation e1) + (count_alternation e2)
   | UExpr(u,e1) -> (if ((is_boolop e) && (is_arithop e1)) || ((is_boolop e1) && (is_arithop e)) then 1 else 0) + (count_alternation e1)
   | _ -> 0
+
+let rec compare_abs_expr absexp crtexp = 
+  match (absexp, crtexp) with
+  | (Constant _, Constant _) -> true
+  | (Var _, Var _) -> true
+  | (BExpr(b1,a1,a2), BExpr(b2,c1,c2)) -> (b1 = b2) && (compare_abs_expr a1 c1) && (compare_abs_expr a2 c2)
+  | (UExpr(u1,a1), UExpr(u2,c1)) -> (u1 = u2) && (compare_abs_expr a1 c1)
+  | _ -> false

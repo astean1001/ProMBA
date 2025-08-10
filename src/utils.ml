@@ -29,13 +29,15 @@ let smterr = "smt_eval.err"
 let linear_file = "linear_solve.log"
 let linear_err = "linear_solve.err"
 
+let eqsat_file = "egg.log"
+let eqsat_err = "egg.err"
 let generated_cfile = "target.c"
 
 let bitvec_length c =
-  if c <= (Expr.BV64.int64 16L)  then "4"
-  else if c <= (Expr.BV64.int64 256L) then "8"
-  else if c <= (Expr.BV64.int64 65536L) then "16"
-  else if c <= (Expr.BV64.int64 4294967296L) then "32"
+  if c <= (Expr.BV64.int64 16L)  then "8"
+  else if c <= (Expr.BV64.int64 256L) then "12"
+  else if c <= (Expr.BV64.int64 65536L) then "24"
+  else if c <= (Expr.BV64.int64 16777216L) then "32"
   else "64"
 
 let to_bv64_str c = 
@@ -404,6 +406,7 @@ let run_lsolver expr etcstr =
   in
   let stderr_log =
     let filename = (log_dir ^ !Options.runid ^ linear_err) in 
+
     let _ = try Unix.unlink filename with _ -> () in 
     Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
   in
@@ -451,3 +454,71 @@ let parse_simplify t =
 
 let get_smallest s = 
   BatSet.fold (fun se small -> if (Expr.size_of_expr se) < (Expr.size_of_expr small) then se else small) s (BatSet.any s)
+
+let wrtie_rules rules is_abs = 
+  let filename = (log_dir ^ !Options.runid ^ (if is_abs then "abs.rules" else "concrete.rules")) in 
+  let _ = try Unix.unlink filename with _ -> () in 
+  let fout = open_out filename in
+  let str = if is_abs then 
+    (BatSet.fold (fun e s -> s ^ (Expr.abs_string_of_expr (fst e)) ^ "\n" ^ (Expr.abs_string_of_expr (snd e)) ^ "\n") rules "")
+  else 
+    (BatSet.fold (fun e s -> s ^ (Expr.string_of_expr (fst e)) ^ "\n" ^ (Expr.string_of_expr (snd e)) ^ "\n") rules "")
+  in
+  output_string fout str;
+  close_out fout
+
+let get_abs_rules_used rules = 
+  let result = get_lines (log_dir ^ !Options.runid ^ eqsat_file) in
+  (* rule-{num} get num *)
+  let nums = List.map (fun line -> 
+    let num = String.index line '-' in
+    String.sub line (num + 1) (String.length line - num - 1)
+  ) result in
+  let nums = List.map int_of_string nums in
+  (* batset iter -> keep when nth elem is in nums *)
+  let used = BatSet.filteri (fun i e -> BatSet.mem nums i) rules in
+  let used_abs_str = BatSet.map (fun e -> Expr.abs_string_of_expr (fst e) ^ " -> " ^ Expr.abs_string_of_expr (snd e)) used in
+  used_abs_str
+
+let run_eqsat expr is_abs = 
+  if !Options.eqsat = "" then false
+  else
+  let stdout_log =
+    let filename = (log_dir ^ !Options.runid ^ eqsat_file) in 
+    let _ = try Unix.unlink filename with _ -> () in 
+    Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
+  in
+  let stderr_log =
+    let filename = (log_dir ^ !Options.runid ^ eqsat_err) in 
+    let _ = try Unix.unlink filename with _ -> () in 
+    Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
+  in
+  let rule_file = (log_dir ^ !Options.runid ^ if is_abs then "abs.rules" else "concrete.rules") in
+  let options = if is_abs then "-o abs -i" else "-o infix -i" in
+  let child_pid = 
+    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); (!Options.eqsat); (options); (expr); (rule_file)|] 
+      Unix.stdin stdout_log stderr_log 
+  in
+  let _ = Unix.close stdout_log in 
+  let _ = Unix.close stderr_log in
+  let _ = match snd (Unix.waitpid [] child_pid) with
+    | Unix.WEXITED 0 -> true
+    | _ -> false
+  in
+  let err_lines = get_lines (log_dir ^ !Options.runid ^ eqsat_err) in
+  let out_lines = get_lines (log_dir ^ !Options.runid ^ eqsat_file) in
+  let lines = err_lines @ out_lines in 
+  let no_sol =
+    (List.exists (fun line -> string_in "panic" line) lines) || 
+    (List.exists (fun line -> string_in "Err" line) lines) || 
+    (List.exists (fun line -> string_in "err" line) lines) ||
+    (List.length out_lines) = 0 
+  in
+  not no_sol
+
+let parse_eqsat t = 
+  let inc = open_in (log_dir ^ !Options.runid ^ eqsat_file) in 
+  let lexbuf = Lexing.from_channel inc in
+  let result = MBAParser.main MBALexer.token lexbuf in
+  let _ = close_in inc in
+  result  
