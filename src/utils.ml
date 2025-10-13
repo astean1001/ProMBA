@@ -180,12 +180,12 @@ let to_sygus_pbe_file valuations varset =
   let _ = string_to_file (sygus_dir ^ !Options.runid ^ sygus_file2) sygus in
   string_to_file (sygus_dir ^ !Options.runid ^ sygus_file) sygus
 
-let base_const = BatSet.of_list [(Expr.BV64.int 0);(Expr.BV64.int 1);(Expr.BV64.int 2);(Expr.BV64.int 4);(Expr.BV64.int 8)]
+let base_const = BatSet.of_list [(Expr.BV64.int 0);(Expr.BV64.int 1);(Expr.BV64.int 2);(Expr.BV64.int 3);(Expr.BV64.int 4);(Expr.BV64.int 5);(Expr.BV64.int 6);(Expr.BV64.int 7);(Expr.BV64.int 8)]
 
 let to_sygus_file expr varset constset linear = 
   let expr_refine = if (Expr.size_of_expr expr) < 2 then Expr.BExpr (Expr.Plus, expr, Expr.Constant(Expr.BV64.zero)) else expr in
   let varset = if BatSet.is_empty varset then BatSet.add "some_var" varset else varset in
-  let nbit = if not linear then "64" else try bitvec_length (BatSet.max_elt constset) with _ -> "4" in
+  let nbit = if not linear then "64" else try bitvec_length (BatSet.max_elt constset) with _ -> "8" in
   let param_str = BatSet.fold (fun elem str -> str ^ " (" ^ elem ^ " (BitVec "^nbit^"))") varset "" in
   let var_str = BatSet.fold (fun elem str -> str ^ " " ^ elem ) varset "" in
   let const_str = BatSet.fold (fun elem str -> str ^ " " ^ (bitvec_n_of_int nbit elem) ) (BatSet.union constset base_const) "" in
@@ -474,9 +474,9 @@ let get_abs_rules_used rules =
     let num = String.index line '-' in
     String.sub line (num + 1) (String.length line - num - 1)
   ) result in
-  let nums = List.map int_of_string nums in
+  let nums = BatSet.of_list (List.map int_of_string nums) in
   (* batset iter -> keep when nth elem is in nums *)
-  let used = BatSet.filteri (fun i e -> BatSet.mem nums i) rules in
+  let used = BatSet.of_list (BatList.filteri (fun i e -> BatSet.mem i nums) (BatSet.elements rules)) in
   let used_abs_str = BatSet.map (fun e -> Expr.abs_string_of_expr (fst e) ^ " -> " ^ Expr.abs_string_of_expr (snd e)) used in
   used_abs_str
 
@@ -494,10 +494,17 @@ let run_eqsat expr is_abs =
     Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
   in
   let rule_file = (log_dir ^ !Options.runid ^ if is_abs then "abs.rules" else "concrete.rules") in
-  let options = if is_abs then "-o abs -i" else "-o infix -i" in
-  let child_pid = 
-    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); (!Options.eqsat); (options); (expr); (rule_file)|] 
-      Unix.stdin stdout_log stderr_log 
+  let options = if is_abs then [| "-o"; "abs"; "-i" |] else [| "-o"; "infix"; "-i" |] in
+  let argv =
+    Array.concat [
+      [| "timeout"; (string_of_int !Options.eqsat_timeout); !Options.eqsat; "-t"; (string_of_int !Options.eqsat_timeout) |];
+      options;
+      [| "-r"; rule_file; expr;  |]
+    ]
+  in
+  let child_pid =
+    Unix.create_process "timeout" argv
+      Unix.stdin stdout_log stderr_log
   in
   let _ = Unix.close stdout_log in 
   let _ = Unix.close stderr_log in
@@ -512,6 +519,7 @@ let run_eqsat expr is_abs =
     (List.exists (fun line -> string_in "panic" line) lines) || 
     (List.exists (fun line -> string_in "Err" line) lines) || 
     (List.exists (fun line -> string_in "err" line) lines) ||
+    (List.exists (fun line -> string_in "failed" line) lines) ||
     (List.length out_lines) = 0 
   in
   not no_sol

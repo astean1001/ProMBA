@@ -1,6 +1,6 @@
 # ProMBA
 
-ProMBA is a mixed boolean arithmetic expression deobfuscator via program synthesis and term rewriting.
+ProMBA is a mixed boolean arithmetic expression deobfuscator via program synthesis and term rewriting and equality saturation
 
 
 ## Dependencies
@@ -24,6 +24,10 @@ $ sudo apt-get install -y libopenblas-dev
 - fortran : for numpy
 ```
 $ sudo apt-get install -y gfortran
+```
+- rust : for equality saturation
+```
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 - Program Synthesizer : at least one of the following tools is required
     - duet (https://github.com/astean1001/duet)

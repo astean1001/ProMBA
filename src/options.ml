@@ -42,6 +42,9 @@ let mbasolve = ref false
 let genexpr = ref false
 let runid_tosynth = ref false
 let evaluate_expr = ref false
+let eqsat_abs = ref false
+let eqsat_depth = ref 3
+let eqsat_timeout = ref 60
 
 let options = 
 	[
@@ -67,6 +70,9 @@ let options =
 		("-synth2", (Arg.String (fun s -> synth2 := s)), "Set a synthesizer for smallest solution and LIA support (recommended for minimizing solution size, may take longer to run.)");
 		("-lsolver", (Arg.String (fun s -> lsolver := s)), "Set a linear MBA Solver");
 		("-eqsat", (Arg.String (fun s -> eqsat := s)), "Set a equality saturator");
+                ("-eqsat_abs", (Arg.Set eqsat_abs), "Use abstract equality saturator");
+		("-eqsat_depth", (Arg.Int (fun s -> eqsat_depth := s)), "Set the depth of the sub-expression to be deobfuscated for eqsat");
+                ("-eqsat_timeout", (Arg.Int (fun s -> eqsat_timeout := s)), "Set timeout limit for eqsat");
 		("-single", (Arg.String (fun s -> single := s)), "Set problem name if you want to solve a single specific problem, not whole things in target file (Off when empty string)");
 		("-timeout", (Arg.Float (fun s -> timeout := s)), "Set timeout limit for single deobfuscation problem");
 		("-timeout_sygus", (Arg.Float (fun s -> timeout_sygus := s)), "Set timeout limit for program synthesis problem");

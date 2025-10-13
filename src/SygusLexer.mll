@@ -13,6 +13,7 @@
 		| "BitVec 4" { TK_BV }
 		| "BitVec 8" { TK_BV }
 		| "BitVec 16" { TK_BV }
+		| "BitVec 12" { TK_BV }
 		| "BitVec 32" { TK_BV }
     | "(" { TK_LPAREN }
     | ")" { TK_RPAREN }

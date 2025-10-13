@@ -255,7 +255,7 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 	let problem = minus_pos_to_neg_postive problem in
 	let _ = Expr.ruleapply := 0 in
 	let problem = 
-		if !Options.learn then problem
+		if !Options.learn || (not (String.equal !Options.eqsat "")) then problem
 		else apply_rules problem ruleset (BatSet.add problem BatSet.empty) 
 	in
 	let current = Unix.time () in
@@ -371,13 +371,14 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 							else if solve_status = 4 then debug "Deobfuscate Sucessful! (Checker Answer)\n" 
 							else debug "Deobfuscate Sucessful!\n" in
 						let _ = BatMap.iter (fun k v -> let _ =  debug "varset : %s -> %s\n" k (string_of_expr v) in () ) varmap in
+                                                let synth_sol = sol in
 						let sol_orig = (substitute sol varmap) in
 						let sol = if expr_nary_solvable then (expr_of_nary (replace_nary (nary_of_expr (eliminate_minus orig_limited)) limited sol )) else sol in
 						let sol = apply_rules (substitute sol varmap) ruleset (BatSet.add (substitute sol varmap) BatSet.empty) in
 						let sol = (minus_pos_to_neg_postive (evaluate_all_const_expr sol)) in
 						let _ = debug "Replaced : %s -> %s\n" (string_of_expr limited) (string_of_expr (substitute sol varmap)) in
 						let _ = if expr_nary_solvable then debug "Replaced : %s -> %s\n" (string_of_expr choiced_expr) (string_of_expr (substitute sol varmap)) else ()in
-						if (size_of_expr choiced_expr) < (size_of_expr (substitute sol varmap)) then
+						if ((String.equal !Options.eqsat "") && ((size_of_expr choiced_expr) = (size_of_expr (substitute sol varmap)))) || (size_of_expr choiced_expr) < (size_of_expr (substitute sol varmap)) then
 							let _ = debug "Rule makes no size change - reverting...\n" in
 							solve_cegis probname origprob problem ruleset visited' successed' linear_successed' (((equal_expr limited problem) && not expr_lsolve) || top_succ) start_time
 						else
@@ -386,26 +387,54 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 						let _ = BatSet.iter (fun e -> debug "rule : %s -> %s\n" (string_of_expr (fst e)) (string_of_expr (snd e))) ruleset' in
 						let before_rule = (replace_expr problem (substitute sol varmap) choiced_expr) in
 						(* Eqsat :: Write abs rule  *)
-						let _ = Utils.wrtie_rules ruleset' true in
-						let eqsat_applicable = !Options.eqsat && Utils.run_eqsat (abs_string_of_expr problem) true in
-						let applyed = 
-							if eqsat_applicable then 
-								let _ = debug "Eqsat is applicable\n" in
+                                                let _ = if (not (String.equal !Options.eqsat "")) && !Options.eqsat_abs then Utils.wrtie_rules ruleset' true else () in
+						let eqsat_applicable = (not (expr_lsolve || nary_linear)) && (not ((BatSet.cardinal ruleset) = (BatSet.cardinal ruleset'))) &&  (not (String.equal !Options.eqsat "")) && ((not !Options.eqsat_abs) || Utils.run_eqsat (abs_string_of_expr before_rule) true) in
+						let applyed =
+							if eqsat_applicable then
+                                                                let _ = debug "Eqsat is applicable\n" in
 								(* Filter out rules which is not used *)
 								(* Get abs eqsat result *)
-								let abs_rules_used = Utils.get_abs_rules_used ruleset' in
+								let abs_rules_used = if !Options.eqsat_abs then Utils.get_abs_rules_used ruleset' else BatSet.empty in
 								(* filter rules with eqsat result :: compare_abs_expr true with abs_rules_used *)
-								let ruleset_filtered = BatSet.filter (fun e -> BatSet.mem abs_rules_used ((Utils.abs_string_of_expr (fst e)) ^ " -> " ^ (Utils.abs_string_of_expr (snd e)))) ruleset' in
+								(* 높이 8이하면 그냥 전체식, 높이 8 초과면 손자 노드 들중 가장 규칙이 많이 적용 가능한 식 선택 *)
+								let (ruleset_filter, target_expr) =
+									if (height_of_expr before_rule) <= 8 then
+                                                                                (*let filtered_rules = BatSet.filter (fun rule -> Expr.check_all_subexpr_matched before_rule (Expr.get_all_subexpr_in_depth (fst rule) !Options.eqsat_depth)) ruleset' in *)
+                                                                                let filtered_rules = ruleset' in
+										(filtered_rules, minus_pos_to_neg_postive before_rule)
+									else
+										let grandchildren = get_descendant_in_depth before_rule 2 in
+										let filtered_rulesets = BatSet.map (fun e ->
+											((BatSet.filter (fun rule -> Expr.check_all_subexpr_matched e (Expr.get_all_subexpr_in_depth (fst rule) !Options.eqsat_depth)) ruleset'), e)
+										) grandchildren in
+										let (max_rule, max_expr) = BatSet.fold (fun (rules, expr) (max_rules, max_expr) ->
+											if (BatSet.cardinal rules) > (BatSet.cardinal max_rules) then (rules, expr) else (max_rules, max_expr)
+										) filtered_rulesets (BatSet.empty, BatSet.any grandchildren) in
+										(* (max_rule, minus_pos_to_neg_postive max_expr) *)
+                                                                                (ruleset', minus_pos_to_neg_postive max_expr)
+								in
+								let _ = debug "Target Eqsat Expr: %s\n" (string_of_expr target_expr) in
+								let ruleset_filtered =
+									if !Options.eqsat_abs then
+										BatSet.filter (fun e -> BatSet.mem ((abs_string_of_expr (fst e)) ^ " -> " ^ (abs_string_of_expr (snd e))) abs_rules_used) ruleset'
+									else
+										(* Filter out rules which is not used *)
+										ruleset_filter
+								in
+								let _ = debug "Before filtered: %d After filtered: %d\n" (BatSet.cardinal ruleset') (BatSet.cardinal ruleset_filtered) in
 								(* write concrete rules *)
 								let _ = Utils.wrtie_rules ruleset_filtered false in
 								(* run eqsat with concrete rules *)
-								let is_solved = Utils.run_eqsat (string_of_expr problem) false in
-								if is_solved then
-									let _ = debug "Eqsat is solved\n" in
-									Utils.parse_eqsat ()
-								else
-									let _ = debug "Eqsat is not solved\n" in
-									before_rule
+								let is_solved = Utils.run_eqsat (string_of_expr target_expr) false in
+								let target_sol = if is_solved then
+										let _ = debug "Eqsat is solved\n" in
+										Utils.parse_eqsat ()
+									else
+										let _ = debug "Eqsat is not solved\n" in
+										target_expr
+								in
+								let _ = debug "Eqsat Result: %s\n" (string_of_expr target_sol) in
+								replace_expr before_rule target_sol target_expr
 							else 
 								if !Options.learn then before_rule
 								else 
@@ -429,18 +458,18 @@ let rec solve_cegis probname origprob problem ruleset visited successed linear_s
 							if (size_of_expr applyed) < (size_of_expr problem) 
 							then solve_cegis probname origprob applyed ruleset' visited' successed' linear_successed' top_succ start_time
 							else if equal_expr (substitute sol varmap) problem then 
-								solve_cegis probname origprob problem ruleset visited' successed' linear_successed' (true && not expr_lsolve && not expr_nary_solvable) start_time
+								solve_cegis probname origprob problem ruleset' visited' successed' linear_successed' (true && not expr_lsolve && not expr_nary_solvable) start_time
 							else 
 								let _ = debug "Rule makes no size change - reverting...\n" in
-								solve_cegis probname origprob problem ruleset visited' successed' linear_successed' top_succ start_time
+								solve_cegis probname origprob problem ruleset' visited' successed' linear_successed' top_succ start_time
 						else
 							let _ = debug "Rule makes expr bigger - reverting...\n" in
-							solve_cegis probname origprob problem ruleset visited' successed' linear_successed' top_succ start_time
+							solve_cegis probname origprob problem ruleset' visited' successed' linear_successed' top_succ start_time
 					else 
 						(* if succ && solve_status = 3 then raise NotImplemented else  *)
 						let _ = debug (if solve_status = 1 then "Error occured in synthesizer!\n" else "Synthesizer timed out.\n") in
 						(* if solve_status = 1 then raise NotImplemented else *)
-						
+						solve_cegis probname origprob problem ruleset visited' successed linear_successed top_succ start_time
 
 (* let deobfuscate probinfo = *)
 	(* Translate each problem into SyGuS and Solve *)
@@ -512,8 +541,9 @@ let main () =
 					let problem = (Expr.expr_of_cil v) in
 					let (applyed, ruleset') = solve_onlyrule k problem problem rules BatSet.empty (Unix.time ()) in
 					ruleset'
-				else 
-					let (applyed, ruleset') = solve_cegis k (Expr.expr_of_cil v) (Expr.expr_of_cil v) rules BatSet.empty BatSet.empty BatSet.empty false (Unix.time ()) in
+				else
+                                        let prob_init = apply_rules (Expr.expr_of_cil v) rules (BatSet.add (Expr.expr_of_cil v) BatSet.empty) in
+					let (applyed, ruleset') = solve_cegis k (Expr.expr_of_cil v) prob_init rules BatSet.empty BatSet.empty BatSet.empty false (Unix.time ()) in
 					let str_rules = BatSet.fold 
 						(fun rule str -> str ^ (string_of_expr (fst rule)) ^ "\n" ^ (string_of_expr (snd rule)) ^ "\n" )
 						ruleset' "" in

@@ -85,7 +85,7 @@ let rec set_of_int i =
 
 let rec minus_pos_to_neg_postive e = 
   match e with
-  | Constant c -> if (BV64.to_int64 c) < Int64.zero then UExpr(Neg, Constant (BV64.neg c)) else e
+  | Constant c -> if (Bitvec.to_int64 c) < Int64.zero then UExpr(Neg, Constant (BV64.neg c)) else e
   | BExpr (b, e1, e2) -> BExpr (b, minus_pos_to_neg_postive e1, minus_pos_to_neg_postive e2)
   | UExpr (u, e1) -> UExpr (u, minus_pos_to_neg_postive e1)
   | Var _ -> e
@@ -813,3 +813,37 @@ let rec compare_abs_expr absexp crtexp =
   | (BExpr(b1,a1,a2), BExpr(b2,c1,c2)) -> (b1 = b2) && (compare_abs_expr a1 c1) && (compare_abs_expr a2 c2)
   | (UExpr(u1,a1), UExpr(u2,c1)) -> (u1 = u2) && (compare_abs_expr a1 c1)
   | _ -> false
+
+let rec get_all_subexpr_in_depth e depth =
+  if depth <= 1 then BatSet.add e BatSet.empty
+  else match e with
+  | BExpr(b,e1,e2) -> BatSet.union (get_all_subexpr_in_depth e1 (depth-1)) (get_all_subexpr_in_depth e2 (depth-1))
+  | UExpr(u,e1) -> get_all_subexpr_in_depth e1 (depth-1)
+  | _ -> BatSet.empty
+
+let rec match_rule_for_subexpr target sexpr =
+  let match_map = try match_rule (BatSet.add (sexpr, target) BatSet.empty) BatMap.empty with _ -> BatMap.empty in
+  if BatMap.is_empty match_map then 
+    match target with
+    | BExpr(b,e1,e2) -> 
+      let matched1 = match_rule_for_subexpr e1 sexpr in
+      let matched2 = match_rule_for_subexpr e2 sexpr in
+      matched1 || matched2
+    | UExpr(u,e1) -> match_rule_for_subexpr e1 sexpr
+    | _ -> false
+  else
+    true
+
+let check_all_subexpr_matched target sexpset =
+  BatSet.fold (fun sexp matched -> 
+    let matches = match_rule_for_subexpr target sexp in
+    matched && matches
+  ) sexpset true
+
+
+let rec get_descendant_in_depth e depth =
+  if depth <= 1 then BatSet.add e BatSet.empty
+  else match e with
+  | BExpr(b,e1,e2) -> BatSet.union (get_descendant_in_depth e1 (depth-1)) (get_descendant_in_depth e2 (depth-1))
+  | UExpr(u,e1) -> get_descendant_in_depth e1 (depth-1)
+  | _ -> BatSet.empty

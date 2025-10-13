@@ -4,3 +4,6 @@
 [submodule "MBA-Solver"]
 	path = MBA-Solver
 	url = git@github.com:astean1001/MBA-Solver.git
+[submodule "Omelet"]
+	path = Omelet
+	url = git@github.com:pslhy/Omelet.git

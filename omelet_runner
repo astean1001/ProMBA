@@ -1,0 +1,1 @@
+/experiment/Omelet/target/release/omelet -b /experiment/Omelet/rules/merged.rules "$@"
