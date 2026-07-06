@@ -10,6 +10,16 @@
 # Icon must end with two \r
 Icon
 
+# ProMBA outputs
+*.smt
+*.txt
+*.sl
+*.result
+*.out
+*.err
+*.log
+*.prof
+*.csv
 
 # Thumbnails
 ._*

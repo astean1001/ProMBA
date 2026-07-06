@@ -45,6 +45,10 @@ let evaluate_expr = ref false
 let eqsat_abs = ref false
 let eqsat_depth = ref 3
 let eqsat_timeout = ref 60
+let eqsat_scoped = ref false
+let noopt = ref false
+let nolearn = ref false
+let profile = ref ""
 
 let options = 
 	[
@@ -73,6 +77,10 @@ let options =
                 ("-eqsat_abs", (Arg.Set eqsat_abs), "Use abstract equality saturator");
 		("-eqsat_depth", (Arg.Int (fun s -> eqsat_depth := s)), "Set the depth of the sub-expression to be deobfuscated for eqsat");
                 ("-eqsat_timeout", (Arg.Int (fun s -> eqsat_timeout := s)), "Set timeout limit for eqsat");
+		("-eqsat_scoped", Arg.Set eqsat_scoped, "Use scoped equality saturation");
+		("-noopt", Arg.Set noopt, "Disable optimizations");
+		("-nolearn", Arg.Set nolearn, "Do not reuse learned rewrite rules");
+		("-profile", (Arg.String (fun s -> profile := s)), "Write per-task profiling CSV and eqsat subtask CSV");
 		("-single", (Arg.String (fun s -> single := s)), "Set problem name if you want to solve a single specific problem, not whole things in target file (Off when empty string)");
 		("-timeout", (Arg.Float (fun s -> timeout := s)), "Set timeout limit for single deobfuscation problem");
 		("-timeout_sygus", (Arg.Float (fun s -> timeout_sygus := s)), "Set timeout limit for program synthesis problem");

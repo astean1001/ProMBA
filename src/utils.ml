@@ -33,6 +33,13 @@ let eqsat_file = "egg.log"
 let eqsat_err = "egg.err"
 let generated_cfile = "target.c"
 
+let l_time = ref 0.0
+let s_time = ref 0.0
+let es_time = ref 0.0
+let reset_phase_time () =
+  l_time := 0.0; s_time := 0.0; es_time := 0.0
+let last_eqsat_time = ref 0.0
+
 let bitvec_length c =
   if c <= (Expr.BV64.int64 16L)  then "8"
   else if c <= (Expr.BV64.int64 256L) then "12"
@@ -286,16 +293,18 @@ let ask_smt t =
     let _ = try Unix.unlink filename with _ -> () in 
     Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
   in
-  let child_pid = 
-    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_smt); !Options.smt; (smt_dir ^ !Options.runid ^ smt_file)|] 
-      Unix.stdin stdout_log stderr_log 
+  let _t0 = Unix.gettimeofday () in
+  let child_pid =
+    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_smt); !Options.smt; (smt_dir ^ !Options.runid ^ smt_file)|]
+      Unix.stdin stdout_log stderr_log
   in
-  let _ = Unix.close stdout_log in 
+  let _ = Unix.close stdout_log in
   let _ = Unix.close stderr_log in
   let _ = match snd (Unix.waitpid [] child_pid) with
     | Unix.WEXITED 0 -> true
     | _ -> false
   in
+  let _ = s_time := !s_time +. (Unix.gettimeofday () -. _t0) in
   let err_lines = get_lines (log_dir ^ !Options.runid ^ smterr) in
   let out_lines = get_lines (log_dir ^ !Options.runid ^ smtlog) in
   let lines = err_lines @ out_lines in 
@@ -342,16 +351,18 @@ let solve t =
     let _ = try Unix.unlink filename with _ -> () in 
     Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
   in
-  let child_pid = 
-    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); !Options.sygus; (sygus_dir ^ !Options.runid ^ sygus_file); (if !Options.runid_tosynth then !Options.runid else "") |] 
-      Unix.stdin stdout_log stderr_log 
+  let _t0 = Unix.gettimeofday () in
+  let child_pid =
+    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); !Options.sygus; (sygus_dir ^ !Options.runid ^ sygus_file); (if !Options.runid_tosynth then !Options.runid else "") |]
+      Unix.stdin stdout_log stderr_log
   in
-  let _ = Unix.close stdout_log in 
+  let _ = Unix.close stdout_log in
   let _ = Unix.close stderr_log in
   let _ = match snd (Unix.waitpid [] child_pid) with
     | Unix.WEXITED 0 -> true
     | _ -> false
   in
+  let _ = s_time := !s_time +. (Unix.gettimeofday () -. _t0) in
   let err_lines = get_lines (log_dir ^ !Options.runid ^ errfile) in
   let out_lines = get_lines (log_dir ^ !Options.runid ^ logfile) in
   let lines = err_lines @ out_lines in 
@@ -375,16 +386,18 @@ let check t =
     let _ = try Unix.unlink filename with _ -> () in 
     Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
   in
-  let child_pid = 
-    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); !Options.synth2; (sygus_dir ^ !Options.runid ^ sygus_file2); !Options.runid|] 
-      Unix.stdin stdout_log stderr_log 
+  let _t0 = Unix.gettimeofday () in
+  let child_pid =
+    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); !Options.synth2; (sygus_dir ^ !Options.runid ^ sygus_file2); !Options.runid|]
+      Unix.stdin stdout_log stderr_log
   in
-  let _ = Unix.close stdout_log in 
+  let _ = Unix.close stdout_log in
   let _ = Unix.close stderr_log in
   let _ = match snd (Unix.waitpid [] child_pid) with
     | Unix.WEXITED 0 -> true
     | _ -> false
   in
+  let _ = s_time := !s_time +. (Unix.gettimeofday () -. _t0) in
   let err_lines = get_lines (log_dir ^ !Options.runid ^ errfile2) in
   let out_lines = get_lines (log_dir ^ !Options.runid ^ logfile2) in
   let lines = err_lines @ out_lines in 
@@ -410,16 +423,18 @@ let run_lsolver expr etcstr =
     let _ = try Unix.unlink filename with _ -> () in 
     Unix.openfile filename [Unix.O_CREAT; Unix.O_WRONLY] 0o640  
   in
-  let child_pid = 
-    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); (!Options.lsolver ^ etcstr ); (expr)|] 
-      Unix.stdin stdout_log stderr_log 
+  let _t0 = Unix.gettimeofday () in
+  let child_pid =
+    Unix.create_process "timeout" [|"timeout"; (string_of_float !Options.timeout_sygus); (!Options.lsolver ^ etcstr ); (expr)|]
+      Unix.stdin stdout_log stderr_log
   in
-  let _ = Unix.close stdout_log in 
+  let _ = Unix.close stdout_log in
   let _ = Unix.close stderr_log in
   let _ = match snd (Unix.waitpid [] child_pid) with
     | Unix.WEXITED 0 -> true
     | _ -> false
   in
+  let _ = l_time := !l_time +. (Unix.gettimeofday () -. _t0) in
   let err_lines = get_lines (log_dir ^ !Options.runid ^ linear_err) in
   let out_lines = get_lines (log_dir ^ !Options.runid ^ linear_file) in
   let lines = err_lines @ out_lines in 
@@ -502,16 +517,19 @@ let run_eqsat expr is_abs =
       [| "-r"; rule_file; expr;  |]
     ]
   in
+  let _t0 = Unix.gettimeofday () in
   let child_pid =
     Unix.create_process "timeout" argv
       Unix.stdin stdout_log stderr_log
   in
-  let _ = Unix.close stdout_log in 
+  let _ = Unix.close stdout_log in
   let _ = Unix.close stderr_log in
   let _ = match snd (Unix.waitpid [] child_pid) with
     | Unix.WEXITED 0 -> true
     | _ -> false
   in
+  let _ = last_eqsat_time := (Unix.gettimeofday () -. _t0) in
+  let _ = es_time := !es_time +. !last_eqsat_time in
   let err_lines = get_lines (log_dir ^ !Options.runid ^ eqsat_err) in
   let out_lines = get_lines (log_dir ^ !Options.runid ^ eqsat_file) in
   let lines = err_lines @ out_lines in 
@@ -529,4 +547,4 @@ let parse_eqsat t =
   let lexbuf = Lexing.from_channel inc in
   let result = MBAParser.main MBALexer.token lexbuf in
   let _ = close_in inc in
-  result  
+  result

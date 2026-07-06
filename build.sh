@@ -11,8 +11,13 @@ then
 fi
 
 opam switch promba 
-opam install --yes dune z3 batteries cil yojson lacaml integers
+eval $(opam config env)
 
+opam repository add archive git+https://github.com/ocaml/opam-repository-archive --yes 2>/dev/null || \
+    opam repository add archive https://github.com/ocaml/opam-repository-archive.git --yes
+opam update --yes
+
+opam install --yes dune z3 batteries cil yojson lacaml integers bitvec
 eval $(opam config env)
 
 dune build
