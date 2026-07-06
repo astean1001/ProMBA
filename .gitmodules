@@ -1,9 +1,9 @@
 [submodule "SiMBA"]
 	path = SiMBA
-	url = git@github.com:astean1001/SiMBA.git
+	url = https://github.com/astean1001/SiMBA.git
 [submodule "MBA-Solver"]
 	path = MBA-Solver
-	url = git@github.com:astean1001/MBA-Solver.git
+	url = https://github.com/astean1001/MBA-Solver.git
 [submodule "Omelet"]
 	path = Omelet
-	url = git@github.com:pslhy/Omelet.git
+	url = https://github.com/pslhy/Omelet.git
